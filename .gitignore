@@ -12,9 +12,10 @@ pom.xml.asc
 .hgignore
 .hg/
 
-.clj-kondo/
-.lsp/
 .vscode/
 .DS_Store
-debug/
-target/
+/.clj-kondo/
+/.lsp/
+/debug/
+/target/
+/store/
