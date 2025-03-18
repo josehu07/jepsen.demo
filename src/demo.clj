@@ -1,4 +1,4 @@
-(ns jepsen.demo
+(ns demo
   (:require [clojure.tools.logging :refer :all]
             [clojure.string :as str]
             [verschlimmbesserung.core :as vsrg]
@@ -9,7 +9,8 @@
              [db :as db]
              [generator :as gen]
              [tests :as tests]
-             [checker :as checker]]
+             [checker :as checker]
+             [nemesis :as nemesis]]
             [jepsen.control.util :as util]
             [jepsen.os.ubuntu :as ubuntu]
             [jepsen.checker.timeline :as timeline]
@@ -17,14 +18,16 @@
             [knossos.model :as model])
   (:import [knossos.model Model]))
 
+; Helper functions
 (defn spy> [val msg] (prn msg val) val)
 (defn spy>> [msg val] (spy> val msg))
 
-(defn str2num
+(defn str-to-long
   "Parses a string to a Long. Passes through `nil`."
   [s]
   (when s (parse-long s)))
 
+; Paths used in tests
 (def etcddir "/home/jepsen/etcd-v3.1")
 (def etcdbin etcddir)
 (def etcddata (str etcddir "/data"))
@@ -34,6 +37,7 @@
 (def logfile (str etcddir "/jepsen-etcd.log"))
 (def pidfile (str etcddir "/jepsen-etcd.pid"))
 
+; Compose etcd URLs
 (defn compose-url
   "An HTTP url composed of an address and a port."
   [addr port]
@@ -68,6 +72,7 @@
               (str node "=" (peer-url node))))
        (str/join ",")))
 
+; Database setup
 (defn etcd-db
   "Etcd database of a particular version."
   [version]
@@ -108,7 +113,8 @@
     db/LogFiles
     (log-files [_ test node] [logfile])))
 
-(defrecord Client [conn]
+; Client implementation
+(defrecord Client [conn opts]
   client/Client
 
   (open! [this test node]
@@ -118,12 +124,17 @@
 
   (invoke! [_ test op]
     (case (:f op)
-      :read (assoc op
-                   :value (str2num (vsrg/get conn "foo"))
-                   :type :ok)
+      :read (let [value (-> conn
+                            (vsrg/get "foo" {:quorum? true})
+                            str-to-long)]
+              (assoc op
+                     :type :ok
+                     :value value))
+
       :write (do (vsrg/reset! conn "foo" (:value op))
                  (assoc op
                         :type :ok))
+
       :cas (try+
             (let [[old new] (:value op)]
               (assoc op
@@ -141,28 +152,42 @@
 (defn w   [_ _] {:type :invoke, :f :write, :value (rand-int 8)})
 (defn cas [_ _] {:type :invoke, :f :cas, :value [(rand-int 8) (rand-int 8)]})
 
-(def generator-params (->> (gen/mix [r w cas])
-                           (gen/stagger 1)
-                           (gen/nemesis nil)
-                           (gen/time-limit 15)))
+; Jepsen generator configuration
+(defn generator-params
+  "Generator parameters."
+  [opts]
+  (->> (gen/mix [r w cas])
+       (gen/stagger 1/50)
+       (gen/nemesis
+        (cycle [(gen/sleep 5)
+                {:type :info, :f :start}
+                (gen/sleep 5)
+                {:type :info, :f :stop}]))
+       (gen/time-limit (:time-limit opts))))
 
-(def checker-params (checker/compose
-                     {:linearizability (checker/linearizable
-                                        {:model     (model/cas-register)
-                                         :algorithm :linear})
-                      :timeline-render (timeline/html)}))
+; Jepsen linearizability checker
+(defn checker-params
+  "Checker parameters."
+  [opts]
+  (checker/compose
+   {:linearizability (checker/linearizable
+                      {:model     (model/cas-register)
+                       :algorithm :linear})
+    :timeline-render (timeline/html)}))
 
+; Main entrance to the test
 (defn etcd-test
   "A simple test over an etcd database."
   [opts]
-  (-> tests/noop-test
-      (merge opts {:name      "etcd"
-                   :os        ubuntu/os
-                   :db        (etcd-db "version.not.used")
-                   :client    (Client. nil)
-                   :pure-generators true
-                   :generator generator-params
-                   :checker   checker-params})))
+  (merge tests/noop-test
+         opts
+         {:name      "etcd"
+          :os        ubuntu/os
+          :db        (etcd-db "version.not.used")
+          :client    (Client. nil opts)
+          :pure-generators true
+          :generator (generator-params opts)
+          :checker   (checker-params opts)}))
 
 (defn -main
   "Main entrance to the test."

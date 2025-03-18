@@ -33,12 +33,13 @@ sshto nid="0":
         "{{username}}@$(sed -n "$(( {{nid}} + 1 ))p" nodehosts)"
 
 # run a jepsen test (WIP)
-test:
+test *args:
     lein run test \
         --nodes-file "{{nodesfile}}" \
         --username "{{username}}" \
         --password "{{password}}" \
-        --ssh-private-key "{{prkeyfile}}"
+        --ssh-private-key "{{prkeyfile}}" \
+        {{args}}
 
 # launch the exploration web server
 serve:
