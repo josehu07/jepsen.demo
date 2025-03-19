@@ -1,9 +1,8 @@
-(ns demo
+(ns systems.etcd
   (:require [clojure.tools.logging :refer :all]
             [clojure.string :as str]
             [verschlimmbesserung.core :as vsrg]
             [jepsen
-             [cli :as cli]
              [client :as client]
              [control :as ctrl]
              [db :as db]
@@ -153,15 +152,15 @@
   (close! [_ test]))
 
 (defn r   [_ _] {:type :invoke, :f :read, :value nil})
-(defn w   [_ _] {:type :invoke, :f :write, :value (rand-int 8)})
-(defn cas [_ _] {:type :invoke, :f :cas, :value [(rand-int 8) (rand-int 8)]})
+(defn w   [_ _] {:type :invoke, :f :write, :value (rand-int 10)})
+(defn cas [_ _] {:type :invoke, :f :cas, :value [(rand-int 10) (rand-int 10)]})
 
 ; Jepsen generator configuration
 (defn generator-params
   "Generator parameters."
   [opts]
   (->> (indp/concurrent-generator
-        10
+        (:con-per-key opts)
         (range)
         (fn [k]
           (->> (gen/mix [r w cas])
@@ -169,9 +168,9 @@
                (gen/limit (:ops-per-key opts)))))
 
        (gen/nemesis
-        (cycle [(gen/sleep 5)
+        (cycle [(gen/sleep (:fault-window opts))
                 {:type :info, :f :start}
-                (gen/sleep 5)
+                (gen/sleep (:fault-window opts))
                 {:type :info, :f :stop}]))
 
        (gen/time-limit (:time-limit opts))))
@@ -192,7 +191,7 @@
                     :timeline-render (timeline/html)}))}))
 
 ; Main entrance to the test
-(defn etcd-test
+(defn test-fn
   "A simple test over an etcd database."
   [opts]
   (merge tests/noop-test
@@ -200,7 +199,11 @@
          {:name      (str "etcd"
                           " q=" (:quorum-read opts)
                           " r=" (:op-gen-rate opts)
-                          " k=" (:ops-per-key opts))
+                          " k=" (:ops-per-key opts)
+                          " t=" (:con-per-key opts)
+                          " c=" (:concurrency opts)
+                          " l=" (:time-limit opts)
+                          " f=" (:fault-window opts))
           :os        ubuntu/os
           :db        (etcd-db "version.not.used")
           :client    (Client. nil)
@@ -211,21 +214,42 @@
 
 (def cli-opts
   "Extra command line options."
-  [[nil "--quorum-read" "Use quorum reads."
+  [["-q" "--quorum-read"
+    "Use quorum reads if set."
     :default false]
-   [nil "--op-gen-rate" "Operations per second rate."
-    :default 10
+   ["-r" "--op-gen-rate RATE"
+    "Operations per second rate."
+    :default  10
     :parse-fn read-string
     :validate [#(and (number? %) (pos? %)) "Must be a positive number"]]
-   [nil "--ops-per-key" "Num operations per key."
-    :default 100
+   ["-k" "--ops-per-key NUMBER"
+    "Number of operations per key."
+    :default  100
     :parse-fn parse-long
-    :validate [pos? "Must be a positive integer"]]])
+    :validate [pos? "Must be a positive integer"]]
+   ["-t" "--con-per-key NUMBER"
+    "Threads concurrency per key."
+    :default  5
+    :parse-fn parse-long
+    :validate [pos? "Must be a positive integer"]]
+   ["-c" "--concurrency NUMBER"
+    (str "Client worker threads, optionally followed by n (e.g. 3n) to"
+         " multiply by #nodes.")
+    :default  "50"
+    :validate [(partial re-find #"^\d+n?$")
+               "Must be an integer, optionally followed by n."]]
+   ["-l" "--time-limit SECONDS"
+    "Length of a test run in seconds."
+    :default  40
+    :parse-fn parse-long
+    :validate [pos? "Must be positive"]]
+   ["-f" "--fault-window SECONDS"
+    "Length of half of a fault cycle in seconds."
+    :default  5
+    :parse-fn parse-long
+    :validate [pos? "Must be positive"]]])
 
-(defn -main
-  "Main entrance to the test."
-  [& args]
-  (cli/run! (merge (cli/single-test-cmd {:test-fn etcd-test
-                                         :opt-spec cli-opts})
-                   (cli/serve-cmd))
-            args))
+(def etcd-test-cmd
+  "Input to the Jepsen single-test-cmd."
+  {:test-fn test-fn
+   :opt-spec cli-opts})

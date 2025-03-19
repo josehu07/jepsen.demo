@@ -6,41 +6,49 @@ default:
 reponame := "jepsen.demo"
 username := "jepsen"
 password := "jepsen"
-nodesfile := "nodehosts"
+ctrlhostfile := "host-ctrl"
+dbhostsfile := "hosts-db"
 prkeyfile := "/etc/ssh/" + username + "/cluster_id_rsa"
 
 # sync repo to all remotes
 rsync:
-    while IFS="" read -r hostname || [ -n "$hostname" ]; do \
-        rsync -aP --delete \
-            --exclude .git/ \
-            --exclude .clj-kondo/ \
-            --exclude .venv/ \
-            --exclude .DS_Store \
-            --exclude .lsp/ \
-            --exclude .vscode/ \
-            --exclude __pycache__/ \
-            --exclude .lein-repl-history \
-            --exclude debug/ \
-            --exclude target/ \
-            --exclude store/ \
-            . "{{username}}@${hostname}:~/{{reponame}}"; \
-    done < nodehosts
+    for HOSTFILE in {{ctrlhostfile}} {{dbhostsfile}}; do \
+        while IFS="" read -r HOSTNAME || [ -n "$HOSTNAME" ]; do \
+            rsync -aP --delete \
+                --exclude .git/ \
+                --exclude .clj-kondo/ \
+                --exclude .venv/ \
+                --exclude .DS_Store \
+                --exclude .lsp/ \
+                --exclude .vscode/ \
+                --exclude __pycache__/ \
+                --exclude .lein-repl-history \
+                --exclude debug/ \
+                --exclude target/ \
+                --exclude store/ \
+                . "{{username}}@${HOSTNAME}:~/{{reponame}}"; \
+        done < ${HOSTFILE}; \
+    done
 
-# ssh login to given host index
+# ssh login to given host ("0" for control host)
 sshto nid="0":
-    ssh -o "StrictHostKeyChecking=no" \
-        "{{username}}@$(sed -n "$(( {{nid}} + 1 ))p" nodehosts)"
+    if [ "{{nid}}" -eq "0" ]; then \
+        ssh -o "StrictHostKeyChecking=no" \
+            "{{username}}@$(sed -n "1p" {{ctrlhostfile}})"; \
+    else \
+        ssh -o "StrictHostKeyChecking=no" \
+            "{{username}}@$(sed -n "$(( {{nid}} ))p" {{dbhostsfile}})"; \
+    fi
 
-# run a jepsen test (WIP)
-test *args:
-    lein run test \
-        --nodes-file "{{nodesfile}}" \
+# run a jepsen test from control host
+test system *args:
+    lein run {{system}} test \
+        --nodes-file "{{dbhostsfile}}" \
         --username "{{username}}" \
         --password "{{password}}" \
         --ssh-private-key "{{prkeyfile}}" \
         {{args}}
 
-# launch the exploration web server
+# launch the store exploration web server
 serve:
     lein run serve

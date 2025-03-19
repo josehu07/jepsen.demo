@@ -1,6 +1,6 @@
-# jepsen.demo
+# Jepsen with Custom Checker
 
-A Clojure library designed to ... well, that part is up to you.
+Jepsen test workflows with a custom efficient checker.
 
 ## Usage
 
