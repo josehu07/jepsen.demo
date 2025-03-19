@@ -8,6 +8,7 @@
              [control :as ctrl]
              [db :as db]
              [generator :as gen]
+             [independent :as indp]
              [tests :as tests]
              [checker :as checker]
              [nemesis :as nemesis]]
@@ -114,7 +115,7 @@
     (log-files [_ test node] [logfile])))
 
 ; Client implementation
-(defrecord Client [conn opts]
+(defrecord Client [conn]
   client/Client
 
   (open! [this test node]
@@ -123,26 +124,29 @@
   (setup! [this test])
 
   (invoke! [_ test op]
-    (case (:f op)
-      :read (let [value (-> conn
-                            (vsrg/get "foo" {:quorum? true})
-                            str-to-long)]
-              (assoc op
-                     :type :ok
-                     :value value))
+    (let [[k v] (:value op)]
+      (try+
+       (case (:f op)
+         :read (let [value (-> conn
+                               (vsrg/get k {:quorum? (:quorum-read test)})
+                               str-to-long)]
+                 (assoc op :type :ok, :value (indp/tuple k value)))
 
-      :write (do (vsrg/reset! conn "foo" (:value op))
-                 (assoc op
-                        :type :ok))
+         :write (do (vsrg/reset! conn k v)
+                    (assoc op :type :ok))
 
-      :cas (try+
-            (let [[old new] (:value op)]
-              (assoc op
-                     :type (if (vsrg/cas! conn "foo" old new) :ok :fail)))
-            (catch [:errorCode 100] _
-              (assoc op
-                     :type :fail
-                     :error :not-found)))))
+         :cas (let [[old new] v]
+                (assoc op :type (if (vsrg/cas! conn k old new)
+                                  :ok
+                                  :fail))))
+
+       (catch java.net.SocketTimeoutException _
+         (assoc op
+                :type  (if (= :read (:f op)) :fail :info)
+                :error :timeout))
+
+       (catch [:errorCode 100] _
+         (assoc op :type :fail, :error :not-found)))))
 
   (teardown! [this test])
 
@@ -156,13 +160,20 @@
 (defn generator-params
   "Generator parameters."
   [opts]
-  (->> (gen/mix [r w cas])
-       (gen/stagger 1/50)
+  (->> (indp/concurrent-generator
+        10
+        (range)
+        (fn [k]
+          (->> (gen/mix [r w cas])
+               (gen/stagger (/ (:op-gen-rate opts)))
+               (gen/limit (:ops-per-key opts)))))
+
        (gen/nemesis
         (cycle [(gen/sleep 5)
                 {:type :info, :f :start}
                 (gen/sleep 5)
                 {:type :info, :f :stop}]))
+
        (gen/time-limit (:time-limit opts))))
 
 ; Jepsen linearizability checker
@@ -170,10 +181,15 @@
   "Checker parameters."
   [opts]
   (checker/compose
-   {:linearizability (checker/linearizable
-                      {:model     (model/cas-register)
-                       :algorithm :linear})
-    :timeline-render (timeline/html)}))
+   {:perf (checker/perf)
+
+    :independent (indp/checker
+                  (checker/compose
+                   {:linearizable (checker/linearizable
+                                   {:model     (model/cas-register)
+                                    :algorithm :linear})
+
+                    :timeline-render (timeline/html)}))}))
 
 ; Main entrance to the test
 (defn etcd-test
@@ -181,17 +197,35 @@
   [opts]
   (merge tests/noop-test
          opts
-         {:name      "etcd"
+         {:name      (str "etcd"
+                          " q=" (:quorum-read opts)
+                          " r=" (:op-gen-rate opts)
+                          " k=" (:ops-per-key opts))
           :os        ubuntu/os
           :db        (etcd-db "version.not.used")
-          :client    (Client. nil opts)
+          :client    (Client. nil)
           :pure-generators true
           :generator (generator-params opts)
+          :nemesis   (nemesis/partition-random-halves)
           :checker   (checker-params opts)}))
+
+(def cli-opts
+  "Extra command line options."
+  [[nil "--quorum-read" "Use quorum reads."
+    :default false]
+   [nil "--op-gen-rate" "Operations per second rate."
+    :default 10
+    :parse-fn read-string
+    :validate [#(and (number? %) (pos? %)) "Must be a positive number"]]
+   [nil "--ops-per-key" "Num operations per key."
+    :default 100
+    :parse-fn parse-long
+    :validate [pos? "Must be a positive integer"]]])
 
 (defn -main
   "Main entrance to the test."
   [& args]
-  (cli/run! (merge (cli/single-test-cmd {:test-fn etcd-test})
+  (cli/run! (merge (cli/single-test-cmd {:test-fn etcd-test
+                                         :opt-spec cli-opts})
                    (cli/serve-cmd))
             args))
