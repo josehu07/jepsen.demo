@@ -1,10 +1,44 @@
-# Jepsen with Custom Checker
+# Jepsen Workflow Demos
 
-Jepsen test workflows with a custom efficient checker.
+Jepsen test workflow demos with a custom efficient checker.
+
+References:
+
+- Jepsen framework: <https://github.com/jepsen-io/jepsen>
+- Jepsen workflow tutorial: <https://github.com/jepsen-io/jepsen/blob/main/doc/tutorial/index.md>
+- Knossos linearizability models: <https://github.com/jepsen-io/knossos>
 
 ## Usage
 
-FIXME
+Fill the following hostname files:
+
+- `host-ctrl`: the control node hostname
+- `hosts-db`: one database node hostname per line
+
+Sync repo content with all hosts:
+
+```bash
+just rsync
+```
+
+SSH connect to a node:
+
+```bash
+just sshto 0  # ctrl node
+just sshto 1  # first db node, etc.
+```
+
+Run a test workflow from the control node:
+
+```bash
+just test <system> [args ...]
+```
+
+Launch an exploration web server:
+
+```bash
+just serve
+```
 
 ## License
 
