@@ -1,6 +1,6 @@
 (ns workflow
   (:require [helpers :refer :all]
-            [clojure.pprint :refer [pprint]]
+            [clojure.pprint :refer [pprint cl-format]]
             [clojure.string :as str]
             [clojure.tools.logging :refer :all]
             [clojure.tools.cli :as cljcli]
@@ -22,6 +22,23 @@
   (println "  just check <index> [args ...]")
   (println)
   (throw (IllegalArgumentException. "Unknown system name")))
+
+(defn timed-analyze!
+  "Same as the original 'jepsen/analyze!' but with a timing around the checker."
+  [test]
+  (info "Analyzing...")
+  (let [start# (. System (nanoTime))  ; clever way of doing timing
+        test (assoc test :results (checker/check-safe
+                                   (:checker test)
+                                   test
+                                   (:history test)))
+        end# (. System (nanoTime))]
+    (info "Analysis complete")
+
+    (let [msecs (/ (double (- end# start#)) 1000000.0)]
+      (if (:name test)
+        [(store/save-2! test) msecs]
+        [test msecs]))))
 
 (defn check-run!
   "Overwrites the 'analyze' subcommand of single-test-cmd to allow ignoring
@@ -65,7 +82,12 @@
                         with-out-str)))
 
             (store/with-handle [test test]
-              (jepsen/log-results (jepsen/analyze! test)))))]
+              (let [[test msecs] (timed-analyze! test)]
+                (info "Printing results...")
+                (jepsen/log-results test)
+                (println "Time spent in checker:"
+                         (cl-format nil "~,2f" msecs)
+                         "msecs")))))]
 
     (when (:help options)
       (println "Usage: just check <index> [args ...]")
