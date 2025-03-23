@@ -6,8 +6,8 @@ default:
 reponame := "jepsen.demo"
 username := "jepsen"
 password := "jepsen"
-ctrlhostfile := "host-ctrl"
-dbhostsfile := "hosts-db"
+ctrlhostfile := "hosts/host-ctrl"
+dbhostsfile := "hosts/hosts-db"
 prkeyfile := "/etc/ssh/" + username + "/cluster_id_rsa"
 
 # sync repo to all remotes
@@ -40,13 +40,24 @@ sshto nid="0":
             "{{username}}@$(sed -n "$(( {{nid}} ))p" {{dbhostsfile}})"; \
     fi
 
+# build everything
+build:
+    lein compile
+    cargo build -r
+
 # run a jepsen test from control host
-test system *args:
+test system *args: build
     lein run {{system}} test \
         --nodes-file "{{dbhostsfile}}" \
         --username "{{username}}" \
         --password "{{password}}" \
         --ssh-private-key "{{prkeyfile}}" \
+        {{args}}
+
+# run the checker analysis phase only
+check index *args: build
+    lein run check \
+        --which-test "{{index}}" \
         {{args}}
 
 # launch the store exploration web server

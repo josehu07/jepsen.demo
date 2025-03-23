@@ -1,5 +1,6 @@
 (ns systems.etcd
-  (:require [clojure.tools.logging :refer :all]
+  (:require [helpers :refer :all]
+            [clojure.tools.logging :refer :all]
             [clojure.string :as str]
             [verschlimmbesserung.core :as vsrg]
             [jepsen
@@ -14,18 +15,7 @@
             [jepsen.control.util :as util]
             [jepsen.os.ubuntu :as ubuntu]
             [jepsen.checker.timeline :as timeline]
-            [slingshot.slingshot :refer [try+]]
-            [knossos.model :as model])
-  (:import [knossos.model Model]))
-
-; Helper functions
-(defn spy> [val msg] (prn msg val) val)
-(defn spy>> [msg val] (spy> val msg))
-
-(defn str-to-long
-  "Parses a string to a Long. Passes through `nil`."
-  [s]
-  (when s (parse-long s)))
+            [slingshot.slingshot :refer [try+]]))
 
 ; Paths used in tests
 (def etcddir "/home/jepsen/etcd-v3.1")
@@ -165,7 +155,8 @@
         (fn [k]
           (->> (gen/mix [r w cas])
                (gen/stagger (/ (:op-gen-rate opts)))
-               (gen/limit (:ops-per-key opts)))))
+               (gen/limit (* (+ (rand 0.1) 0.9)  ; randomize a bit
+                             (:ops-per-key opts))))))
 
        (gen/nemesis
         (cycle [(gen/sleep (:fault-window opts))
@@ -180,15 +171,10 @@
   "Checker parameters."
   [opts]
   (checker/compose
-   {:perf (checker/perf)
+   (merge {:performance  (checker/perf)
+           :timeline-vis (timeline/html)}
 
-    :independent (indp/checker
-                  (checker/compose
-                   {:linearizable (checker/linearizable
-                                   {:model     (model/cas-register)
-                                    :algorithm :linear})
-
-                    :timeline-render (timeline/html)}))}))
+          (checker-select opts nil))))
 
 ; Main entrance to the test
 (defn test-fn
@@ -252,4 +238,4 @@
 (def etcd-test-cmd
   "Input to the Jepsen single-test-cmd."
   {:test-fn test-fn
-   :opt-spec cli-opts})
+   :opt-spec (full-test-opts cli-opts)})

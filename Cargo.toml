@@ -1,0 +1,10 @@
+[package]
+name = "sop-checker"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "checker"
+path = "checker/main.rs"
+
+[dependencies]

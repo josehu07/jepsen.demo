@@ -12,8 +12,8 @@ References:
 
 Fill the following hostname files:
 
-- `host-ctrl`: the control node hostname
-- `hosts-db`: one database node hostname per line
+- `hosts/host-ctrl`: the control node hostname
+- `hosts/hosts-db`: one database node hostname per line
 
 Sync repo content with all hosts:
 
@@ -32,6 +32,12 @@ Run a test workflow from the control node:
 
 ```bash
 just test <system> [args ...]
+```
+
+Run only the checker analysis phase (index `-1` means latest run, etc.):
+
+```bash
+just check <index> [args ...]
 ```
 
 Launch an exploration web server:
