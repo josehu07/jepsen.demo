@@ -28,7 +28,8 @@
 
 (defn external-exec
   "Executes an external command with given arguments. Returns a boolean
-   that indicates its exit code success status."
+   that indicates check success status, or ':unknown' to indicate unknown
+   result due to checker internal error."
   [& args]
   (let [proc (.exec (Runtime/getRuntime) (into-array String args))
         stdout (slurp (.getInputStream proc))
@@ -39,17 +40,21 @@
     (println stdout)
     (info "Rust checker stderr:")
     (println stderr)
-    (= exit-code 0)))
+    (case exit-code
+      0 true
+      1 false
+      :unknown)))
 
 (def rust-sop-checker
   "Hook to invoke the Rust-implemented SOP checker."
   (reify checker/Checker
     (check [this test history _]
-      (if (external-exec
-           "cargo" "run" "-r" "--"
-           "--test-dir" (.getPath (store/path test)))
-        {:valid? true}
-        {:valid? false, :msg "Please see the Rust checker output."}))))
+      (case (external-exec
+             "cargo" "run" "-r" "--"
+             "--test-dir" (.getPath (store/path test)))
+        true {:valid? true}
+        false {:valid? false, :msg "Please see the Rust checker output."}
+        :unknown {:valid? :unknown, :msg "Rust checker exits with error."}))))
 
 (def original-checker
   "The original independent linearizability checker in Clojure."
