@@ -30,7 +30,7 @@ just rsync
 SSH connect to a node:
 
 ```bash
-just sshto 0  # ctrl node
+just sshto 0  # control node
 just sshto 1  # first db node, etc.
 ```
 

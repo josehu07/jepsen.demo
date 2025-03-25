@@ -102,33 +102,48 @@
        (org.slf4j.LoggerFactory/getLogger (Logger/ROOT_LOGGER_NAME))
                  Level/INFO))
 
-    (invoke! [_ _ op]
+    (invoke! [_ test op]
       (timeout
        5000
        (assoc op
               :type (if (= :read (:f op)) :fail :info)
               :error :timeout)
 
-       (let [[k v] (:value op)]
+       (let [[k v]     (:value op)
+             local-key (and (:local-refs test) (zero? (mod k 3)))]
          ; if k not seen before, maybe create a new atom
          (when-not (contains? @zkatoms k)
-           (swap! zkatoms assoc k (avout/zk-atom conn (str "/jepsen/" k))))
+           (swap! zkatoms
+                  assoc k (if local-key
+                            (ref nil)
+                            (avout/zk-atom conn (str "/jepsen/" k)))))
 
          (let [zkatom (get @zkatoms k)]
            (case (:f op)
-             :read  (assoc op :type :ok, :value (indp/tuple k @zkatom))
+             :read  (let [val @zkatom]
+                      (if val
+                        (assoc op :type :ok, :value (indp/tuple k val))
+                        (assoc op :type :fail)))
 
-             :write (do (avout/reset!! zkatom v)
+             :write (do (if local-key
+                          (dosync (ref-set zkatom v))
+                          (avout/reset!! zkatom v))
                         (assoc op :type :ok))
 
              :cas   (let [[old new] v
                           type      (atom :fail)]
-                      (avout/swap!! zkatom (fn [current]
-                                             (if (= current old)
-                                               (do (reset! type :ok)
-                                                   new)
-                                               (do (reset! type :fail)
-                                                   current))))
+                      (if local-key
+                        (dosync (if (= @zkatom old)
+                                  (do (reset! type :ok)
+                                      (ref-set zkatom new))
+                                  (reset! type :fail)))
+                        (avout/swap!! zkatom
+                                      (fn [current]
+                                        (if (= current old)
+                                          (do (reset! type :ok)
+                                              new)
+                                          (do (reset! type :fail)
+                                              current)))))
                       (assoc op :type @type)))))))
 
     (teardown! [_ _]
@@ -158,9 +173,9 @@
            (repeat reps [(gen/sleep (:fault-window opts))
                          {:type :info, :f :start}
                          (gen/sleep (:fault-window opts))
-                         {:type :info, :f :stop}])
+                         {:type :info, :f :stop}]))))
            ; and leaves at least 7 secs good time at the end
-           )))
+
 
        (gen/time-limit (:time-limit opts))))
 
@@ -198,7 +213,10 @@
 
 (def cli-opts
   "Extra command line options."
-  [["-r" "--op-gen-rate RATE"
+  [["-e" "--local-refs"
+    "Use local-ref to back some keys if set."
+    :default false]
+   ["-r" "--op-gen-rate RATE"
     "Operations per second rate."
     :default  10
     :parse-fn read-string
