@@ -1,6 +1,6 @@
 (ns systems.etcd
-  (:require [helpers :refer :all]
-            [clojure.tools.logging :refer :all]
+  (:require [helpers :refer [cas checker-select full-test-opts r str-to-long w]]
+            [clojure.tools.logging :refer [info]]
             [clojure.string :as str]
             [verschlimmbesserung.core :as vsrg]
             [jepsen
@@ -10,8 +10,8 @@
              [generator :as gen]
              [independent :as indp]
              [tests :as tests]
-             [checker :as checker]
-             [nemesis :as nemesis]]
+             [nemesis :as nemesis]
+             [checker :as checker]]
             [jepsen.control.util :as util]
             [jepsen.os.ubuntu :as ubuntu]
             [jepsen.checker.timeline :as timeline]
@@ -65,12 +65,10 @@
 ; Database setup
 (defn etcd-db
   "Etcd database of a particular version."
-  [version]
+  [_]
   (reify db/DB
     (setup! [_ test node]
-      ;; (ctrl/su (let [url (format "https://github.com/etcd-io/etcd/releases/download/%s/etcd-%s-linux-amd64.tar.gz" version version)]
-      ;;            (util/install-archive! url "/opt/etcd")))
-      (info node "using etcd at" etcddir)
+      (info "using etcd at" etcddir)
 
       (util/start-daemon!
        {:logfile logfile
@@ -88,10 +86,11 @@
        :--initial-cluster-state        :new
        :--initial-cluster              (initial-cluster test))
 
+      (info "launched etcd server")
       (Thread/sleep 10000))
 
-    (teardown! [_ test node]
-      (info node "tearing down running etcd")
+    (teardown! [_ _ _]
+      (info "tearing down running etcd")
 
       (util/stop-daemon! etcdexec pidfile)
 
@@ -101,16 +100,16 @@
       (ctrl/exec :rm :-rf pidfile))
 
     db/LogFiles
-    (log-files [_ test node] [logfile])))
+    (log-files [_ _ _] [logfile])))
 
 ; Client implementation
 (defrecord Client [conn]
   client/Client
 
-  (open! [this test node]
+  (open! [this _ node]
     (assoc this :conn (vsrg/connect (client-url node) {:timeout 5000})))
 
-  (setup! [this test])
+  (setup! [_ _])
 
   (invoke! [_ test op]
     (let [[k v] (:value op)]
@@ -135,15 +134,11 @@
                 :error :timeout))
 
        (catch [:errorCode 100] _
-         (assoc op :type :fail, :error :not-found)))))
+         (assoc op :type :fail)))))
 
-  (teardown! [this test])
+  (teardown! [_ _])
 
-  (close! [_ test]))
-
-(defn r   [_ _] {:type :invoke, :f :read, :value nil})
-(defn w   [_ _] {:type :invoke, :f :write, :value (rand-int 10)})
-(defn cas [_ _] {:type :invoke, :f :cas, :value [(rand-int 10) (rand-int 10)]})
+  (close! [_ _]))
 
 ; Jepsen generator configuration
 (defn generator-params
@@ -152,17 +147,23 @@
   (->> (indp/concurrent-generator
         (:con-per-key opts)
         (range)
-        (fn [k]
+        (fn [_]
           (->> (gen/mix [r w cas])
                (gen/stagger (/ (:op-gen-rate opts)))
                (gen/limit (* (+ (rand 0.1) 0.9)  ; randomize a bit
                              (:ops-per-key opts))))))
 
        (gen/nemesis
-        (cycle [(gen/sleep (:fault-window opts))
-                {:type :info, :f :start}
-                (gen/sleep (:fault-window opts))
-                {:type :info, :f :stop}]))
+        (let [reps (long (/ (- (:time-limit opts) 10)
+                            (* 2 (:fault-window opts))))]
+          (gen/phases
+           [(gen/sleep 3)]  ; extra 3 secs sleep at the beginning
+           (repeat reps [(gen/sleep (:fault-window opts))
+                         {:type :info, :f :start}
+                         (gen/sleep (:fault-window opts))
+                         {:type :info, :f :stop}])
+                  ; and leaves at least 7 secs good time at the end
+           )))
 
        (gen/time-limit (:time-limit opts))))
 
@@ -185,9 +186,10 @@
          {:name      (str "etcd"
                           " q=" (:quorum-read opts)
                           " r=" (:op-gen-rate opts)
-                          " k=" (:ops-per-key opts)
+                          " o=" (:ops-per-key opts)
                           " t=" (:con-per-key opts)
                           " c=" (:concurrency opts)
+                          " v=" (:value-range opts)
                           " l=" (:time-limit opts)
                           " f=" (:fault-window opts))
           :os        ubuntu/os
@@ -208,7 +210,7 @@
     :default  10
     :parse-fn read-string
     :validate [#(and (number? %) (pos? %)) "Must be a positive number"]]
-   ["-k" "--ops-per-key NUMBER"
+   ["-o" "--ops-per-key NUMBER"
     "Number of operations per key."
     :default  100
     :parse-fn parse-long
@@ -228,7 +230,7 @@
     "Length of a test run in seconds."
     :default  40
     :parse-fn parse-long
-    :validate [pos? "Must be positive"]]
+    :validate [#(>= % 10) "Must be greater than or equal to 10"]]
    ["-f" "--fault-window SECONDS"
     "Length of half of a fault cycle in seconds."
     :default  5
@@ -236,6 +238,6 @@
     :validate [pos? "Must be positive"]]])
 
 (def etcd-test-cmd
-  "Input to the Jepsen single-test-cmd."
+  "Input to the Jepsen single-test-cmd for etcd."
   {:test-fn test-fn
    :opt-spec (full-test-opts cli-opts)})

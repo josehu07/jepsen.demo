@@ -1,14 +1,13 @@
 (ns helpers
-  (:require [clojure.pprint :refer [pprint]]
-            [clojure.tools.logging :refer :all]
+  (:require [clojure.tools.logging :refer [info]]
             [jepsen
              [checker :as checker]
              [independent :as indp]
              [store :as store]]
             [knossos.model :as model])
-  (:import [knossos.model Model]
-           [java.lang Runtime]))
+  (:import [java.lang Runtime]))
 
+; Utility functions
 (defn spy> [val msg] (prn msg val) val)
 (defn spy>> [msg val] (spy> val msg))
 
@@ -17,6 +16,25 @@
   [s]
   (when s (parse-long s)))
 
+; Common definitions for the key-value store (i.e., CAS register) model
+(defn r
+  [_ _]
+  {:type :invoke
+   :f :read
+   :value nil})
+
+(defn w
+  [test _]
+  {:type :invoke
+   :f :write
+   :value (rand-int (:value-range test))})
+
+(defn cas [test _]
+  {:type :invoke
+   :f :cas
+   :value [(rand-int (:value-range test)) (rand-int (:value-range test))]})
+
+; Common test options regardless of system
 (defn full-test-opts
   "Appends global, system-oblivious options to the test options."
   [test-opts]
@@ -24,8 +42,14 @@
    test-opts
    [["-s" "--skip-checker"
      "Skip the linearizability checker if set."
-     :default false]]))
+     :default false]
+    ["-v" "--value-range NUMBER"
+     "Total number of distinct values."
+     :default  10
+     :parse-fn parse-long
+     :validate [pos? "Must be a positive integer"]]]))
 
+; Enablers for the hook to the Rust-implemented SOP checker
 (defn external-exec
   "Executes an external command with given arguments. Returns a boolean
    that indicates check success status, or ':unknown' to indicate unknown
@@ -48,7 +72,7 @@
 (def rust-sop-checker
   "Hook to invoke the Rust-implemented SOP checker."
   (reify checker/Checker
-    (check [this test history _]
+    (check [_ test _ _]
       (case (external-exec
              "cargo" "run" "-r" "--"
              "--test-dir" (.getPath (store/path test)))
@@ -58,9 +82,19 @@
 
 (def original-checker
   "The original independent linearizability checker in Clojure."
-  (indp/checker
-   (checker/linearizable
-    {:model (model/cas-register)})))
+  (reify checker/Checker
+    (check [_ test history opts]
+      ; implemented this way to allow easier printing for debugging
+      ; when a violation comes from a pre-initialized value (outside of the ops
+      ; history), 'render_analysis!' will fail to produce 'linear.svg'
+      ;; (->> (indp/subhistories (indp/history-keys history) history)
+      ;;      (run! (fn [[k h]]
+      ;;              (pprint k)
+      ;;              (pprint (competition/analysis (model/cas-register) h)))))
+      (let [ck (indp/checker
+                (checker/linearizable
+                 {:model (model/cas-register)}))]
+        (checker/check ck test history opts)))))
 
 (defn checker-select
   "Selects the checker to use based on the options."

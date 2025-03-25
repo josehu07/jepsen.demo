@@ -1,12 +1,18 @@
 # Jepsen Workflow Demos
 
-Jepsen test workflow demos with a custom efficient checker.
+Jepsen test workflow demos, with hooks to a custom Rust-implemented checker.
 
-References:
+TODO(reference)
 
-- Jepsen framework: <https://github.com/jepsen-io/jepsen>
-- Jepsen workflow tutorial: <https://github.com/jepsen-io/jepsen/blob/main/doc/tutorial/index.md>
-- Knossos linearizability models: <https://github.com/jepsen-io/knossos>
+## Systems
+
+The list of currently supported systems is as follows:
+
+- etcd-v3.1
+- zookeeper-v3.4
+- TODO(rabbitmq)
+
+Make sure they are available under `/home/jepsen/<system-va.b>/` and compiled on all remote data nodes before running a test from the control node.
 
 ## Usage
 
@@ -45,6 +51,14 @@ Launch an exploration web server:
 ```bash
 just serve
 ```
+
+## References
+
+- Jepsen framework: <https://github.com/jepsen-io/jepsen>
+- Jepsen workflow tutorial: <https://github.com/jepsen-io/jepsen/blob/main/doc/tutorial/index.md>
+- Knossos linearizability models: <https://github.com/jepsen-io/knossos>
+- Verschlimmbesserung (etcd client): <https://github.com/aphyr/verschlimmbesserung>
+- Avout (ZooKeeper-backed atoms): <https://github.com/liebke/avout>
 
 ## License
 

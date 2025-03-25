@@ -22,7 +22,7 @@ pub(crate) enum EventType {
     Invoke, // :invoke
     Okay,   // :ok
     Fail,   // :fail
-    Error,  // :info with :error
+    Error,  // :info (indicating error)
 }
 
 /// Operation type and data. Option fields are `None` when the operation is

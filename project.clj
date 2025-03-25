@@ -6,7 +6,9 @@
 
   :dependencies [[org.clojure/clojure "1.11.1"]
                  [jepsen "0.3.7"]
-                 [verschlimmbesserung "0.1.3"]]
+                 [verschlimmbesserung "0.1.3"]
+                 [avout "0.5.4"]]
+  :dev-dependencies [[lein-with-env-vars "0.2.0"]]
 
   :main workflow
   :repl-options {:init-ns workflow}

@@ -1,8 +1,8 @@
 (ns workflow
-  (:require [helpers :refer :all]
+  (:require [helpers :refer [checker-select]]
             [clojure.pprint :refer [pprint cl-format]]
             [clojure.string :as str]
-            [clojure.tools.logging :refer :all]
+            [clojure.tools.logging :refer [info]]
             [clojure.tools.cli :as cljcli]
             [dom-top.core :refer [assert+]]
             [jepsen
@@ -11,7 +11,8 @@
              [store :as store]
              [checker :as checker]]
             [systems
-             [etcd :as etcd]]))
+             [etcd :as etcd]
+             [zk :as zk]]))
 
 (defn unknown-system-help
   "Prints help message when system name unknown"
@@ -44,7 +45,7 @@
   "Overwrites the 'analyze' subcommand of single-test-cmd to allow ignoring
    the '-s' option and to choose different checkers."
   [args]
-  (let [{:keys [options arguments summary errors]}
+  (let [{:keys [options _ summary errors]}
         (cljcli/parse-opts
          args
          [["-h" "--help"
@@ -122,6 +123,7 @@
                        "serve" nil
                        "check" nil
                        "etcd" etcd/etcd-test-cmd
+                       "zk" zk/zk-test-cmd
                        (unknown-system-help system-name))]
 
     (case system-name
