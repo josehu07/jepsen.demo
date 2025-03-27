@@ -1,7 +1,10 @@
 (ns systems.etcd
-  (:require [helpers :refer [cas checker-select full-test-opts r str-to-long w]]
+  (:require [helpers :refer [r w cas
+                             checker-select
+                             full-test-opts]]
             [clojure.tools.logging :refer [info]]
             [clojure.string :as str]
+            [clojure.edn :as edn]
             [verschlimmbesserung.core :as vsrg]
             [jepsen
              [client :as client]
@@ -103,37 +106,76 @@
     (log-files [_ _ _] [logfile])))
 
 ; Client implementation
+(defn map->str
+  "Convert a map to a string representation using edn."
+  [m]
+  (pr-str m))
+
+(defn str->map
+  "Convert a string representation back to a map using edn."
+  [s]
+  (edn/read-string s))
+
 (defrecord Client [conn]
   client/Client
 
   (open! [this _ node]
-    (assoc this :conn (vsrg/connect (client-url node) {:timeout 5000})))
+    (assoc this :conn (vsrg/connect (client-url node)
+                                    {:timeout 5000
+                                     :swap-retry-delay 10})))
 
   (setup! [_ _])
 
   (invoke! [_ test op]
-    (let [[k v] (:value op)]
+    (let [[k v] (:value op)
+          intag (:tstag op)]
       (try+
        (case (:f op)
-         :read (let [value (-> conn
-                               (vsrg/get k {:quorum? (:quorum-read test)})
-                               str-to-long)]
-                 (assoc op :type :ok, :value (indp/tuple k value)))
+         :read  (let [valtag (str->map
+                              (vsrg/get conn k
+                                        {:quorum? (:quorum-read test)}))
+                      val    (:val valtag)
+                      tag    (:tag valtag)]
+                  (assoc op
+                         :type :ok
+                         :value (indp/tuple k val)
+                         :tstag tag))
 
-         :write (do (vsrg/reset! conn k v)
+         :write (do (vsrg/reset! conn k
+                                 (map->str (if (:tagged-value test)
+                                             {:val v, :tag intag}
+                                             {:val v})))
                     (assoc op :type :ok))
 
-         :cas (let [[old new] v]
-                (assoc op :type (if (vsrg/cas! conn k old new)
-                                  :ok
-                                  :fail))))
+         :cas   (let [[old new] v
+                      atag      (atom intag)
+                      newtag    (second intag)]
+                  (if (:tagged-value test)
+                    (do (vsrg/swap! conn k
+                                    (fn [current]
+                                      (let [valtag (str->map current)
+                                            val    (:val valtag)
+                                            tag    (:tag valtag)]
+                                        (if (= val old)
+                                          (do
+                                            (reset! atag [tag newtag])
+                                            (map->str {:val new, :tag newtag}))
+                                          current))))
+                        (if (nil? (first @atag))
+                          (assoc op :type :fail)
+                          (assoc op :type :ok, :tstag @atag)))
+                    (assoc op :type (if (vsrg/cas! conn k
+                                                   (map->str {:val old})
+                                                   (map->str {:val new}))
+                                      :ok
+                                      :fail)))))
 
        (catch java.net.SocketTimeoutException _
          (assoc op
                 :type  (if (= :read (:f op)) :fail :info)
                 :error :timeout))
 
-       (catch [:errorCode 100] _
+       (catch [:errorCode 100] _  ; CAS not found
          (assoc op :type :fail)))))
 
   (teardown! [_ _])
@@ -184,13 +226,14 @@
   (merge tests/noop-test
          opts
          {:name      (str "etcd"
-                          " q=" (:quorum-read opts)
-                          " r=" (:op-gen-rate opts)
-                          " o=" (:ops-per-key opts)
-                          " t=" (:con-per-key opts)
-                          " c=" (:concurrency opts)
-                          " v=" (:value-range opts)
-                          " l=" (:time-limit opts)
+                          " q=" (:quorum-read  opts)
+                          " g=" (:tagged-value opts)
+                          " r=" (:op-gen-rate  opts)
+                          " o=" (:ops-per-key  opts)
+                          " t=" (:con-per-key  opts)
+                          " c=" (:concurrency  opts)
+                          " v=" (:value-range  opts)
+                          " l=" (:time-limit   opts)
                           " f=" (:fault-window opts))
           :os        ubuntu/os
           :db        (etcd-db "version.not.used")
@@ -205,14 +248,17 @@
   [["-q" "--quorum-read"
     "Use quorum reads if set."
     :default false]
+   ["-g" "--tagged-value"
+    "Use tagged values (but only supports txn, not true CAS) if set."
+    :default false]
    ["-r" "--op-gen-rate RATE"
     "Operations per second rate."
-    :default  10
+    :default  250
     :parse-fn read-string
     :validate [#(and (number? %) (pos? %)) "Must be a positive number"]]
    ["-o" "--ops-per-key NUMBER"
     "Number of operations per key."
-    :default  100
+    :default  5000
     :parse-fn parse-long
     :validate [pos? "Must be a positive integer"]]
    ["-t" "--con-per-key NUMBER"

@@ -1,5 +1,7 @@
 (ns systems.zk
-  (:require [helpers :refer [cas checker-select full-test-opts r w]]
+  (:require [helpers :refer [r w cas
+                             checker-select
+                             full-test-opts]]
             [clojure.tools.logging :refer [info]]
             [clojure.string :as str]
             [avout.core :as avout]
@@ -106,10 +108,11 @@
       (timeout
        5000
        (assoc op
-              :type (if (= :read (:f op)) :fail :info)
+              :type  (if (= :read (:f op)) :fail :info)
               :error :timeout)
 
        (let [[k v]     (:value op)
+             intag     (:tstag op)
              local-key (and (:local-refs test) (zero? (mod k 3)))]
          ; if k not seen before, maybe create a new atom
          (when-not (contains? @zkatoms k)
@@ -120,31 +123,46 @@
 
          (let [zkatom (get @zkatoms k)]
            (case (:f op)
-             :read  (let [val @zkatom]
-                      (if val
-                        (assoc op :type :ok, :value (indp/tuple k val))
-                        (assoc op :type :fail)))
+             :read  (let [valtag @zkatom
+                          val    (:val valtag)
+                          tag    (:tag valtag)]
+                      (assoc op
+                             :type  :ok
+                             :value (indp/tuple k val)
+                             :tstag tag))
 
              :write (do (if local-key
-                          (dosync (ref-set zkatom v))
-                          (avout/reset!! zkatom v))
+                          (dosync (ref-set zkatom
+                                           {:val v, :tag intag}))
+                          (avout/reset!! zkatom
+                                         {:val v, :tag intag}))
                         (assoc op :type :ok))
 
              :cas   (let [[old new] v
-                          type      (atom :fail)]
+                          type      (atom :fail)
+                          atag      (atom intag)
+                          newtag    (second intag)]
                       (if local-key
-                        (dosync (if (= @zkatom old)
-                                  (do (reset! type :ok)
-                                      (ref-set zkatom new))
-                                  (reset! type :fail)))
+                        (let [valtag @zkatom
+                              val    (:val valtag)
+                              tag    (:tag valtag)]
+                          (dosync (if (= val old)
+                                    (do (reset! type :ok)
+                                        (reset! atag [tag newtag])
+                                        (ref-set zkatom
+                                                 {:val new, :tag newtag}))
+                                    (reset! type :fail))))
                         (avout/swap!! zkatom
                                       (fn [current]
-                                        (if (= current old)
-                                          (do (reset! type :ok)
-                                              new)
-                                          (do (reset! type :fail)
-                                              current)))))
-                      (assoc op :type @type)))))))
+                                        (let [val (:val current)
+                                              tag (:tag current)]
+                                          (if (= val old)
+                                            (do (reset! type :ok)
+                                                (reset! atag [tag newtag])
+                                                {:val new, :tag newtag})
+                                            (do (reset! type :fail)
+                                                current))))))
+                      (assoc op :type @type, :tstag @atag)))))))
 
     (teardown! [_ _]
       (.close conn))
@@ -173,8 +191,9 @@
            (repeat reps [(gen/sleep (:fault-window opts))
                          {:type :info, :f :start}
                          (gen/sleep (:fault-window opts))
-                         {:type :info, :f :stop}]))))
-           ; and leaves at least 7 secs good time at the end
+                         {:type :info, :f :stop}])
+                  ; and leaves at least 7 secs good time at the end
+           )))
 
 
        (gen/time-limit (:time-limit opts))))
@@ -196,13 +215,13 @@
   (merge tests/noop-test
          opts
          {:name      (str "zk"
-                          " e=" (:local-refs opts)
-                          " r=" (:op-gen-rate opts)
-                          " o=" (:ops-per-key opts)
-                          " t=" (:con-per-key opts)
-                          " c=" (:concurrency opts)
-                          " v=" (:value-range opts)
-                          " l=" (:time-limit opts)
+                          " e=" (:local-refs   opts)
+                          " r=" (:op-gen-rate  opts)
+                          " o=" (:ops-per-key  opts)
+                          " t=" (:con-per-key  opts)
+                          " c=" (:concurrency  opts)
+                          " v=" (:value-range  opts)
+                          " l=" (:time-limit   opts)
                           " f=" (:fault-window opts))
           :os        ubuntu/os
           :db        (zookeeper-db "version.not.used")
@@ -219,12 +238,12 @@
     :default false]
    ["-r" "--op-gen-rate RATE"
     "Operations per second rate."
-    :default  10
+    :default  250
     :parse-fn read-string
     :validate [#(and (number? %) (pos? %)) "Must be a positive number"]]
    ["-o" "--ops-per-key NUMBER"
     "Number of operations per key."
-    :default  100
+    :default  5000
     :parse-fn parse-long
     :validate [pos? "Must be a positive integer"]]
    ["-t" "--con-per-key NUMBER"

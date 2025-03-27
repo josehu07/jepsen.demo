@@ -32,7 +32,7 @@ const CHECK_ERROR: i32 = 101; // since panicking produces exit code 101
 /// Inner main function.
 fn main_inner() -> Result<bool, Box<dyn Error>> {
     let args = Args::parse();
-    println!("Test directory: '{}'", args.test_dir);
+    eprintln!("Test directory: '{}'", args.test_dir);
 
     let (events, max_client) = parse_history(Path::new(&args.test_dir))?;
     if events.is_empty() {
@@ -46,6 +46,19 @@ fn main_inner() -> Result<bool, Box<dyn Error>> {
         "Parsed timeline: {} clients, {} total ops",
         timeline.num_clients(),
         timeline.total_ops()
+    );
+    println!("Call stats:  {:5}  {:5}  {:5}", " call", " okay", " fail");
+    println!(
+        "       read  {:5}  {:5}  {:5}",
+        timeline.stats_r[0], timeline.stats_r[1], timeline.stats_r[2]
+    );
+    println!(
+        "      write  {:5}  {:5}  {:5}",
+        timeline.stats_w[0], timeline.stats_w[1], timeline.stats_w[2]
+    );
+    println!(
+        "        cas  {:5}  {:5}  {:5}",
+        timeline.stats_cas[0], timeline.stats_cas[1], timeline.stats_cas[2]
     );
 
     let finish_ts = Instant::now();

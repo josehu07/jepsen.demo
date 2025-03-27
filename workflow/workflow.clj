@@ -13,7 +13,8 @@
             [systems
              [etcd :as etcd]
              [zk :as zk]
-             [rmq :as rmq]]))
+             [rmq :as rmq]])
+  (:import [java.io FileNotFoundException]))
 
 (defn unknown-system-help
   "Prints help message when system name unknown"
@@ -87,6 +88,12 @@
               (let [[test msecs] (timed-analyze! test)]
                 (info "Printing results...")
                 (jepsen/log-results test)
+
+                (try
+                  (println (str/trim
+                            (slurp (str (.getPath (store/path test))
+                                        "/sop-checker.out"))))
+                  (catch FileNotFoundException _ nil))
                 (println "Time spent in checker:"
                          (cl-format nil "~,2f" msecs)
                          "msecs")))))]

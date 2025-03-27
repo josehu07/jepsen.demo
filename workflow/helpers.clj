@@ -11,29 +11,27 @@
 (defn spy> [val msg] (prn msg val) val)
 (defn spy>> [msg val] (spy> val msg))
 
-(defn str-to-long
-  "Parses a string to a Long. Passes through `nil`."
-  [s]
-  (when s (parse-long s)))
-
 ; Common definitions for the key-value store (i.e., CAS register) model
 (defn r
   [_ _]
-  {:type :invoke
-   :f :read
-   :value nil})
+  {:type  :invoke
+   :f     :read
+   :value nil
+   :tstag nil})
 
 (defn w
-  [test _]
-  {:type :invoke
-   :f :write
-   :value (rand-int (:value-range test))})
+  [test ctx]
+  {:type  :invoke
+   :f     :write
+   :value (rand-int (:value-range test))
+   :tstag (:time ctx)})
 
 (defn cas
-  [test _]
-  {:type :invoke
-   :f :cas
-   :value [(rand-int (:value-range test)) (rand-int (:value-range test))]})
+  [test ctx]
+  {:type  :invoke
+   :f     :cas
+   :value [(rand-int (:value-range test)) (rand-int (:value-range test))]
+   :tstag [nil (:time ctx)]})
 
 ; Common test options regardless of system
 (defn full-test-opts
@@ -55,16 +53,21 @@
   "Executes an external command with given arguments. Returns a boolean
    that indicates check success status, or ':unknown' to indicate unknown
    result due to checker internal error."
-  [& args]
+  [test-dir & args]
   (let [proc (.exec (Runtime/getRuntime) (into-array String args))
         stdout (slurp (.getInputStream proc))
         stderr (slurp (.getErrorStream proc))
         exit-code (.waitFor proc)]
     (info "Rust checker exit code:" exit-code)
+
     (info "Rust checker stdout:")
     (println stdout)
+    (spit (str test-dir "/sop-checker.out") stdout)
+
     (info "Rust checker stderr:")
     (println stderr)
+    (spit (str test-dir "/sop-checker.err") stderr)
+
     (case exit-code
       0 true
       1 false
@@ -75,6 +78,7 @@
   (reify checker/Checker
     (check [_ test _ _]
       (case (external-exec
+             (.getPath (store/path test))
              "cargo" "run" "-r" "--"
              "--test-dir" (.getPath (store/path test)))
         true {:valid? true}

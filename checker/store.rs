@@ -5,7 +5,7 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 
-use crate::types::{ClientId, Event, EventType, KeyType, OpData, Timestamp, ValType};
+use crate::types::{ClientId, Event, EventType, KeyType, OpData, Timestamp, UniqueTag, ValType};
 
 /// History edn file name.
 const HISTORY_FILE: &str = "history.edn";
@@ -26,12 +26,22 @@ impl EventType {
 impl OpData {
     pub(crate) fn from_type(s: &str) -> Result<Self, Box<dyn Error>> {
         match s {
-            ":read" => Ok(OpData::Read { key: 0, val: None }),
-            ":write" => Ok(OpData::Write { key: 0, val: 0 }),
+            ":read" => Ok(OpData::Read {
+                key: 0,
+                val: None,
+                tag: None,
+            }),
+            ":write" => Ok(OpData::Write {
+                key: 0,
+                val: 0,
+                tag: 0,
+            }),
             ":cas" => Ok(OpData::Rmw {
                 key: 0,
                 rval: None,
+                rtag: None,
                 wval: None,
+                wtag: None,
             }),
             _ => Err(format!("unknown operation type: {}", s).into()),
         }
@@ -39,7 +49,7 @@ impl OpData {
 
     pub(crate) fn fill_values(&mut self, s: &str) -> Result<(), Box<dyn Error>> {
         match self {
-            OpData::Read { key, val } => {
+            OpData::Read { key, val, .. } => {
                 if let Some((k, v)) = s
                     .trim_start_matches('[')
                     .trim_end_matches(']')
@@ -56,7 +66,7 @@ impl OpData {
                 }
             }
 
-            OpData::Write { key, val } => {
+            OpData::Write { key, val, .. } => {
                 if let Some((k, v)) = s
                     .trim_start_matches('[')
                     .trim_end_matches(']')
@@ -69,7 +79,9 @@ impl OpData {
                 }
             }
 
-            OpData::Rmw { key, rval, wval } => {
+            OpData::Rmw {
+                key, rval, wval, ..
+            } => {
                 if let Some((k, vp)) = s
                     .trim_start_matches('[')
                     .trim_end_matches(']')
@@ -88,6 +100,45 @@ impl OpData {
                     }
                 } else {
                     return Err(format!("invalid :value for :cas: {}", s).into());
+                }
+            }
+        }
+
+        Ok(())
+    }
+
+    pub(crate) fn fill_tstags(&mut self, s: &str) -> Result<(), Box<dyn Error>> {
+        match self {
+            OpData::Read { tag, .. } => {
+                if s.trim() == "nil" {
+                    *tag = None;
+                } else {
+                    *tag = Some(s.parse::<UniqueTag>()?);
+                }
+            }
+
+            OpData::Write { tag, .. } => {
+                *tag = s.parse::<UniqueTag>()?;
+            }
+
+            OpData::Rmw { rtag, wtag, .. } => {
+                if let Some((rt, wt)) = s
+                    .trim_start_matches('[')
+                    .trim_end_matches(']')
+                    .split_once(' ')
+                {
+                    if rt.trim() == "nil" {
+                        *rtag = None;
+                    } else {
+                        *rtag = Some(rt.parse::<UniqueTag>()?);
+                    }
+                    if wt.trim() == "nil" {
+                        *wtag = None;
+                    } else {
+                        *wtag = Some(wt.parse::<UniqueTag>()?);
+                    }
+                } else {
+                    return Err(format!("invalid :tstag for :cas: {}", s).into());
                 }
             }
         }
@@ -160,6 +211,14 @@ fn parse_segment(
             }
         }
 
+        ":tstag" => {
+            if let Some(op) = op.as_mut() {
+                op.fill_tstags(stuff)?;
+            } else {
+                return Err("missing op type :f for :tstag".into());
+            }
+        }
+
         _ => {}
     }
 
@@ -216,11 +275,15 @@ pub(crate) fn parse_history(test_dir: &Path) -> Result<(Vec<Event>, ClientId), B
                         break;
                     }
                     Err(err) => {
-                        return Err(format!("error parsing segment {}: {}", seg, err).into());
+                        eprintln!("Skip line due to segment: {}: {}", seg, err);
+                        skip = true;
+                        break;
                     }
                 }
             } else {
-                return Err(format!("invalid segment: {}", seg).into());
+                eprintln!("Skip line due to invalid segment: {}", seg);
+                skip = true;
+                break;
             }
         }
 

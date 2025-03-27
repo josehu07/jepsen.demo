@@ -16,6 +16,9 @@ pub(crate) type ValType = u64;
 /// Timestamp type.
 pub(crate) type Timestamp = u64;
 
+/// Operation-unique tag type.
+pub(crate) type UniqueTag = u64;
+
 /// Event type enum.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub(crate) enum EventType {
@@ -33,10 +36,12 @@ pub(crate) enum OpData {
     Read {
         key: KeyType,
         val: Option<ValType>,
+        tag: Option<UniqueTag>,
     },
     Write {
         key: KeyType,
         val: ValType,
+        tag: UniqueTag,
     },
     /// Any general operation fits RMW (read-modify-write). A common example
     /// beyond regular reads/writes is CAS (compare-and-swap).
@@ -44,14 +49,16 @@ pub(crate) enum OpData {
     Rmw {
         key: KeyType,
         rval: Option<ValType>,
+        rtag: Option<UniqueTag>,
         wval: Option<ValType>, // function from `rval` to `wval` assumed correct
+        wtag: Option<UniqueTag>,
     },
 }
 
 impl fmt::Display for OpData {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            OpData::Read { key, val } => {
+            OpData::Read { key, val, .. } => {
                 write!(
                     f,
                     "R_{}:{}",
@@ -59,8 +66,10 @@ impl fmt::Display for OpData {
                     val.as_ref().map(|v| v.to_string()).unwrap_or("-".into())
                 )
             }
-            OpData::Write { key, val } => write!(f, "W_{}<{}", key, val),
-            OpData::Rmw { key, rval, wval } => {
+            OpData::Write { key, val, .. } => write!(f, "W_{}<{}", key, val),
+            OpData::Rmw {
+                key, rval, wval, ..
+            } => {
                 write!(
                     f,
                     "RMW_{}:{}<{}",
@@ -78,7 +87,9 @@ impl OpData {
     fn match_previous(&self, prev: &OpData) -> bool {
         match (self, prev) {
             (OpData::Read { key, .. }, OpData::Read { key: k, .. }) => key == k,
-            (OpData::Write { key, val }, OpData::Write { key: k, val: v }) => key == k && val == v,
+            (OpData::Write { key, val, .. }, OpData::Write { key: k, val: v, .. }) => {
+                key == k && val == v
+            }
             (OpData::Rmw { key, .. }, OpData::Rmw { key: k, .. }) => key == k,
             _ => false,
         }
@@ -119,6 +130,10 @@ impl OpSpan {
             data,
         }
     }
+
+    pub(crate) fn terminated(&self) -> bool {
+        self.finish != 0
+    }
 }
 
 /// Event type, used only during the parsing of history.
@@ -146,12 +161,20 @@ impl Event {
 #[derive(Debug, Clone)]
 pub(crate) struct Timeline {
     queues: Vec<VecDeque<OpSpan>>,
+
+    // Operation per-type statistics: for each, [invokes, okays, fails]
+    pub(crate) stats_r: [usize; 3],
+    pub(crate) stats_w: [usize; 3],
+    pub(crate) stats_cas: [usize; 3],
 }
 
 impl Timeline {
     pub(crate) fn new(events: Vec<Event>, max_client: ClientId) -> Result<Self, Box<dyn Error>> {
         let mut tl = Timeline {
             queues: vec![VecDeque::new(); max_client + 1],
+            stats_r: [0; 3],
+            stats_w: [0; 3],
+            stats_cas: [0; 3],
         };
 
         for e in events {
@@ -172,12 +195,16 @@ impl Timeline {
                     match &mut opdata {
                         OpData::Read { val, .. } => {
                             *val = None;
+                            tl.stats_r[0] += 1;
+                        }
+                        OpData::Write { .. } => {
+                            tl.stats_w[0] += 1;
                         }
                         OpData::Rmw { rval, wval, .. } => {
                             *rval = None;
                             *wval = None;
+                            tl.stats_cas[0] += 1;
                         }
-                        _ => {}
                     }
 
                     tl.queues[e.client].push_back(OpSpan::new(e.time, 0, opdata));
@@ -204,6 +231,18 @@ impl Timeline {
                         .into());
                     }
 
+                    match op.data {
+                        OpData::Read { .. } => {
+                            tl.stats_r[1] += 1;
+                        }
+                        OpData::Write { .. } => {
+                            tl.stats_w[1] += 1;
+                        }
+                        OpData::Rmw { .. } => {
+                            tl.stats_cas[1] += 1;
+                        }
+                    }
+
                     op.finish = e.time;
                     op.data.overwrite_by(e.opdata);
                 }
@@ -227,6 +266,18 @@ impl Timeline {
                             e.client, e.time, e.opdata, op.data
                         )
                         .into());
+                    }
+
+                    match op.data {
+                        OpData::Read { .. } => {
+                            tl.stats_r[2] += 1;
+                        }
+                        OpData::Write { .. } => {
+                            tl.stats_w[2] += 1;
+                        }
+                        OpData::Rmw { .. } => {
+                            tl.stats_cas[2] += 1;
+                        }
                     }
 
                     op.finish = e.time;

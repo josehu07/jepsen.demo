@@ -1,7 +1,5 @@
 (ns systems.rmq
-  (:require [helpers :refer [r
-                             w
-                             cas
+  (:require [helpers :refer [r w cas
                              checker-select
                              full-test-opts]]
             [clojure.tools.logging :refer [info]]
@@ -148,7 +146,7 @@
 
 (defn pull-state
   "Try to pull an updated state from a queue and apply."
-  [ch queue my-state]
+  [ch queue my-state k]
   (jutil/timeout
    5000
    false
@@ -158,16 +156,16 @@
      (when-not (nil? meta)  ; overwrite local view
        (reset! my-state state))
 
-     true)))
+     (get state k))))
 
 (defn push-state
   "Try to push an updated state to a queue and apply."
-  [ch queue my-state k v]
+  [ch queue my-state k v tag]
   (jutil/timeout
    5000
    false
 
-   (let [state (assoc @my-state k v)]
+   (let [state (assoc @my-state k {:val v, :tag tag})]
      (lconfirm/select ch)
      (lbasic/publish ch "" queue  ; "" means the default exchange
                      (codec/encode state)
@@ -209,31 +207,40 @@
 
   (invoke! [_ _ op]
     (with-ch [ch conn]
-      (let [[k v] (:value op)]
+      (let [[k v] (:value op)
+            intag (:tstag op)]
         (case (:f op)
-          :read (let [[_ q] (rand-entry queue<-)]
-                  (if (pull-state ch q my-state)
-                    (assoc op
-                           :type :ok,
-                           :value (indp/tuple k (get @my-state k)))
-                    (assoc op :type :fail, :error :timeout)))
+          :read  (let [[_ q]  (rand-entry queue<-)
+                       pulled (pull-state ch q my-state k)]
+                   (case pulled
+                     false (assoc op :type :fail, :error :timeout)
+                     nil   (assoc op
+                                  :type :ok
+                                  :value (indp/tuple k nil))
+                     (assoc op
+                            :type :ok,
+                            :value (indp/tuple k (:val pulled))
+                            :tstag (:tag pulled))))
 
           :write (let [[_ q] (rand-entry queue->)]
-                   (if (push-state ch q my-state k v)
+                   (if (push-state ch q my-state k v intag)
                      (assoc op :type :ok)
-                     (assoc op :type :fail, :error :timeout)))
+                     (assoc op :type :info, :error :timeout)))
 
-          :cas (let [[_ q] (rand-entry queue->)]
-                 (if (pull-state ch q my-state)
-                   (let [[old new] v]
-
-                     (if (= (get @my-state k) old)
-                       (if (push-state ch q my-state k new)
-                         (assoc op :type :ok)
-                         (assoc op :type :fail, :error :timeout))
-                       (assoc op :type :fail)))
-
-                   (assoc op :type :fail, :error :timeout)))))))
+          :cas   (let [[_ q]  (rand-entry queue->)
+                       pulled (pull-state ch q my-state k)
+                       newtag (second intag)]
+                   (case pulled
+                     false (assoc op :type :info, :error :timeout)
+                     nil   (assoc op :type :fail)
+                     (let [[old new] v
+                           val       (:val pulled)
+                           tag       (:tag pulled)]
+                       (if (= val old)
+                         (if (push-state ch q my-state k new newtag)
+                           (assoc op :type :ok, :tstag [tag newtag])
+                           (assoc op :type :info, :error :timeout))
+                         (assoc op :type :fail)))))))))
 
   (teardown! [_ _]
     (doseq [node (:nodes test)]
@@ -289,12 +296,12 @@
   (merge tests/noop-test
          opts
          {:name      (str "rabbitmq"
-                          " r=" (:op-gen-rate opts)
-                          " o=" (:ops-per-key opts)
-                          " t=" (:con-per-key opts)
-                          " c=" (:concurrency opts)
-                          " v=" (:value-range opts)
-                          " l=" (:time-limit opts)
+                          " r=" (:op-gen-rate  opts)
+                          " o=" (:ops-per-key  opts)
+                          " t=" (:con-per-key  opts)
+                          " c=" (:concurrency  opts)
+                          " v=" (:value-range  opts)
+                          " l=" (:time-limit   opts)
                           " f=" (:fault-window opts))
           :os        ubuntu/os
           :db        (rabbitmq-db "version.not.used")
@@ -308,12 +315,12 @@
   "Extra command line options."
   [["-r" "--op-gen-rate RATE"
     "Operations per second rate."
-    :default  10
+    :default  250
     :parse-fn read-string
     :validate [#(and (number? %) (pos? %)) "Must be a positive number"]]
    ["-o" "--ops-per-key NUMBER"
     "Number of operations per key."
-    :default  100
+    :default  5000
     :parse-fn parse-long
     :validate [pos? "Must be a positive integer"]]
    ["-t" "--con-per-key NUMBER"

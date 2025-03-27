@@ -1,16 +1,16 @@
 # Jepsen Workflow Demos
 
-Jepsen test workflow demos, with hooks to a custom Rust-implemented checker.
+Jepsen test workflow demos, with hooks to a custom Rust-implemented consistency checker.
 
 TODO(reference to paper)
 
 ## Systems
 
-The demos are tested on CloudLab Ubuntu 22.04 machines. The list of currently supported systems is as follows:
+The demos are tested on CloudLab Ubuntu 22.04 machines. The list of currently supported systems is as follows (each may have multiple consistency modes):
 
 - etcd-v3.1
 - zookeeper-v3.4
-- TODO(rabbitmq)
+- rabbitmq-v3.8
 
 Make sure they are available under `/home/jepsen/<system-va.b>/` and compiled on all remote data nodes before running a test from the control node. Some systems might not need compiling & installing from source, instead just requiring a package installation.
 
