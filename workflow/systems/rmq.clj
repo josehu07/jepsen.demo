@@ -52,7 +52,7 @@
                  (= rmqcookie
                     (ctrl/exec :sudo :cat scookiefile)))
         (info "setting erlang cookie")
-        (ctrl/exec :systemctl :stop :rabbitmq-server)
+        (ctrl/exec :sudo :systemctl :stop :rabbitmq-server)
         (ctrl/su (ctrl/exec :echo rmqcookie :> scookiefile))
         (ctrl/su (ctrl/exec :echo rmqcookie :> ccookiefile)))
 
