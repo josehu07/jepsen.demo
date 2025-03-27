@@ -12,7 +12,8 @@
              [checker :as checker]]
             [systems
              [etcd :as etcd]
-             [zk :as zk]]))
+             [zk :as zk]
+             [rmq :as rmq]]))
 
 (defn unknown-system-help
   "Prints help message when system name unknown"
@@ -124,6 +125,7 @@
                        "check" nil
                        "etcd" etcd/etcd-test-cmd
                        "zk" zk/zk-test-cmd
+                       "rmq" rmq/rmq-test-cmd
                        (unknown-system-help system-name))]
 
     (case system-name

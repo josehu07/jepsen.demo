@@ -2,17 +2,17 @@
 
 Jepsen test workflow demos, with hooks to a custom Rust-implemented checker.
 
-TODO(reference)
+TODO(reference to paper)
 
 ## Systems
 
-The list of currently supported systems is as follows:
+The demos are tested on CloudLab Ubuntu 22.04 machines. The list of currently supported systems is as follows:
 
 - etcd-v3.1
 - zookeeper-v3.4
 - TODO(rabbitmq)
 
-Make sure they are available under `/home/jepsen/<system-va.b>/` and compiled on all remote data nodes before running a test from the control node.
+Make sure they are available under `/home/jepsen/<system-va.b>/` and compiled on all remote data nodes before running a test from the control node. Some systems might not need compiling & installing from source, instead just requiring a package installation.
 
 ## Usage
 

@@ -196,6 +196,7 @@
   (merge tests/noop-test
          opts
          {:name      (str "zk"
+                          " e=" (:local-refs opts)
                           " r=" (:op-gen-rate opts)
                           " o=" (:ops-per-key opts)
                           " t=" (:con-per-key opts)

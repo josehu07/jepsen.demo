@@ -29,7 +29,8 @@
    :f :write
    :value (rand-int (:value-range test))})
 
-(defn cas [test _]
+(defn cas
+  [test _]
   {:type :invoke
    :f :cas
    :value [(rand-int (:value-range test)) (rand-int (:value-range test))]})
@@ -80,7 +81,8 @@
         false {:valid? false, :msg "Please see the Rust checker output."}
         :unknown {:valid? :unknown, :msg "Rust checker exits with error."}))))
 
-(def original-checker
+; Original Jepsen-supplied checkers
+(def orig-linear-checker
   "The original independent linearizability checker in Clojure."
   (reify checker/Checker
     (check [_ test history opts]
@@ -103,10 +105,10 @@
 
      ; during test
     (when-not (:skip-checker test-opts)
-      {:indp-linear original-checker})
+      {:indp-linear orig-linear-checker})
 
      ; during check-only
     (if (:rust-checker check-opts)
       {:sop-checker rust-sop-checker}
 
-      {:indp-linear original-checker})))
+      {:indp-linear orig-linear-checker})))
