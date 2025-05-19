@@ -1,0 +1,62 @@
+{:valid? false,
+ :configs
+ ({:model {:value 7},
+   :last-op
+   {:process 26,
+    :type :ok,
+    :f :read,
+    :value 7,
+    :index 94530,
+    :time 31112959850,
+    :tstag 31107037515},
+   :pending
+   [{:process 28,
+     :type :invoke,
+     :f :cas,
+     :value [6 3],
+     :index 94487,
+     :time 31103232048,
+     :tstag [nil 31103232048]}]}),
+ :final-paths
+ ([{:op
+    {:process 26,
+     :type :ok,
+     :f :read,
+     :value 7,
+     :index 94530,
+     :time 31112959850,
+     :tstag 31107037515},
+    :model {:value 7}}
+   {:op
+    {:process 28,
+     :type :ok,
+     :f :cas,
+     :value [6 3],
+     :index 94569,
+     :time 31121393919,
+     :tstag [31096644934 31103232048]},
+    :model {:msg "can't CAS 7 from 6 to 3"}}]),
+ :previous-ok
+ {:process 26,
+  :type :ok,
+  :f :read,
+  :value 7,
+  :index 94530,
+  :time 31112959850,
+  :tstag 31107037515},
+ :last-op
+ {:process 26,
+  :type :ok,
+  :f :read,
+  :value 7,
+  :index 94530,
+  :time 31112959850,
+  :tstag 31107037515},
+ :op
+ {:process 28,
+  :type :ok,
+  :f :cas,
+  :value [6 3],
+  :index 94569,
+  :time 31121393919,
+  :tstag [31096644934 31103232048]}}

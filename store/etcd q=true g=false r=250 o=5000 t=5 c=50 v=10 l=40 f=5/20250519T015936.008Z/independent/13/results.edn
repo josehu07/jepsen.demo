@@ -1,0 +1,71 @@
+{:valid? true,
+ :configs
+ ({:model {:value 4},
+   :last-op
+   {:process 135,
+    :type :ok,
+    :f :write,
+    :value 4,
+    :index 151381,
+    :time 40120776439,
+    :tstag 40117001128},
+   :pending
+   [{:process 85,
+     :type :invoke,
+     :f :cas,
+     :value [2 5],
+     :index 100162,
+     :time 23677829473,
+     :tstag [nil 23677829473]}
+    {:process 86,
+     :type :invoke,
+     :f :cas,
+     :value [7 4],
+     :index 110670,
+     :time 28624187486,
+     :tstag [nil 28624187486]}]}
+  {:model {:value 4},
+   :last-op
+   {:process 135,
+    :type :ok,
+    :f :write,
+    :value 4,
+    :index 151381,
+    :time 40120776439,
+    :tstag 40117001128},
+   :pending []}
+  {:model {:value 4},
+   :last-op
+   {:process 135,
+    :type :ok,
+    :f :write,
+    :value 4,
+    :index 151381,
+    :time 40120776439,
+    :tstag 40117001128},
+   :pending
+   [{:process 86,
+     :type :invoke,
+     :f :cas,
+     :value [7 4],
+     :index 110670,
+     :time 28624187486,
+     :tstag [nil 28624187486]}]}
+  {:model {:value 4},
+   :last-op
+   {:process 135,
+    :type :ok,
+    :f :write,
+    :value 4,
+    :index 151381,
+    :time 40120776439,
+    :tstag 40117001128},
+   :pending
+   [{:process 85,
+     :type :invoke,
+     :f :cas,
+     :value [2 5],
+     :index 100162,
+     :time 23677829473,
+     :tstag [nil 23677829473]}]}),
+ :final-paths ()}

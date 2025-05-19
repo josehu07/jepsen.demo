@@ -1,0 +1,30 @@
+{:valid? true,
+ :configs
+ ({:model {:value 8},
+   :last-op
+   {:process 160,
+    :type :ok,
+    :f :write,
+    :value 8,
+    :index 130177,
+    :time 40120594499,
+    :tstag 40117998338},
+   :pending []}
+  {:model {:value 8},
+   :last-op
+   {:process 160,
+    :type :ok,
+    :f :write,
+    :value 8,
+    :index 130177,
+    :time 40120594499,
+    :tstag 40117998338},
+   :pending
+   [{:process 112,
+     :type :invoke,
+     :f :cas,
+     :value [8 0],
+     :index 107072,
+     :time 33784574950,
+     :tstag [nil 33784574950]}]}),
+ :final-paths ()}

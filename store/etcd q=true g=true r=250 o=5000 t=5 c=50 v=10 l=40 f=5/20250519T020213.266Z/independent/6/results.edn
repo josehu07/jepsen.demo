@@ -1,0 +1,202 @@
+{:valid? false,
+ :configs
+ ({:model {:value 2},
+   :last-op
+   {:process 30,
+    :type :ok,
+    :f :read,
+    :value 2,
+    :index 8148,
+    :time 2106770540,
+    :tstag 2098752539},
+   :pending
+   [{:process 30,
+     :type :invoke,
+     :f :read,
+     :value 2,
+     :index 8168,
+     :time 2110576211,
+     :tstag nil}
+    {:process 31,
+     :type :invoke,
+     :f :read,
+     :value 2,
+     :index 8178,
+     :time 2111405730,
+     :tstag nil}
+    {:process 33,
+     :type :invoke,
+     :f :cas,
+     :value [0 9],
+     :index 8011,
+     :time 2078875022,
+     :tstag [nil 2078875022]}]}),
+ :final-paths
+ ([{:op
+    {:process 30,
+     :type :ok,
+     :f :read,
+     :value 2,
+     :index 8148,
+     :time 2106770540,
+     :tstag 2098752539},
+    :model {:value 2}}
+   {:op
+    {:process 31,
+     :type :invoke,
+     :f :read,
+     :value 2,
+     :index 8178,
+     :time 2111405730,
+     :tstag nil},
+    :model {:value 2}}
+   {:op
+    {:process 33,
+     :type :ok,
+     :f :cas,
+     :value [0 9],
+     :index 8188,
+     :time 2113333863,
+     :tstag [2078092886 2078875022]},
+    :model {:msg "can't CAS 2 from 0 to 9"}}]
+  [{:op
+    {:process 30,
+     :type :ok,
+     :f :read,
+     :value 2,
+     :index 8148,
+     :time 2106770540,
+     :tstag 2098752539},
+    :model {:value 2}}
+   {:op
+    {:process 30,
+     :type :invoke,
+     :f :read,
+     :value 2,
+     :index 8168,
+     :time 2110576211,
+     :tstag nil},
+    :model {:value 2}}
+   {:op
+    {:process 33,
+     :type :ok,
+     :f :cas,
+     :value [0 9],
+     :index 8188,
+     :time 2113333863,
+     :tstag [2078092886 2078875022]},
+    :model {:msg "can't CAS 2 from 0 to 9"}}]
+  [{:op
+    {:process 30,
+     :type :ok,
+     :f :read,
+     :value 2,
+     :index 8148,
+     :time 2106770540,
+     :tstag 2098752539},
+    :model {:value 2}}
+   {:op
+    {:process 31,
+     :type :invoke,
+     :f :read,
+     :value 2,
+     :index 8178,
+     :time 2111405730,
+     :tstag nil},
+    :model {:value 2}}
+   {:op
+    {:process 30,
+     :type :invoke,
+     :f :read,
+     :value 2,
+     :index 8168,
+     :time 2110576211,
+     :tstag nil},
+    :model {:value 2}}
+   {:op
+    {:process 33,
+     :type :ok,
+     :f :cas,
+     :value [0 9],
+     :index 8188,
+     :time 2113333863,
+     :tstag [2078092886 2078875022]},
+    :model {:msg "can't CAS 2 from 0 to 9"}}]
+  [{:op
+    {:process 30,
+     :type :ok,
+     :f :read,
+     :value 2,
+     :index 8148,
+     :time 2106770540,
+     :tstag 2098752539},
+    :model {:value 2}}
+   {:op
+    {:process 33,
+     :type :ok,
+     :f :cas,
+     :value [0 9],
+     :index 8188,
+     :time 2113333863,
+     :tstag [2078092886 2078875022]},
+    :model {:msg "can't CAS 2 from 0 to 9"}}]
+  [{:op
+    {:process 30,
+     :type :ok,
+     :f :read,
+     :value 2,
+     :index 8148,
+     :time 2106770540,
+     :tstag 2098752539},
+    :model {:value 2}}
+   {:op
+    {:process 30,
+     :type :invoke,
+     :f :read,
+     :value 2,
+     :index 8168,
+     :time 2110576211,
+     :tstag nil},
+    :model {:value 2}}
+   {:op
+    {:process 31,
+     :type :invoke,
+     :f :read,
+     :value 2,
+     :index 8178,
+     :time 2111405730,
+     :tstag nil},
+    :model {:value 2}}
+   {:op
+    {:process 33,
+     :type :ok,
+     :f :cas,
+     :value [0 9],
+     :index 8188,
+     :time 2113333863,
+     :tstag [2078092886 2078875022]},
+    :model {:msg "can't CAS 2 from 0 to 9"}}]),
+ :previous-ok
+ {:process 30,
+  :type :ok,
+  :f :read,
+  :value 2,
+  :index 8148,
+  :time 2106770540,
+  :tstag 2098752539},
+ :last-op
+ {:process 30,
+  :type :ok,
+  :f :read,
+  :value 2,
+  :index 8148,
+  :time 2106770540,
+  :tstag 2098752539},
+ :op
+ {:process 33,
+  :type :ok,
+  :f :cas,
+  :value [0 9],
+  :index 8188,
+  :time 2113333863,
+  :tstag [2078092886 2078875022]}}

@@ -52,6 +52,12 @@ Launch an exploration web server:
 just serve
 ```
 
+## Results
+
+Example results of testing runs can be found under `store/` (and browsed throug the web server):
+
+- TODO
+
 ## References
 
 - Jepsen framework: <https://github.com/jepsen-io/jepsen>

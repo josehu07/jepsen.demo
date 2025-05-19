@@ -1,0 +1,62 @@
+{:valid? false,
+ :configs
+ ({:model {:value 0},
+   :last-op
+   {:process 15,
+    :type :ok,
+    :f :read,
+    :value 0,
+    :index 244,
+    :time 307174437,
+    :tstag 292299395},
+   :pending
+   [{:process 16,
+     :type :invoke,
+     :f :read,
+     :value 9,
+     :index 243,
+     :time 306968787,
+     :tstag nil}]}),
+ :final-paths
+ ([{:op
+    {:process 15,
+     :type :ok,
+     :f :read,
+     :value 0,
+     :index 244,
+     :time 307174437,
+     :tstag 292299395},
+    :model {:value 0}}
+   {:op
+    {:process 16,
+     :type :ok,
+     :f :read,
+     :value 9,
+     :index 245,
+     :time 307340556,
+     :tstag 249012660},
+    :model {:msg "can't read 9 from register 0"}}]),
+ :previous-ok
+ {:process 15,
+  :type :ok,
+  :f :read,
+  :value 0,
+  :index 244,
+  :time 307174437,
+  :tstag 292299395},
+ :last-op
+ {:process 15,
+  :type :ok,
+  :f :read,
+  :value 0,
+  :index 244,
+  :time 307174437,
+  :tstag 292299395},
+ :op
+ {:process 16,
+  :type :ok,
+  :f :read,
+  :value 9,
+  :index 245,
+  :time 307340556,
+  :tstag 249012660}}

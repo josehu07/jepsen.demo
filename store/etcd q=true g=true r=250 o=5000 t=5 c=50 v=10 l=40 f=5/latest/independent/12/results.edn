@@ -1,0 +1,448 @@
+{:valid? false,
+ :configs
+ ({:model {:value 0},
+   :last-op
+   {:process 69,
+    :type :ok,
+    :f :read,
+    :value 0,
+    :index 111179,
+    :time 35981325275,
+    :tstag 35969334021},
+   :pending
+   [{:process 69,
+     :type :invoke,
+     :f :read,
+     :value 0,
+     :index 111180,
+     :time 35981351663,
+     :tstag nil}
+    {:process 165,
+     :type :invoke,
+     :f :cas,
+     :value [9 8],
+     :index 111104,
+     :time 35965613423,
+     :tstag [nil 35965613423]}
+    {:process 167,
+     :type :invoke,
+     :f :cas,
+     :value [5 4],
+     :index 106978,
+     :time 33762184720,
+     :tstag [nil 33762184720]}]}
+  {:model {:value 0},
+   :last-op
+   {:process 69,
+    :type :ok,
+    :f :read,
+    :value 0,
+    :index 111179,
+    :time 35981325275,
+    :tstag 35969334021},
+   :pending
+   [{:process 69,
+     :type :invoke,
+     :f :read,
+     :value 0,
+     :index 111180,
+     :time 35981351663,
+     :tstag nil}
+    {:process 165,
+     :type :invoke,
+     :f :cas,
+     :value [9 8],
+     :index 111104,
+     :time 35965613423,
+     :tstag [nil 35965613423]}]}
+  {:model {:value 0},
+   :last-op
+   {:process 69,
+    :type :ok,
+    :f :read,
+    :value 0,
+    :index 111179,
+    :time 35981325275,
+    :tstag 35969334021},
+   :pending
+   [{:process 68,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 107067,
+     :time 33781475920,
+     :tstag 33781475920}
+    {:process 69,
+     :type :invoke,
+     :f :read,
+     :value 0,
+     :index 111180,
+     :time 35981351663,
+     :tstag nil}
+    {:process 165,
+     :type :invoke,
+     :f :cas,
+     :value [9 8],
+     :index 111104,
+     :time 35965613423,
+     :tstag [nil 35965613423]}
+    {:process 167,
+     :type :invoke,
+     :f :cas,
+     :value [5 4],
+     :index 106978,
+     :time 33762184720,
+     :tstag [nil 33762184720]}]}
+  {:model {:value 0},
+   :last-op
+   {:process 69,
+    :type :ok,
+    :f :read,
+    :value 0,
+    :index 111179,
+    :time 35981325275,
+    :tstag 35969334021},
+   :pending
+   [{:process 68,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 107067,
+     :time 33781475920,
+     :tstag 33781475920}
+    {:process 69,
+     :type :invoke,
+     :f :read,
+     :value 0,
+     :index 111180,
+     :time 35981351663,
+     :tstag nil}
+    {:process 165,
+     :type :invoke,
+     :f :cas,
+     :value [9 8],
+     :index 111104,
+     :time 35965613423,
+     :tstag [nil 35965613423]}]}),
+ :final-paths
+ ([{:op
+    {:process 69,
+     :type :ok,
+     :f :read,
+     :value 0,
+     :index 111179,
+     :time 35981325275,
+     :tstag 35969334021},
+    :model {:value 0}}
+   {:op
+    {:process 68,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 107067,
+     :time 33781475920,
+     :tstag 33781475920},
+    :model {:value 5}}
+   {:op
+    {:process 167,
+     :type :invoke,
+     :f :cas,
+     :value [5 4],
+     :index 106978,
+     :time 33762184720,
+     :tstag [nil 33762184720]},
+    :model {:value 4}}
+   {:op
+    {:process 69,
+     :type :invoke,
+     :f :read,
+     :value 0,
+     :index 111180,
+     :time 35981351663,
+     :tstag nil},
+    :model {:msg "can't read 0 from register 4"}}]
+  [{:op
+    {:process 69,
+     :type :ok,
+     :f :read,
+     :value 0,
+     :index 111179,
+     :time 35981325275,
+     :tstag 35969334021},
+    :model {:value 0}}
+   {:op
+    {:process 69,
+     :type :invoke,
+     :f :read,
+     :value 0,
+     :index 111180,
+     :time 35981351663,
+     :tstag nil},
+    :model {:value 0}}
+   {:op
+    {:process 165,
+     :type :ok,
+     :f :cas,
+     :value [9 8],
+     :index 111195,
+     :time 35984644929,
+     :tstag [35960289878 35965613423]},
+    :model {:msg "can't CAS 0 from 9 to 8"}}]
+  [{:op
+    {:process 69,
+     :type :ok,
+     :f :read,
+     :value 0,
+     :index 111179,
+     :time 35981325275,
+     :tstag 35969334021},
+    :model {:value 0}}
+   {:op
+    {:process 68,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 107067,
+     :time 33781475920,
+     :tstag 33781475920},
+    :model {:value 5}}
+   {:op
+    {:process 69,
+     :type :invoke,
+     :f :read,
+     :value 0,
+     :index 111180,
+     :time 35981351663,
+     :tstag nil},
+    :model {:msg "can't read 0 from register 5"}}]
+  [{:op
+    {:process 69,
+     :type :ok,
+     :f :read,
+     :value 0,
+     :index 111179,
+     :time 35981325275,
+     :tstag 35969334021},
+    :model {:value 0}}
+   {:op
+    {:process 68,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 107067,
+     :time 33781475920,
+     :tstag 33781475920},
+    :model {:value 5}}
+   {:op
+    {:process 165,
+     :type :ok,
+     :f :cas,
+     :value [9 8],
+     :index 111195,
+     :time 35984644929,
+     :tstag [35960289878 35965613423]},
+    :model {:msg "can't CAS 5 from 9 to 8"}}]
+  [{:op
+    {:process 69,
+     :type :ok,
+     :f :read,
+     :value 0,
+     :index 111179,
+     :time 35981325275,
+     :tstag 35969334021},
+    :model {:value 0}}
+   {:op
+    {:process 167,
+     :type :invoke,
+     :f :cas,
+     :value [5 4],
+     :index 106978,
+     :time 33762184720,
+     :tstag [nil 33762184720]},
+    :model {:msg "can't CAS 0 from 5 to 4"}}]
+  [{:op
+    {:process 69,
+     :type :ok,
+     :f :read,
+     :value 0,
+     :index 111179,
+     :time 35981325275,
+     :tstag 35969334021},
+    :model {:value 0}}
+   {:op
+    {:process 69,
+     :type :invoke,
+     :f :read,
+     :value 0,
+     :index 111180,
+     :time 35981351663,
+     :tstag nil},
+    :model {:value 0}}
+   {:op
+    {:process 68,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 107067,
+     :time 33781475920,
+     :tstag 33781475920},
+    :model {:value 5}}
+   {:op
+    {:process 167,
+     :type :invoke,
+     :f :cas,
+     :value [5 4],
+     :index 106978,
+     :time 33762184720,
+     :tstag [nil 33762184720]},
+    :model {:value 4}}
+   {:op
+    {:process 165,
+     :type :ok,
+     :f :cas,
+     :value [9 8],
+     :index 111195,
+     :time 35984644929,
+     :tstag [35960289878 35965613423]},
+    :model {:msg "can't CAS 4 from 9 to 8"}}]
+  [{:op
+    {:process 69,
+     :type :ok,
+     :f :read,
+     :value 0,
+     :index 111179,
+     :time 35981325275,
+     :tstag 35969334021},
+    :model {:value 0}}
+   {:op
+    {:process 69,
+     :type :invoke,
+     :f :read,
+     :value 0,
+     :index 111180,
+     :time 35981351663,
+     :tstag nil},
+    :model {:value 0}}
+   {:op
+    {:process 68,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 107067,
+     :time 33781475920,
+     :tstag 33781475920},
+    :model {:value 5}}
+   {:op
+    {:process 165,
+     :type :ok,
+     :f :cas,
+     :value [9 8],
+     :index 111195,
+     :time 35984644929,
+     :tstag [35960289878 35965613423]},
+    :model {:msg "can't CAS 5 from 9 to 8"}}]
+  [{:op
+    {:process 69,
+     :type :ok,
+     :f :read,
+     :value 0,
+     :index 111179,
+     :time 35981325275,
+     :tstag 35969334021},
+    :model {:value 0}}
+   {:op
+    {:process 68,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 107067,
+     :time 33781475920,
+     :tstag 33781475920},
+    :model {:value 5}}
+   {:op
+    {:process 167,
+     :type :invoke,
+     :f :cas,
+     :value [5 4],
+     :index 106978,
+     :time 33762184720,
+     :tstag [nil 33762184720]},
+    :model {:value 4}}
+   {:op
+    {:process 165,
+     :type :ok,
+     :f :cas,
+     :value [9 8],
+     :index 111195,
+     :time 35984644929,
+     :tstag [35960289878 35965613423]},
+    :model {:msg "can't CAS 4 from 9 to 8"}}]
+  [{:op
+    {:process 69,
+     :type :ok,
+     :f :read,
+     :value 0,
+     :index 111179,
+     :time 35981325275,
+     :tstag 35969334021},
+    :model {:value 0}}
+   {:op
+    {:process 69,
+     :type :invoke,
+     :f :read,
+     :value 0,
+     :index 111180,
+     :time 35981351663,
+     :tstag nil},
+    :model {:value 0}}
+   {:op
+    {:process 167,
+     :type :invoke,
+     :f :cas,
+     :value [5 4],
+     :index 106978,
+     :time 33762184720,
+     :tstag [nil 33762184720]},
+    :model {:msg "can't CAS 0 from 5 to 4"}}]
+  [{:op
+    {:process 69,
+     :type :ok,
+     :f :read,
+     :value 0,
+     :index 111179,
+     :time 35981325275,
+     :tstag 35969334021},
+    :model {:value 0}}
+   {:op
+    {:process 165,
+     :type :ok,
+     :f :cas,
+     :value [9 8],
+     :index 111195,
+     :time 35984644929,
+     :tstag [35960289878 35965613423]},
+    :model {:msg "can't CAS 0 from 9 to 8"}}]),
+ :previous-ok
+ {:process 69,
+  :type :ok,
+  :f :read,
+  :value 0,
+  :index 111179,
+  :time 35981325275,
+  :tstag 35969334021},
+ :last-op
+ {:process 69,
+  :type :ok,
+  :f :read,
+  :value 0,
+  :index 111179,
+  :time 35981325275,
+  :tstag 35969334021},
+ :op
+ {:process 165,
+  :type :ok,
+  :f :cas,
+  :value [9 8],
+  :index 111195,
+  :time 35984644929,
+  :tstag [35960289878 35965613423]}}

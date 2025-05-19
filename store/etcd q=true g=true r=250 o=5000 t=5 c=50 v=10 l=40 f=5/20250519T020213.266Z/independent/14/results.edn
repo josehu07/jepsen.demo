@@ -1,0 +1,96 @@
+{:valid? false,
+ :configs
+ ({:model {:value 2},
+   :last-op
+   {:process 137,
+    :type :ok,
+    :f :read,
+    :value 2,
+    :index 101269,
+    :time 32546542688,
+    :tstag 32524036436},
+   :pending
+   [{:process 86,
+     :type :invoke,
+     :f :cas,
+     :value [4 6],
+     :index 101063,
+     :time 32500368298,
+     :tstag [nil 32500368298]}
+    {:process 137,
+     :type :invoke,
+     :f :cas,
+     :value [2 3],
+     :index 101279,
+     :time 32548534697,
+     :tstag [nil 32548534697]}]}),
+ :final-paths
+ ([{:op
+    {:process 137,
+     :type :ok,
+     :f :read,
+     :value 2,
+     :index 101269,
+     :time 32546542688,
+     :tstag 32524036436},
+    :model {:value 2}}
+   {:op
+    {:process 86,
+     :type :ok,
+     :f :cas,
+     :value [4 6],
+     :index 101287,
+     :time 32549898381,
+     :tstag [32506060534 32500368298]},
+    :model {:msg "can't CAS 2 from 4 to 6"}}]
+  [{:op
+    {:process 137,
+     :type :ok,
+     :f :read,
+     :value 2,
+     :index 101269,
+     :time 32546542688,
+     :tstag 32524036436},
+    :model {:value 2}}
+   {:op
+    {:process 137,
+     :type :invoke,
+     :f :cas,
+     :value [2 3],
+     :index 101279,
+     :time 32548534697,
+     :tstag [nil 32548534697]},
+    :model {:value 3}}
+   {:op
+    {:process 86,
+     :type :ok,
+     :f :cas,
+     :value [4 6],
+     :index 101287,
+     :time 32549898381,
+     :tstag [32506060534 32500368298]},
+    :model {:msg "can't CAS 3 from 4 to 6"}}]),
+ :previous-ok
+ {:process 137,
+  :type :ok,
+  :f :read,
+  :value 2,
+  :index 101269,
+  :time 32546542688,
+  :tstag 32524036436},
+ :last-op
+ {:process 137,
+  :type :ok,
+  :f :read,
+  :value 2,
+  :index 101269,
+  :time 32546542688,
+  :tstag 32524036436},
+ :op
+ {:process 86,
+  :type :ok,
+  :f :cas,
+  :value [4 6],
+  :index 101287,
+  :time 32549898381,
+  :tstag [32506060534 32500368298]}}

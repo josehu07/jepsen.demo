@@ -1,0 +1,57 @@
+{:valid? true,
+ :configs
+ ({:model {:value 9},
+   :last-op
+   {:process 48,
+    :type :ok,
+    :f :write,
+    :value 9,
+    :index 151393,
+    :time 40123668387,
+    :tstag 40119623884},
+   :pending []}
+  {:model {:value 8},
+   :last-op
+   {:process 96,
+    :type :ok,
+    :f :read,
+    :value 8,
+    :index 151401,
+    :time 40125862487,
+    :tstag nil},
+   :pending
+   [{:process 47,
+     :type :invoke,
+     :f :cas,
+     :value [4 9],
+     :index 100172,
+     :time 23681503851,
+     :tstag [nil 23681503851]}]}
+  {:model {:value 9},
+   :last-op
+   {:process 48,
+    :type :ok,
+    :f :write,
+    :value 9,
+    :index 151393,
+    :time 40123668387,
+    :tstag 40119623884},
+   :pending
+   [{:process 47,
+     :type :invoke,
+     :f :cas,
+     :value [4 9],
+     :index 100172,
+     :time 23681503851,
+     :tstag [nil 23681503851]}]}
+  {:model {:value 8},
+   :last-op
+   {:process 149,
+    :type :ok,
+    :f :read,
+    :value 8,
+    :index 151399,
+    :time 40125000937,
+    :tstag nil},
+   :pending []}),
+ :final-paths ()}

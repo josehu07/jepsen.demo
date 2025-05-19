@@ -1,0 +1,71 @@
+{:valid? true,
+ :configs
+ ({:model {:value 1},
+   :last-op
+   {:process 90,
+    :type :ok,
+    :f :write,
+    :value 1,
+    :index 90686,
+    :time 21689672916,
+    :tstag 21686045683},
+   :pending
+   [{:process 40,
+     :type :invoke,
+     :f :write,
+     :value 0,
+     :index 36918,
+     :time 8306155257,
+     :tstag 8306155257}]}
+  {:model {:value 1},
+   :last-op
+   {:process 90,
+    :type :ok,
+    :f :write,
+    :value 1,
+    :index 90686,
+    :time 21689672916,
+    :tstag 21686045683},
+   :pending
+   [{:process 41,
+     :type :invoke,
+     :f :write,
+     :value 6,
+     :index 75644,
+     :time 18498736323,
+     :tstag 18498736323}]}
+  {:model {:value 1},
+   :last-op
+   {:process 90,
+    :type :ok,
+    :f :write,
+    :value 1,
+    :index 90686,
+    :time 21689672916,
+    :tstag 21686045683},
+   :pending
+   [{:process 40,
+     :type :invoke,
+     :f :write,
+     :value 0,
+     :index 36918,
+     :time 8306155257,
+     :tstag 8306155257}
+    {:process 41,
+     :type :invoke,
+     :f :write,
+     :value 6,
+     :index 75644,
+     :time 18498736323,
+     :tstag 18498736323}]}
+  {:model {:value 1},
+   :last-op
+   {:process 90,
+    :type :ok,
+    :f :write,
+    :value 1,
+    :index 90686,
+    :time 21689672916,
+    :tstag 21686045683},
+   :pending []}),
+ :final-paths ()}

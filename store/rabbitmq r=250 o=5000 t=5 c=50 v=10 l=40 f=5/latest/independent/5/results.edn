@@ -1,0 +1,96 @@
+{:valid? false,
+ :configs
+ ({:model {:value 7},
+   :last-op
+   {:process 26,
+    :type :ok,
+    :f :read,
+    :value nil,
+    :index 2595,
+    :time 980758916,
+    :tstag nil},
+   :pending
+   [{:process 25,
+     :type :invoke,
+     :f :read,
+     :value nil,
+     :index 2617,
+     :time 985249840,
+     :tstag nil}
+    {:process 29,
+     :type :invoke,
+     :f :read,
+     :value 1,
+     :index 2601,
+     :time 982018263,
+     :tstag nil}]}),
+ :final-paths
+ ([{:op
+    {:process 26,
+     :type :ok,
+     :f :read,
+     :value nil,
+     :index 2595,
+     :time 980758916,
+     :tstag nil},
+    :model {:value 7}}
+   {:op
+    {:process 25,
+     :type :invoke,
+     :f :read,
+     :value nil,
+     :index 2617,
+     :time 985249840,
+     :tstag nil},
+    :model {:value 7}}
+   {:op
+    {:process 29,
+     :type :ok,
+     :f :read,
+     :value 1,
+     :index 2620,
+     :time 985570781,
+     :tstag 605130580},
+    :model {:msg "can't read 1 from register 7"}}]
+  [{:op
+    {:process 26,
+     :type :ok,
+     :f :read,
+     :value nil,
+     :index 2595,
+     :time 980758916,
+     :tstag nil},
+    :model {:value 7}}
+   {:op
+    {:process 29,
+     :type :ok,
+     :f :read,
+     :value 1,
+     :index 2620,
+     :time 985570781,
+     :tstag 605130580},
+    :model {:msg "can't read 1 from register 7"}}]),
+ :previous-ok
+ {:process 27,
+  :type :ok,
+  :f :write,
+  :value 7,
+  :index 2605,
+  :time 982901456,
+  :tstag 978241563},
+ :last-op
+ {:process 26,
+  :type :ok,
+  :f :read,
+  :value nil,
+  :index 2595,
+  :time 980758916,
+  :tstag nil},
+ :op
+ {:process 29,
+  :type :ok,
+  :f :read,
+  :value 1,
+  :index 2620,
+  :time 985570781,
+  :tstag 605130580}}

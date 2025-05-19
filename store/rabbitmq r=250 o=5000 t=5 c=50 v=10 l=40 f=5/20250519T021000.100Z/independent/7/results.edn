@@ -1,0 +1,97 @@
+{:valid? false,
+ :configs
+ ({:model {:value 1},
+   :last-op
+   {:process 35,
+    :type :ok,
+    :f :write,
+    :value 1,
+    :index 2746,
+    :time 1011127272,
+    :tstag 1007468200},
+   :pending
+   [{:process 35,
+     :type :invoke,
+     :f :cas,
+     :value [9 2],
+     :index 2771,
+     :time 1017626363,
+     :tstag [nil 1017626363]}]}
+  {:model {:value 8},
+   :last-op
+   {:process 38,
+    :type :ok,
+    :f :write,
+    :value 8,
+    :index 2738,
+    :time 1009188215,
+    :tstag 1005379424},
+   :pending
+   [{:process 35,
+     :type :invoke,
+     :f :cas,
+     :value [9 2],
+     :index 2771,
+     :time 1017626363,
+     :tstag [nil 1017626363]}]}),
+ :final-paths
+ ([{:op
+    {:process 38,
+     :type :ok,
+     :f :write,
+     :value 8,
+     :index 2738,
+     :time 1009188215,
+     :tstag 1005379424},
+    :model {:value 8}}
+   {:op
+    {:process 35,
+     :type :ok,
+     :f :cas,
+     :value [9 2],
+     :index 2796,
+     :time 1021986357,
+     :tstag [467713595 1017626363]},
+    :model {:msg "can't CAS 8 from 9 to 2"}}]
+  [{:op
+    {:process 35,
+     :type :ok,
+     :f :write,
+     :value 1,
+     :index 2746,
+     :time 1011127272,
+     :tstag 1007468200},
+    :model {:value 1}}
+   {:op
+    {:process 35,
+     :type :ok,
+     :f :cas,
+     :value [9 2],
+     :index 2796,
+     :time 1021986357,
+     :tstag [467713595 1017626363]},
+    :model {:msg "can't CAS 1 from 9 to 2"}}]),
+ :previous-ok
+ {:process 35,
+  :type :ok,
+  :f :write,
+  :value 1,
+  :index 2746,
+  :time 1011127272,
+  :tstag 1007468200},
+ :last-op
+ {:process 35,
+  :type :ok,
+  :f :write,
+  :value 1,
+  :index 2746,
+  :time 1011127272,
+  :tstag 1007468200},
+ :op
+ {:process 35,
+  :type :ok,
+  :f :cas,
+  :value [9 2],
+  :index 2796,
+  :time 1021986357,
+  :tstag [467713595 1017626363]}}

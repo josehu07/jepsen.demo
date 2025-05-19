@@ -1,0 +1,131 @@
+{:valid? false,
+ :configs
+ ({:model {:value 6},
+   :last-op
+   {:process 22,
+    :type :ok,
+    :f :read,
+    :value nil,
+    :index 2049,
+    :time 860385102,
+    :tstag nil},
+   :pending
+   [{:process 20,
+     :type :invoke,
+     :f :read,
+     :value 9,
+     :index 2040,
+     :time 858780844,
+     :tstag nil}]}
+  {:model {:value 6},
+   :last-op
+   {:process 21,
+    :type :ok,
+    :f :write,
+    :value 6,
+    :index 2042,
+    :time 858960600,
+    :tstag 855206570},
+   :pending
+   [{:process 20,
+     :type :invoke,
+     :f :read,
+     :value 9,
+     :index 2040,
+     :time 858780844,
+     :tstag nil}
+    {:process 21,
+     :type :invoke,
+     :f :read,
+     :value nil,
+     :index 2046,
+     :time 859572651,
+     :tstag nil}]}),
+ :final-paths
+ ([{:op
+    {:process 22,
+     :type :ok,
+     :f :read,
+     :value nil,
+     :index 2049,
+     :time 860385102,
+     :tstag nil},
+    :model {:value 6}}
+   {:op
+    {:process 20,
+     :type :ok,
+     :f :read,
+     :value 9,
+     :index 2054,
+     :time 861445603,
+     :tstag 522070074},
+    :model {:msg "can't read 9 from register 6"}}]
+  [{:op
+    {:process 21,
+     :type :ok,
+     :f :write,
+     :value 6,
+     :index 2042,
+     :time 858960600,
+     :tstag 855206570},
+    :model {:value 6}}
+   {:op
+    {:process 20,
+     :type :ok,
+     :f :read,
+     :value 9,
+     :index 2054,
+     :time 861445603,
+     :tstag 522070074},
+    :model {:msg "can't read 9 from register 6"}}]
+  [{:op
+    {:process 21,
+     :type :ok,
+     :f :write,
+     :value 6,
+     :index 2042,
+     :time 858960600,
+     :tstag 855206570},
+    :model {:value 6}}
+   {:op
+    {:process 21,
+     :type :invoke,
+     :f :read,
+     :value nil,
+     :index 2046,
+     :time 859572651,
+     :tstag nil},
+    :model {:value 6}}
+   {:op
+    {:process 20,
+     :type :ok,
+     :f :read,
+     :value 9,
+     :index 2054,
+     :time 861445603,
+     :tstag 522070074},
+    :model {:msg "can't read 9 from register 6"}}]),
+ :previous-ok
+ {:process 22,
+  :type :ok,
+  :f :read,
+  :value nil,
+  :index 2049,
+  :time 860385102,
+  :tstag nil},
+ :last-op
+ {:process 22,
+  :type :ok,
+  :f :read,
+  :value nil,
+  :index 2049,
+  :time 860385102,
+  :tstag nil},
+ :op
+ {:process 20,
+  :type :ok,
+  :f :read,
+  :value 9,
+  :index 2054,
+  :time 861445603,
+  :tstag 522070074}}

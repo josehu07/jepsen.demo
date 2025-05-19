@@ -1,0 +1,325 @@
+2025-05-19 02:21:10,259 [myid:] - INFO  [main:QuorumPeerConfig@136] - Reading configuration from: /home/jepsen/zookeeper-v3.4/conf/zoo.cfg
+2025-05-19 02:21:10,270 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp144.utah.cloudlab.us to address: hp144.utah.cloudlab.us/128.110.218.183
+2025-05-19 02:21:10,271 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp158.utah.cloudlab.us to address: hp158.utah.cloudlab.us/128.110.218.197
+2025-05-19 02:21:10,272 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp124.utah.cloudlab.us to address: hp124.utah.cloudlab.us/128.110.218.163
+2025-05-19 02:21:10,273 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp149.utah.cloudlab.us to address: hp149.utah.cloudlab.us/128.110.218.188
+2025-05-19 02:21:10,274 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp159.utah.cloudlab.us to address: hp159.utah.cloudlab.us/128.110.218.198
+2025-05-19 02:21:10,274 [myid:] - INFO  [main:QuorumPeerConfig@398] - Defaulting to majority quorums
+2025-05-19 02:21:10,278 [myid:1] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+2025-05-19 02:21:10,278 [myid:1] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+2025-05-19 02:21:10,278 [myid:1] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+2025-05-19 02:21:10,287 [myid:1] - INFO  [main:QuorumPeerMain@130] - Starting quorum peer
+2025-05-19 02:21:10,293 [myid:1] - INFO  [main:ServerCnxnFactory@117] - Using org.apache.zookeeper.server.NIOServerCnxnFactory as server connection factory
+2025-05-19 02:21:10,297 [myid:1] - INFO  [main:NIOServerCnxnFactory@89] - binding to port 0.0.0.0/0.0.0.0:2181
+2025-05-19 02:21:10,304 [myid:1] - INFO  [main:QuorumPeer@1158] - tickTime set to 2000
+2025-05-19 02:21:10,304 [myid:1] - INFO  [main:QuorumPeer@1204] - initLimit set to 10
+2025-05-19 02:21:10,304 [myid:1] - INFO  [main:QuorumPeer@1178] - minSessionTimeout set to -1
+2025-05-19 02:21:10,305 [myid:1] - INFO  [main:QuorumPeer@1189] - maxSessionTimeout set to -1
+2025-05-19 02:21:10,311 [myid:1] - INFO  [main:QuorumPeer@1467] - QuorumPeer communication is not secured!
+2025-05-19 02:21:10,311 [myid:1] - INFO  [main:QuorumPeer@1496] - quorum.cnxn.threads.size set to 20
+2025-05-19 02:21:10,313 [myid:1] - INFO  [main:QuorumPeer@668] - currentEpoch not found! Creating with a reasonable default of 0. This should only happen when you are upgrading your installation
+2025-05-19 02:21:10,315 [myid:1] - INFO  [main:QuorumPeer@683] - acceptedEpoch not found! Creating with a reasonable default of 0. This should only happen when you are upgrading your installation
+2025-05-19 02:21:10,319 [myid:1] - INFO  [ListenerThread:QuorumCnxManager$Listener@736] - My election bind port: hp158.utah.cloudlab.us/128.110.218.197:3888
+2025-05-19 02:21:10,328 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer@909] - LOOKING
+2025-05-19 02:21:10,329 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@813] - New election. My id =  1, proposed zxid=0x0
+2025-05-19 02:21:10,335 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumCnxManager@347] - Have smaller server identifier, so dropping the connection: (2, 1)
+2025-05-19 02:21:10,335 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 1 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 1 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-19 02:21:10,336 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 0 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-19 02:21:10,336 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumCnxManager@347] - Have smaller server identifier, so dropping the connection: (3, 1)
+2025-05-19 02:21:10,336 [myid:1] - INFO  [hp158.utah.cloudlab.us/128.110.218.197:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.183:60926
+2025-05-19 02:21:10,336 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumCnxManager@347] - Have smaller server identifier, so dropping the connection: (4, 1)
+2025-05-19 02:21:10,337 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 1 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-19 02:21:10,337 [myid:1] - INFO  [hp158.utah.cloudlab.us/128.110.218.197:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.198:57248
+2025-05-19 02:21:10,337 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumCnxManager@347] - Have smaller server identifier, so dropping the connection: (3, 1)
+2025-05-19 02:21:10,338 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 2 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-19 02:21:10,338 [myid:1] - INFO  [hp158.utah.cloudlab.us/128.110.218.197:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.188:53240
+2025-05-19 02:21:10,338 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumCnxManager@347] - Have smaller server identifier, so dropping the connection: (4, 1)
+2025-05-19 02:21:10,338 [myid:1] - WARN  [SendWorker:3:QuorumCnxManager$SendWorker@946] - Exception when using channel: for id 3 my id = 1 error = java.net.SocketException: Broken pipe (Write failed)
+2025-05-19 02:21:10,338 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 3 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-19 02:21:10,339 [myid:1] - INFO  [hp158.utah.cloudlab.us/128.110.218.197:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.198:57264
+2025-05-19 02:21:10,339 [myid:1] - WARN  [SendWorker:3:QuorumCnxManager$SendWorker@951] - Send worker leaving thread
+2025-05-19 02:21:10,339 [myid:1] - WARN  [SendWorker:4:QuorumCnxManager$SendWorker@946] - Exception when using channel: for id 4 my id = 1 error = java.net.SocketException: Broken pipe (Write failed)
+2025-05-19 02:21:10,339 [myid:1] - WARN  [RecvWorker:3:QuorumCnxManager$RecvWorker@1025] - Connection broken for id 3, my id = 1, error = 
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:397)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$RecvWorker.run(QuorumCnxManager.java:1010)
+2025-05-19 02:21:10,341 [myid:1] - WARN  [RecvWorker:3:QuorumCnxManager$RecvWorker@1028] - Interrupting SendWorker
+2025-05-19 02:21:10,339 [myid:1] - WARN  [RecvWorker:4:QuorumCnxManager$RecvWorker@1025] - Connection broken for id 4, my id = 1, error = 
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:397)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$RecvWorker.run(QuorumCnxManager.java:1010)
+2025-05-19 02:21:10,341 [myid:1] - WARN  [RecvWorker:4:QuorumCnxManager$RecvWorker@1028] - Interrupting SendWorker
+2025-05-19 02:21:10,339 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 4 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-19 02:21:10,340 [myid:1] - WARN  [SendWorker:4:QuorumCnxManager$SendWorker@951] - Send worker leaving thread
+2025-05-19 02:21:10,340 [myid:1] - INFO  [hp158.utah.cloudlab.us/128.110.218.197:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.188:53244
+2025-05-19 02:21:10,342 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 3 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-19 02:21:10,343 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 4 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-19 02:21:10,543 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer@979] - FOLLOWING
+2025-05-19 02:21:10,548 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Learner@86] - TCP NoDelay set to: true
+2025-05-19 02:21:10,556 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:zookeeper.version=3.4.13-2d71af4dbe22557fda74f9a9b4309b15a7487f03, built on 06/29/2018 04:05 GMT
+2025-05-19 02:21:10,557 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:host.name=hp158.utah.cloudlab.us
+2025-05-19 02:21:10,557 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.version=11.0.26
+2025-05-19 02:21:10,557 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.vendor=Ubuntu
+2025-05-19 02:21:10,557 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.home=/usr/lib/jvm/java-11-openjdk-amd64
+2025-05-19 02:21:10,557 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.class.path=/home/jepsen/zookeeper-v3.4/bin/../build/classes:/home/jepsen/zookeeper-v3.4/bin/../build/lib/*.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/slf4j-log4j12-1.7.25.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/slf4j-api-1.7.25.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/netty-3.10.6.Final.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/log4j-1.2.17.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/jline-0.9.94.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/audience-annotations-0.5.0.jar:/home/jepsen/zookeeper-v3.4/bin/../zookeeper-3.4.13.jar:/home/jepsen/zookeeper-v3.4/bin/../src/java/lib/*.jar:/home/jepsen/zookeeper-v3.4/bin/../conf:
+2025-05-19 02:21:10,558 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.library.path=/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+2025-05-19 02:21:10,558 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.io.tmpdir=/tmp
+2025-05-19 02:21:10,558 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.compiler=<NA>
+2025-05-19 02:21:10,558 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.name=Linux
+2025-05-19 02:21:10,558 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.arch=amd64
+2025-05-19 02:21:10,558 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.version=6.13.5-061305-generic
+2025-05-19 02:21:10,558 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.name=jepsen
+2025-05-19 02:21:10,559 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.home=/home/jepsen
+2025-05-19 02:21:10,559 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.dir=/
+2025-05-19 02:21:10,561 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@174] - Created server with tickTime 2000 minSessionTimeout 4000 maxSessionTimeout 40000 datadir /home/jepsen/zookeeper-v3.4/data/version-2 snapdir /home/jepsen/zookeeper-v3.4/data/version-2
+2025-05-19 02:21:10,562 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Follower@65] - FOLLOWING - LEADER ELECTION TOOK - 233
+2025-05-19 02:21:10,565 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer$QuorumServer@184] - Resolved hostname: hp149.utah.cloudlab.us to address: hp149.utah.cloudlab.us/128.110.218.188
+2025-05-19 02:21:10,566 [myid:1] - WARN  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Learner@237] - Unexpected exception, tries=0, connecting to hp149.utah.cloudlab.us/128.110.218.188:2888
+java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:609)
+	at org.apache.zookeeper.server.quorum.Learner.connectToLeader(Learner.java:229)
+	at org.apache.zookeeper.server.quorum.Follower.followLeader(Follower.java:72)
+	at org.apache.zookeeper.server.quorum.QuorumPeer.run(QuorumPeer.java:981)
+2025-05-19 02:21:11,580 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Learner@332] - Getting a diff from the leader 0x0
+2025-05-19 02:21:20,928 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51592
+2025-05-19 02:21:20,936 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51592
+2025-05-19 02:21:20,943 [myid:1] - WARN  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Follower@119] - Got zxid 0x100000001 expected 0x1
+2025-05-19 02:21:20,944 [myid:1] - INFO  [SyncThread:1:FileTxnLog@213] - Creating new log file: log.100000001
+2025-05-19 02:21:20,958 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450000 with negotiated timeout 5000 for client /128.110.218.193:51592
+2025-05-19 02:21:21,072 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51606
+2025-05-19 02:21:21,073 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51606
+2025-05-19 02:21:21,076 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450001 with negotiated timeout 5000 for client /128.110.218.193:51606
+2025-05-19 02:21:21,078 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51614
+2025-05-19 02:21:21,079 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51614
+2025-05-19 02:21:21,082 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450002 with negotiated timeout 5000 for client /128.110.218.193:51614
+2025-05-19 02:21:21,086 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51616
+2025-05-19 02:21:21,087 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51616
+2025-05-19 02:21:21,088 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51624
+2025-05-19 02:21:21,089 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51624
+2025-05-19 02:21:21,089 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51640
+2025-05-19 02:21:21,090 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450003 with negotiated timeout 5000 for client /128.110.218.193:51616
+2025-05-19 02:21:21,090 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51640
+2025-05-19 02:21:21,092 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450004 with negotiated timeout 5000 for client /128.110.218.193:51624
+2025-05-19 02:21:21,093 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51648
+2025-05-19 02:21:21,093 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450005 with negotiated timeout 5000 for client /128.110.218.193:51640
+2025-05-19 02:21:21,093 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51656
+2025-05-19 02:21:21,094 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51656
+2025-05-19 02:21:21,095 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51648
+2025-05-19 02:21:21,095 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51672
+2025-05-19 02:21:21,097 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51676
+2025-05-19 02:21:21,097 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450006 with negotiated timeout 5000 for client /128.110.218.193:51656
+2025-05-19 02:21:21,097 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51672
+2025-05-19 02:21:21,098 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51676
+2025-05-19 02:21:21,099 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450007 with negotiated timeout 5000 for client /128.110.218.193:51648
+2025-05-19 02:21:21,102 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450008 with negotiated timeout 5000 for client /128.110.218.193:51672
+2025-05-19 02:21:21,103 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450009 with negotiated timeout 5000 for client /128.110.218.193:51676
+2025-05-19 02:21:21,127 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51690
+2025-05-19 02:21:21,135 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51690
+2025-05-19 02:21:21,139 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45000a with negotiated timeout 5000 for client /128.110.218.193:51690
+2025-05-19 02:21:31,000 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450000, likely client has closed socket
+2025-05-19 02:21:31,002 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51592 which had sessionid 0x1000642fa450000
+2025-05-19 02:21:32,357 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60764
+2025-05-19 02:21:32,358 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x1000642fa450000 at /128.110.218.193:60764
+2025-05-19 02:21:32,359 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:Learner@108] - Revalidating client: 0x1000642fa450000
+2025-05-19 02:21:32,531 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa45000a, likely client has closed socket
+2025-05-19 02:21:32,532 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51690 which had sessionid 0x1000642fa45000a
+2025-05-19 02:21:32,533 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450004, likely client has closed socket
+2025-05-19 02:21:32,533 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51624 which had sessionid 0x1000642fa450004
+2025-05-19 02:21:32,534 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450006, likely client has closed socket
+2025-05-19 02:21:32,535 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51656 which had sessionid 0x1000642fa450006
+2025-05-19 02:21:32,535 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450005, likely client has closed socket
+2025-05-19 02:21:32,536 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51640 which had sessionid 0x1000642fa450005
+2025-05-19 02:21:32,536 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450003, likely client has closed socket
+2025-05-19 02:21:32,537 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51616 which had sessionid 0x1000642fa450003
+2025-05-19 02:21:32,537 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450008, likely client has closed socket
+2025-05-19 02:21:32,538 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51672 which had sessionid 0x1000642fa450008
+2025-05-19 02:21:32,538 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450009, likely client has closed socket
+2025-05-19 02:21:32,539 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51676 which had sessionid 0x1000642fa450009
+2025-05-19 02:21:32,539 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450002, likely client has closed socket
+2025-05-19 02:21:32,540 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51614 which had sessionid 0x1000642fa450002
+2025-05-19 02:21:32,540 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450007, likely client has closed socket
+2025-05-19 02:21:32,541 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51648 which had sessionid 0x1000642fa450007
+2025-05-19 02:21:32,541 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450001, likely client has closed socket
+2025-05-19 02:21:32,541 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51606 which had sessionid 0x1000642fa450001
+2025-05-19 02:21:32,953 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60774
+2025-05-19 02:21:32,953 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60774
+2025-05-19 02:21:33,044 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60788
+2025-05-19 02:21:33,044 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60788
+2025-05-19 02:21:33,251 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60804
+2025-05-19 02:21:33,252 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60804
+2025-05-19 02:21:33,256 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60820
+2025-05-19 02:21:33,257 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60820
+2025-05-19 02:21:33,377 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60832
+2025-05-19 02:21:33,378 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60832
+2025-05-19 02:21:33,378 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60840
+2025-05-19 02:21:33,378 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60840
+2025-05-19 02:21:33,672 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60850
+2025-05-19 02:21:33,673 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x1000642fa450001 at /128.110.218.193:60850
+2025-05-19 02:21:33,674 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:Learner@108] - Revalidating client: 0x1000642fa450001
+2025-05-19 02:21:33,924 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60852
+2025-05-19 02:21:33,925 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x1000642fa450004 at /128.110.218.193:60852
+2025-05-19 02:21:33,925 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:Learner@108] - Revalidating client: 0x1000642fa450004
+2025-05-19 02:21:34,255 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60864
+2025-05-19 02:21:34,256 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x1000642fa450008 at /128.110.218.193:60864
+2025-05-19 02:21:34,256 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:Learner@108] - Revalidating client: 0x1000642fa450008
+2025-05-19 02:21:34,616 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60872
+2025-05-19 02:21:34,619 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x1000642fa450007 at /128.110.218.193:60872
+2025-05-19 02:21:34,620 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:Learner@108] - Revalidating client: 0x1000642fa450007
+2025-05-19 02:21:35,576 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@694] - Established session 0x1000642fa450000 with negotiated timeout 5000 for client /128.110.218.193:60764
+2025-05-19 02:21:35,577 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@694] - Established session 0x1000642fa450001 with negotiated timeout 5000 for client /128.110.218.193:60850
+2025-05-19 02:21:35,578 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@694] - Established session 0x1000642fa450004 with negotiated timeout 5000 for client /128.110.218.193:60852
+2025-05-19 02:21:35,579 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@694] - Established session 0x1000642fa450008 with negotiated timeout 5000 for client /128.110.218.193:60864
+2025-05-19 02:21:35,580 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@694] - Established session 0x1000642fa450007 with negotiated timeout 5000 for client /128.110.218.193:60872
+2025-05-19 02:21:35,586 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45000b with negotiated timeout 5000 for client /128.110.218.193:60774
+2025-05-19 02:21:35,587 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45000c with negotiated timeout 5000 for client /128.110.218.193:60788
+2025-05-19 02:21:35,588 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45000d with negotiated timeout 5000 for client /128.110.218.193:60804
+2025-05-19 02:21:35,588 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45000e with negotiated timeout 5000 for client /128.110.218.193:60820
+2025-05-19 02:21:35,589 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45000f with negotiated timeout 5000 for client /128.110.218.193:60832
+2025-05-19 02:21:35,590 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450010 with negotiated timeout 5000 for client /128.110.218.193:60840
+2025-05-19 02:21:35,593 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450001, likely client has closed socket
+2025-05-19 02:21:35,594 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60850 which had sessionid 0x1000642fa450001
+2025-05-19 02:21:35,594 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450008, likely client has closed socket
+2025-05-19 02:21:35,595 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60864 which had sessionid 0x1000642fa450008
+2025-05-19 02:21:35,595 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450004, likely client has closed socket
+2025-05-19 02:21:35,595 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60852 which had sessionid 0x1000642fa450004
+2025-05-19 02:21:35,596 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450007, likely client has closed socket
+2025-05-19 02:21:35,596 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60872 which had sessionid 0x1000642fa450007
+2025-05-19 02:21:35,596 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60888
+2025-05-19 02:21:35,597 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60896
+2025-05-19 02:21:35,597 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60888
+2025-05-19 02:21:35,597 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60896
+2025-05-19 02:21:35,598 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60912
+2025-05-19 02:21:35,598 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60912
+2025-05-19 02:21:35,599 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450011 with negotiated timeout 5000 for client /128.110.218.193:60888
+2025-05-19 02:21:35,599 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450012 with negotiated timeout 5000 for client /128.110.218.193:60896
+2025-05-19 02:21:35,600 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60916
+2025-05-19 02:21:35,600 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60916
+2025-05-19 02:21:35,600 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450013 with negotiated timeout 5000 for client /128.110.218.193:60912
+2025-05-19 02:21:35,601 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450014 with negotiated timeout 5000 for client /128.110.218.193:60916
+2025-05-19 02:21:38,705 [myid:1] - INFO  [Snapshot Thread:FileTxnSnapLog@301] - Snapshotting: 0x100010f32 to /home/jepsen/zookeeper-v3.4/data/version-2/snapshot.100010f32
+2025-05-19 02:21:38,706 [myid:1] - INFO  [SyncThread:1:FileTxnLog@213] - Creating new log file: log.100010f33
+2025-05-19 02:21:40,603 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60832 which had sessionid 0x1000642fa45000f
+2025-05-19 02:21:40,605 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60932
+2025-05-19 02:21:40,606 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60932
+2025-05-19 02:21:40,607 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450015 with negotiated timeout 5000 for client /128.110.218.193:60932
+2025-05-19 02:21:41,620 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60888 which had sessionid 0x1000642fa450011
+2025-05-19 02:21:41,622 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60916 which had sessionid 0x1000642fa450014
+2025-05-19 02:21:41,623 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60936
+2025-05-19 02:21:41,623 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60936
+2025-05-19 02:21:41,624 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60840 which had sessionid 0x1000642fa450010
+2025-05-19 02:21:41,624 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60938
+2025-05-19 02:21:41,625 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450016 with negotiated timeout 5000 for client /128.110.218.193:60936
+2025-05-19 02:21:41,630 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60938
+2025-05-19 02:21:41,631 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:60950
+2025-05-19 02:21:41,632 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450017 with negotiated timeout 5000 for client /128.110.218.193:60938
+2025-05-19 02:21:41,632 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:60950
+2025-05-19 02:21:41,633 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450018 with negotiated timeout 5000 for client /128.110.218.193:60950
+2025-05-19 02:21:44,397 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60788 which had sessionid 0x1000642fa45000c
+2025-05-19 02:21:44,405 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50372
+2025-05-19 02:21:44,406 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60804 which had sessionid 0x1000642fa45000d
+2025-05-19 02:21:44,406 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50372
+2025-05-19 02:21:44,408 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450019 with negotiated timeout 5000 for client /128.110.218.193:50372
+2025-05-19 02:21:44,409 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60820 which had sessionid 0x1000642fa45000e
+2025-05-19 02:21:44,409 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50388
+2025-05-19 02:21:44,410 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50388
+2025-05-19 02:21:44,410 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50402
+2025-05-19 02:21:44,410 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50402
+2025-05-19 02:21:44,411 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45001a with negotiated timeout 5000 for client /128.110.218.193:50388
+2025-05-19 02:21:44,412 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45001b with negotiated timeout 5000 for client /128.110.218.193:50402
+2025-05-19 02:21:45,612 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60932 which had sessionid 0x1000642fa450015
+2025-05-19 02:21:45,616 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50406
+2025-05-19 02:21:45,617 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50406
+2025-05-19 02:21:45,619 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45001c with negotiated timeout 5000 for client /128.110.218.193:50406
+2025-05-19 02:21:45,621 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60896 which had sessionid 0x1000642fa450012
+2025-05-19 02:21:45,621 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450019, likely client has closed socket
+2025-05-19 02:21:45,621 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50372 which had sessionid 0x1000642fa450019
+2025-05-19 02:21:45,622 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50410
+2025-05-19 02:21:45,624 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50410
+2025-05-19 02:21:45,624 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50424
+2025-05-19 02:21:45,625 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45001d with negotiated timeout 5000 for client /128.110.218.193:50410
+2025-05-19 02:21:45,628 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50424
+2025-05-19 02:21:45,630 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45001e with negotiated timeout 5000 for client /128.110.218.193:50424
+2025-05-19 02:21:51,274 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450018, likely client has closed socket
+2025-05-19 02:21:51,275 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60950 which had sessionid 0x1000642fa450018
+2025-05-19 02:21:51,376 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50440
+2025-05-19 02:21:51,377 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50440
+2025-05-19 02:21:52,248 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450000, likely client has closed socket
+2025-05-19 02:21:52,249 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60764 which had sessionid 0x1000642fa450000
+2025-05-19 02:21:52,846 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450016, likely client has closed socket
+2025-05-19 02:21:52,846 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60936 which had sessionid 0x1000642fa450016
+2025-05-19 02:21:52,847 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450013, likely client has closed socket
+2025-05-19 02:21:52,847 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60912 which had sessionid 0x1000642fa450013
+2025-05-19 02:21:52,848 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa45001d, likely client has closed socket
+2025-05-19 02:21:52,848 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50410 which had sessionid 0x1000642fa45001d
+2025-05-19 02:21:52,851 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa45000b, likely client has closed socket
+2025-05-19 02:21:52,851 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60774 which had sessionid 0x1000642fa45000b
+2025-05-19 02:21:52,852 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa45001c, likely client has closed socket
+2025-05-19 02:21:52,852 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50406 which had sessionid 0x1000642fa45001c
+2025-05-19 02:21:52,853 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa45001a, likely client has closed socket
+2025-05-19 02:21:52,853 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50388 which had sessionid 0x1000642fa45001a
+2025-05-19 02:21:52,853 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450017, likely client has closed socket
+2025-05-19 02:21:52,853 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:60938 which had sessionid 0x1000642fa450017
+2025-05-19 02:21:52,854 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa45001b, likely client has closed socket
+2025-05-19 02:21:52,854 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50402 which had sessionid 0x1000642fa45001b
+2025-05-19 02:21:52,854 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa45001e, likely client has closed socket
+2025-05-19 02:21:52,855 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50424 which had sessionid 0x1000642fa45001e
+2025-05-19 02:21:53,103 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50710
+2025-05-19 02:21:53,104 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50710
+2025-05-19 02:21:53,138 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50714
+2025-05-19 02:21:53,139 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50714
+2025-05-19 02:21:53,142 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50728
+2025-05-19 02:21:53,143 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50728
+2025-05-19 02:21:53,292 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50734
+2025-05-19 02:21:53,292 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50734
+2025-05-19 02:21:53,362 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50746
+2025-05-19 02:21:53,362 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50746
+2025-05-19 02:21:53,435 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50756
+2025-05-19 02:21:53,435 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50756
+2025-05-19 02:21:53,466 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50764
+2025-05-19 02:21:53,466 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x1000642fa450000 at /128.110.218.193:50764
+2025-05-19 02:21:53,466 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:Learner@108] - Revalidating client: 0x1000642fa450000
+2025-05-19 02:21:53,535 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50778
+2025-05-19 02:21:53,536 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50778
+2025-05-19 02:21:53,957 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50784
+2025-05-19 02:21:53,957 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50784
+2025-05-19 02:21:54,045 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50788
+2025-05-19 02:21:54,045 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:50788
+2025-05-19 02:21:55,950 [myid:1] - INFO  [SyncThread:1:FileTxnLog@213] - Creating new log file: log.10001e2a4
+2025-05-19 02:21:55,950 [myid:1] - INFO  [Snapshot Thread:FileTxnSnapLog@301] - Snapshotting: 0x10001f65b to /home/jepsen/zookeeper-v3.4/data/version-2/snapshot.10001f65b
+2025-05-19 02:21:55,967 [myid:1] - INFO  [CommitProcessor:1:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50764 which had sessionid 0x1000642fa450000
+2025-05-19 02:21:55,992 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@687] - Invalid session 0x1000642fa450000 for client null, probably expired
+2025-05-19 02:21:55,995 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa45001f with negotiated timeout 5000 for client /128.110.218.193:50440
+2025-05-19 02:21:55,996 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450020 with negotiated timeout 5000 for client /128.110.218.193:50710
+2025-05-19 02:21:55,996 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450021 with negotiated timeout 5000 for client /128.110.218.193:50714
+2025-05-19 02:21:55,996 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450022 with negotiated timeout 5000 for client /128.110.218.193:50728
+2025-05-19 02:21:55,997 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450023 with negotiated timeout 5000 for client /128.110.218.193:50734
+2025-05-19 02:21:55,997 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450024 with negotiated timeout 5000 for client /128.110.218.193:50746
+2025-05-19 02:21:55,997 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450025 with negotiated timeout 5000 for client /128.110.218.193:50756
+2025-05-19 02:21:55,997 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450026 with negotiated timeout 5000 for client /128.110.218.193:50778
+2025-05-19 02:21:55,998 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450027 with negotiated timeout 5000 for client /128.110.218.193:50784
+2025-05-19 02:21:55,998 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x1000642fa450028 with negotiated timeout 5000 for client /128.110.218.193:50788
+2025-05-19 02:21:57,483 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:50802
+2025-05-19 02:21:57,483 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x1000642fa450000 at /128.110.218.193:50802
+2025-05-19 02:21:57,484 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:Learner@108] - Revalidating client: 0x1000642fa450000
+2025-05-19 02:21:57,484 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@687] - Invalid session 0x1000642fa450000 for client /128.110.218.193:50802, probably expired
+2025-05-19 02:21:57,484 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50802 which had sessionid 0x1000642fa450000
+2025-05-19 02:22:01,050 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50710 which had sessionid 0x1000642fa450020
+2025-05-19 02:22:01,054 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50778 which had sessionid 0x1000642fa450026
+2025-05-19 02:22:01,055 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50440 which had sessionid 0x1000642fa45001f
+2025-05-19 02:22:01,055 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50746 which had sessionid 0x1000642fa450024
+2025-05-19 02:22:01,055 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450025, likely client has closed socket
+2025-05-19 02:22:01,056 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50756 which had sessionid 0x1000642fa450025
+2025-05-19 02:22:01,056 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450023, likely client has closed socket
+2025-05-19 02:22:01,056 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50734 which had sessionid 0x1000642fa450023
+2025-05-19 02:22:01,056 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450027, likely client has closed socket
+2025-05-19 02:22:01,057 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50784 which had sessionid 0x1000642fa450027
+2025-05-19 02:22:01,057 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450022, likely client has closed socket
+2025-05-19 02:22:01,057 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50728 which had sessionid 0x1000642fa450022
+2025-05-19 02:22:01,058 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50714 which had sessionid 0x1000642fa450021
+2025-05-19 02:22:01,058 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000642fa450028, likely client has closed socket
+2025-05-19 02:22:01,058 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:50788 which had sessionid 0x1000642fa450028

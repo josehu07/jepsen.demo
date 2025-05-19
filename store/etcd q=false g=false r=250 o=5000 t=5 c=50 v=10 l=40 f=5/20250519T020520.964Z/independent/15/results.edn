@@ -1,0 +1,71 @@
+{:valid? true,
+ :configs
+ ({:model {:value 7},
+   :last-op
+   {:process 120,
+    :type :ok,
+    :f :read,
+    :value 7,
+    :index 154467,
+    :time 40116602245,
+    :tstag nil},
+   :pending
+   [{:process 73,
+     :type :invoke,
+     :f :write,
+     :value 6,
+     :index 107598,
+     :time 28625020708,
+     :tstag 28625020708}]}
+  {:model {:value 7},
+   :last-op
+   {:process 120,
+    :type :ok,
+    :f :read,
+    :value 7,
+    :index 154467,
+    :time 40116602245,
+    :tstag nil},
+   :pending
+   [{:process 70,
+     :type :invoke,
+     :f :write,
+     :value 9,
+     :index 108326,
+     :time 28794089969,
+     :tstag 28794089969}
+    {:process 73,
+     :type :invoke,
+     :f :write,
+     :value 6,
+     :index 107598,
+     :time 28625020708,
+     :tstag 28625020708}]}
+  {:model {:value 7},
+   :last-op
+   {:process 120,
+    :type :ok,
+    :f :read,
+    :value 7,
+    :index 154467,
+    :time 40116602245,
+    :tstag nil},
+   :pending
+   [{:process 70,
+     :type :invoke,
+     :f :write,
+     :value 9,
+     :index 108326,
+     :time 28794089969,
+     :tstag 28794089969}]}
+  {:model {:value 7},
+   :last-op
+   {:process 120,
+    :type :ok,
+    :f :read,
+    :value 7,
+    :index 154467,
+    :time 40116602245,
+    :tstag nil},
+   :pending []}),
+ :final-paths ()}

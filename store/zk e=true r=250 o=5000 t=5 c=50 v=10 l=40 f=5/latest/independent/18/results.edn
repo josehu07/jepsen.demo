@@ -1,0 +1,62 @@
+{:valid? false,
+ :configs
+ ({:model {:value 3},
+   :last-op
+   {:process 160,
+    :type :ok,
+    :f :write,
+    :value 3,
+    :index 120250,
+    :time 39503315124,
+    :tstag 39502604570},
+   :pending
+   [{:process 161,
+     :type :invoke,
+     :f :read,
+     :value 9,
+     :index 120249,
+     :time 39502893487,
+     :tstag nil}]}),
+ :final-paths
+ ([{:op
+    {:process 160,
+     :type :ok,
+     :f :write,
+     :value 3,
+     :index 120250,
+     :time 39503315124,
+     :tstag 39502604570},
+    :model {:value 3}}
+   {:op
+    {:process 161,
+     :type :ok,
+     :f :read,
+     :value 9,
+     :index 120252,
+     :time 39503513346,
+     :tstag 39489152872},
+    :model {:msg "can't read 9 from register 3"}}]),
+ :previous-ok
+ {:process 160,
+  :type :ok,
+  :f :write,
+  :value 3,
+  :index 120250,
+  :time 39503315124,
+  :tstag 39502604570},
+ :last-op
+ {:process 160,
+  :type :ok,
+  :f :write,
+  :value 3,
+  :index 120250,
+  :time 39503315124,
+  :tstag 39502604570},
+ :op
+ {:process 161,
+  :type :ok,
+  :f :read,
+  :value 9,
+  :index 120252,
+  :time 39503513346,
+  :tstag 39489152872}}

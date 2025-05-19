@@ -1,0 +1,62 @@
+{:valid? false,
+ :configs
+ ({:model {:value 3},
+   :last-op
+   {:process 0,
+    :type :ok,
+    :f :write,
+    :value 3,
+    :index 144,
+    :time 265958379,
+    :tstag 265367051},
+   :pending
+   [{:process 1,
+     :type :invoke,
+     :f :read,
+     :value 4,
+     :index 176,
+     :time 273828206,
+     :tstag nil}]}),
+ :final-paths
+ ([{:op
+    {:process 0,
+     :type :ok,
+     :f :write,
+     :value 3,
+     :index 144,
+     :time 265958379,
+     :tstag 265367051},
+    :model {:value 3}}
+   {:op
+    {:process 1,
+     :type :ok,
+     :f :read,
+     :value 4,
+     :index 177,
+     :time 274656405,
+     :tstag 228045033},
+    :model {:msg "can't read 4 from register 3"}}]),
+ :previous-ok
+ {:process 0,
+  :type :ok,
+  :f :write,
+  :value 3,
+  :index 144,
+  :time 265958379,
+  :tstag 265367051},
+ :last-op
+ {:process 0,
+  :type :ok,
+  :f :write,
+  :value 3,
+  :index 144,
+  :time 265958379,
+  :tstag 265367051},
+ :op
+ {:process 1,
+  :type :ok,
+  :f :read,
+  :value 4,
+  :index 177,
+  :time 274656405,
+  :tstag 228045033}}

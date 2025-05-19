@@ -1,0 +1,97 @@
+{:valid? false,
+ :configs
+ ({:model {:value 8},
+   :last-op
+   {:process 41,
+    :type :ok,
+    :f :write,
+    :value 8,
+    :index 37376,
+    :time 8329971788,
+    :tstag 8327682978},
+   :pending
+   [{:process 44,
+     :type :invoke,
+     :f :read,
+     :value 7,
+     :index 37404,
+     :time 8335630592,
+     :tstag nil}]}
+  {:model {:value 1},
+   :last-op
+   {:process 40,
+    :type :ok,
+    :f :write,
+    :value 1,
+    :index 37367,
+    :time 8328533774,
+    :tstag 8325306571},
+   :pending
+   [{:process 44,
+     :type :invoke,
+     :f :read,
+     :value 7,
+     :index 37404,
+     :time 8335630592,
+     :tstag nil}]}),
+ :final-paths
+ ([{:op
+    {:process 40,
+     :type :ok,
+     :f :write,
+     :value 1,
+     :index 37367,
+     :time 8328533774,
+     :tstag 8325306571},
+    :model {:value 1}}
+   {:op
+    {:process 44,
+     :type :ok,
+     :f :read,
+     :value 7,
+     :index 37417,
+     :time 8337807556,
+     :tstag nil},
+    :model {:msg "can't read 7 from register 1"}}]
+  [{:op
+    {:process 41,
+     :type :ok,
+     :f :write,
+     :value 8,
+     :index 37376,
+     :time 8329971788,
+     :tstag 8327682978},
+    :model {:value 8}}
+   {:op
+    {:process 44,
+     :type :ok,
+     :f :read,
+     :value 7,
+     :index 37417,
+     :time 8337807556,
+     :tstag nil},
+    :model {:msg "can't read 7 from register 8"}}]),
+ :previous-ok
+ {:process 41,
+  :type :ok,
+  :f :write,
+  :value 8,
+  :index 37376,
+  :time 8329971788,
+  :tstag 8327682978},
+ :last-op
+ {:process 41,
+  :type :ok,
+  :f :write,
+  :value 8,
+  :index 37376,
+  :time 8329971788,
+  :tstag 8327682978},
+ :op
+ {:process 44,
+  :type :ok,
+  :f :read,
+  :value 7,
+  :index 37417,
+  :time 8337807556,
+  :tstag nil}}

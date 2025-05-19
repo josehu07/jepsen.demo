@@ -1,0 +1,62 @@
+{:valid? false,
+ :configs
+ ({:model {:value 7},
+   :last-op
+   {:process 30,
+    :type :ok,
+    :f :write,
+    :value 7,
+    :index 836,
+    :time 452664735,
+    :tstag 451776855},
+   :pending
+   [{:process 31,
+     :type :invoke,
+     :f :read,
+     :value 2,
+     :index 856,
+     :time 457482956,
+     :tstag nil}]}),
+ :final-paths
+ ([{:op
+    {:process 30,
+     :type :ok,
+     :f :write,
+     :value 7,
+     :index 836,
+     :time 452664735,
+     :tstag 451776855},
+    :model {:value 7}}
+   {:op
+    {:process 31,
+     :type :ok,
+     :f :read,
+     :value 2,
+     :index 860,
+     :time 458216993,
+     :tstag 377059010},
+    :model {:msg "can't read 2 from register 7"}}]),
+ :previous-ok
+ {:process 30,
+  :type :ok,
+  :f :write,
+  :value 7,
+  :index 836,
+  :time 452664735,
+  :tstag 451776855},
+ :last-op
+ {:process 30,
+  :type :ok,
+  :f :write,
+  :value 7,
+  :index 836,
+  :time 452664735,
+  :tstag 451776855},
+ :op
+ {:process 31,
+  :type :ok,
+  :f :read,
+  :value 2,
+  :index 860,
+  :time 458216993,
+  :tstag 377059010}}
