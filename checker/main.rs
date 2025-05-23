@@ -16,6 +16,9 @@ use store::parse_history;
 mod types;
 use types::Timeline;
 
+mod check;
+use check::{Checker, ConsistencyLevel};
+
 /// Command line arguments.
 #[derive(Parser, Debug)]
 struct Args {
@@ -31,6 +34,7 @@ const CHECK_ERROR: i32 = 101; // since panicking produces exit code 101
 
 /// Inner main function.
 fn main_inner() -> Result<bool, Box<dyn Error>> {
+    let start_ts = Instant::now();
     let args = Args::parse();
     eprintln!("Test directory: '{}'", args.test_dir);
 
@@ -38,8 +42,6 @@ fn main_inner() -> Result<bool, Box<dyn Error>> {
     if events.is_empty() {
         return Err("input history is empty".into());
     }
-
-    let start_ts = Instant::now();
 
     let timeline = Timeline::new(events, max_client)?;
     println!(
@@ -61,19 +63,31 @@ fn main_inner() -> Result<bool, Box<dyn Error>> {
         timeline.stats_cas[0], timeline.stats_cas[1], timeline.stats_cas[2]
     );
 
+    let mut checker = Checker::new();
+    let check_ts = Instant::now();
+
+    let level = checker.check(timeline)?;
     let finish_ts = Instant::now();
-    let elapsed = finish_ts.duration_since(start_ts);
+
+    println!("Checker result: >= {:?}", level);
+    println!("    based on this specific history,");
+    println!("    could just be an upper bound");
+
     println!(
         "Time spent excluding I/O: {:.2} msecs",
-        (elapsed.as_nanos() as f64) / 1_000_000.0
+        (finish_ts.duration_since(check_ts).as_nanos() as f64) / 1_000_000.0
+    );
+    println!(
+        "Time spent in Rust total: {:.2} msecs",
+        (finish_ts.duration_since(start_ts).as_nanos() as f64) / 1_000_000.0
     );
 
-    unimplemented!()
+    Ok(level == ConsistencyLevel::Linearizable)
 }
 
 /// Error code returned should follows this convention:
-///   - 0: check passed
-///   - 1: check failed
+///   - 0: linearizability passed
+///   - 1: not linearizable, but may satisfy a weaker level (check output)
 ///   - higher: error in checker, result unknown
 fn main() {
     match main_inner() {
