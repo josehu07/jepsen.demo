@@ -1,0 +1,237 @@
+2025-05-24 21:19:03,608 [myid:] - INFO  [main:QuorumPeerConfig@136] - Reading configuration from: /home/jepsen/zookeeper-v3.4/conf/zoo.cfg
+2025-05-24 21:19:03,620 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp144.utah.cloudlab.us to address: hp144.utah.cloudlab.us/128.110.218.183
+2025-05-24 21:19:03,621 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp158.utah.cloudlab.us to address: hp158.utah.cloudlab.us/128.110.218.197
+2025-05-24 21:19:03,622 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp124.utah.cloudlab.us to address: hp124.utah.cloudlab.us/128.110.218.163
+2025-05-24 21:19:03,623 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp149.utah.cloudlab.us to address: hp149.utah.cloudlab.us/128.110.218.188
+2025-05-24 21:19:03,624 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp159.utah.cloudlab.us to address: hp159.utah.cloudlab.us/128.110.218.198
+2025-05-24 21:19:03,624 [myid:] - INFO  [main:QuorumPeerConfig@398] - Defaulting to majority quorums
+2025-05-24 21:19:03,627 [myid:1] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+2025-05-24 21:19:03,628 [myid:1] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+2025-05-24 21:19:03,628 [myid:1] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+2025-05-24 21:19:03,637 [myid:1] - INFO  [main:QuorumPeerMain@130] - Starting quorum peer
+2025-05-24 21:19:03,642 [myid:1] - INFO  [main:ServerCnxnFactory@117] - Using org.apache.zookeeper.server.NIOServerCnxnFactory as server connection factory
+2025-05-24 21:19:03,646 [myid:1] - INFO  [main:NIOServerCnxnFactory@89] - binding to port 0.0.0.0/0.0.0.0:2181
+2025-05-24 21:19:03,653 [myid:1] - INFO  [main:QuorumPeer@1158] - tickTime set to 2000
+2025-05-24 21:19:03,653 [myid:1] - INFO  [main:QuorumPeer@1204] - initLimit set to 10
+2025-05-24 21:19:03,653 [myid:1] - INFO  [main:QuorumPeer@1178] - minSessionTimeout set to -1
+2025-05-24 21:19:03,654 [myid:1] - INFO  [main:QuorumPeer@1189] - maxSessionTimeout set to -1
+2025-05-24 21:19:03,660 [myid:1] - INFO  [main:QuorumPeer@1467] - QuorumPeer communication is not secured!
+2025-05-24 21:19:03,660 [myid:1] - INFO  [main:QuorumPeer@1496] - quorum.cnxn.threads.size set to 20
+2025-05-24 21:19:03,662 [myid:1] - INFO  [main:QuorumPeer@668] - currentEpoch not found! Creating with a reasonable default of 0. This should only happen when you are upgrading your installation
+2025-05-24 21:19:03,664 [myid:1] - INFO  [main:QuorumPeer@683] - acceptedEpoch not found! Creating with a reasonable default of 0. This should only happen when you are upgrading your installation
+2025-05-24 21:19:03,668 [myid:1] - INFO  [ListenerThread:QuorumCnxManager$Listener@736] - My election bind port: hp158.utah.cloudlab.us/128.110.218.197:3888
+2025-05-24 21:19:03,678 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer@909] - LOOKING
+2025-05-24 21:19:03,679 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@813] - New election. My id =  1, proposed zxid=0x0
+2025-05-24 21:19:03,684 [myid:1] - INFO  [hp158.utah.cloudlab.us/128.110.218.197:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.163:54480
+2025-05-24 21:19:03,684 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 1 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 1 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,685 [myid:1] - WARN  [SendWorker:0:QuorumCnxManager$SendWorker@941] - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.pollSendQueue(QuorumCnxManager.java:1094)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.access$700(QuorumCnxManager.java:74)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:929)
+2025-05-24 21:19:03,687 [myid:1] - WARN  [SendWorker:0:QuorumCnxManager$SendWorker@951] - Send worker leaving thread
+2025-05-24 21:19:03,685 [myid:1] - WARN  [WorkerSender[myid=1]:QuorumCnxManager@584] - Cannot open channel to 2 at election address hp144.utah.cloudlab.us/128.110.218.183:3888
+java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:609)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.connectOne(QuorumCnxManager.java:558)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.toSend(QuorumCnxManager.java:534)
+	at org.apache.zookeeper.server.quorum.FastLeaderElection$Messenger$WorkerSender.process(FastLeaderElection.java:454)
+	at org.apache.zookeeper.server.quorum.FastLeaderElection$Messenger$WorkerSender.run(FastLeaderElection.java:435)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2025-05-24 21:19:03,685 [myid:1] - WARN  [RecvWorker:0:QuorumCnxManager$RecvWorker@1025] - Connection broken for id 0, my id = 1, error = 
+java.net.SocketException: Socket closed
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method)
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140)
+	at java.base/java.io.BufferedInputStream.fill(BufferedInputStream.java:252)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:271)
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$RecvWorker.run(QuorumCnxManager.java:1010)
+2025-05-24 21:19:03,688 [myid:1] - WARN  [RecvWorker:0:QuorumCnxManager$RecvWorker@1028] - Interrupting SendWorker
+2025-05-24 21:19:03,688 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumPeer$QuorumServer@184] - Resolved hostname: hp144.utah.cloudlab.us to address: hp144.utah.cloudlab.us/128.110.218.183
+2025-05-24 21:19:03,690 [myid:1] - WARN  [WorkerSender[myid=1]:QuorumCnxManager@584] - Cannot open channel to 3 at election address hp159.utah.cloudlab.us/128.110.218.198:3888
+java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:609)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.connectOne(QuorumCnxManager.java:558)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.toSend(QuorumCnxManager.java:534)
+	at org.apache.zookeeper.server.quorum.FastLeaderElection$Messenger$WorkerSender.process(FastLeaderElection.java:454)
+	at org.apache.zookeeper.server.quorum.FastLeaderElection$Messenger$WorkerSender.run(FastLeaderElection.java:435)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2025-05-24 21:19:03,690 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 0 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 0 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,690 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumPeer$QuorumServer@184] - Resolved hostname: hp159.utah.cloudlab.us to address: hp159.utah.cloudlab.us/128.110.218.198
+2025-05-24 21:19:03,691 [myid:1] - WARN  [WorkerSender[myid=1]:QuorumCnxManager@584] - Cannot open channel to 4 at election address hp149.utah.cloudlab.us/128.110.218.188:3888
+java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:609)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.connectOne(QuorumCnxManager.java:558)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.toSend(QuorumCnxManager.java:534)
+	at org.apache.zookeeper.server.quorum.FastLeaderElection$Messenger$WorkerSender.process(FastLeaderElection.java:454)
+	at org.apache.zookeeper.server.quorum.FastLeaderElection$Messenger$WorkerSender.run(FastLeaderElection.java:435)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2025-05-24 21:19:03,692 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumPeer$QuorumServer@184] - Resolved hostname: hp149.utah.cloudlab.us to address: hp149.utah.cloudlab.us/128.110.218.188
+2025-05-24 21:19:03,692 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 1 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 0 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,707 [myid:1] - INFO  [hp158.utah.cloudlab.us/128.110.218.197:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.198:60750
+2025-05-24 21:19:03,708 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 3 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 0 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,708 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 3 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 3 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,708 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 3 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 1 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,709 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumCnxManager@347] - Have smaller server identifier, so dropping the connection: (2, 1)
+2025-05-24 21:19:03,709 [myid:1] - INFO  [hp158.utah.cloudlab.us/128.110.218.197:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.183:57716
+2025-05-24 21:19:03,709 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumCnxManager@347] - Have smaller server identifier, so dropping the connection: (4, 1)
+2025-05-24 21:19:03,710 [myid:1] - WARN  [RecvWorker:2:QuorumCnxManager$RecvWorker@1025] - Connection broken for id 2, my id = 1, error = 
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:397)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$RecvWorker.run(QuorumCnxManager.java:1010)
+2025-05-24 21:19:03,710 [myid:1] - WARN  [RecvWorker:2:QuorumCnxManager$RecvWorker@1028] - Interrupting SendWorker
+2025-05-24 21:19:03,711 [myid:1] - WARN  [SendWorker:2:QuorumCnxManager$SendWorker@941] - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.pollSendQueue(QuorumCnxManager.java:1094)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.access$700(QuorumCnxManager.java:74)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:929)
+2025-05-24 21:19:03,711 [myid:1] - WARN  [SendWorker:2:QuorumCnxManager$SendWorker@951] - Send worker leaving thread
+2025-05-24 21:19:03,711 [myid:1] - INFO  [hp158.utah.cloudlab.us/128.110.218.197:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.183:57720
+2025-05-24 21:19:03,712 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 2 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 2 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,713 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 3 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 2 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,714 [myid:1] - INFO  [hp158.utah.cloudlab.us/128.110.218.197:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.188:56412
+2025-05-24 21:19:03,715 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 0 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,715 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 4 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,715 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 1 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,715 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 2 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,715 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 3 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,716 [myid:1] - WARN  [RecvWorker:4:QuorumCnxManager$RecvWorker@1025] - Connection broken for id 4, my id = 1, error = 
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:397)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$RecvWorker.run(QuorumCnxManager.java:1010)
+2025-05-24 21:19:03,716 [myid:1] - WARN  [RecvWorker:4:QuorumCnxManager$RecvWorker@1028] - Interrupting SendWorker
+2025-05-24 21:19:03,717 [myid:1] - WARN  [SendWorker:4:QuorumCnxManager$SendWorker@941] - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.pollSendQueue(QuorumCnxManager.java:1094)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.access$700(QuorumCnxManager.java:74)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:929)
+2025-05-24 21:19:03,717 [myid:1] - WARN  [SendWorker:4:QuorumCnxManager$SendWorker@951] - Send worker leaving thread
+2025-05-24 21:19:03,717 [myid:1] - INFO  [hp158.utah.cloudlab.us/128.110.218.197:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.188:56414
+2025-05-24 21:19:03,718 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 4 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,919 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer@979] - FOLLOWING
+2025-05-24 21:19:03,925 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Learner@86] - TCP NoDelay set to: true
+2025-05-24 21:19:03,934 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:zookeeper.version=3.4.13-2d71af4dbe22557fda74f9a9b4309b15a7487f03, built on 06/29/2018 04:05 GMT
+2025-05-24 21:19:03,934 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:host.name=hp158.utah.cloudlab.us
+2025-05-24 21:19:03,934 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.version=11.0.26
+2025-05-24 21:19:03,934 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.vendor=Ubuntu
+2025-05-24 21:19:03,934 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.home=/usr/lib/jvm/java-11-openjdk-amd64
+2025-05-24 21:19:03,934 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.class.path=/home/jepsen/zookeeper-v3.4/bin/../build/classes:/home/jepsen/zookeeper-v3.4/bin/../build/lib/*.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/slf4j-log4j12-1.7.25.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/slf4j-api-1.7.25.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/netty-3.10.6.Final.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/log4j-1.2.17.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/jline-0.9.94.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/audience-annotations-0.5.0.jar:/home/jepsen/zookeeper-v3.4/bin/../zookeeper-3.4.13.jar:/home/jepsen/zookeeper-v3.4/bin/../src/java/lib/*.jar:/home/jepsen/zookeeper-v3.4/bin/../conf:
+2025-05-24 21:19:03,935 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.library.path=/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+2025-05-24 21:19:03,935 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.io.tmpdir=/tmp
+2025-05-24 21:19:03,935 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.compiler=<NA>
+2025-05-24 21:19:03,935 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.name=Linux
+2025-05-24 21:19:03,935 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.arch=amd64
+2025-05-24 21:19:03,935 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.version=6.13.5-061305-generic
+2025-05-24 21:19:03,935 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.name=jepsen
+2025-05-24 21:19:03,936 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.home=/home/jepsen
+2025-05-24 21:19:03,936 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.dir=/
+2025-05-24 21:19:03,938 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@174] - Created server with tickTime 2000 minSessionTimeout 4000 maxSessionTimeout 40000 datadir /home/jepsen/zookeeper-v3.4/data/version-2 snapdir /home/jepsen/zookeeper-v3.4/data/version-2
+2025-05-24 21:19:03,939 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Follower@65] - FOLLOWING - LEADER ELECTION TOOK - 260
+2025-05-24 21:19:03,942 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer$QuorumServer@184] - Resolved hostname: hp149.utah.cloudlab.us to address: hp149.utah.cloudlab.us/128.110.218.188
+2025-05-24 21:19:03,943 [myid:1] - WARN  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Learner@237] - Unexpected exception, tries=0, connecting to hp149.utah.cloudlab.us/128.110.218.188:2888
+java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:609)
+	at org.apache.zookeeper.server.quorum.Learner.connectToLeader(Learner.java:229)
+	at org.apache.zookeeper.server.quorum.Follower.followLeader(Follower.java:72)
+	at org.apache.zookeeper.server.quorum.QuorumPeer.run(QuorumPeer.java:981)
+2025-05-24 21:19:04,952 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Learner@332] - Getting a diff from the leader 0x0
+2025-05-24 21:19:14,312 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:53284
+2025-05-24 21:19:14,320 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:53284
+2025-05-24 21:19:14,329 [myid:1] - WARN  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Follower@119] - Got zxid 0x100000001 expected 0x1
+2025-05-24 21:19:14,329 [myid:1] - INFO  [SyncThread:1:FileTxnLog@213] - Creating new log file: log.100000001
+2025-05-24 21:19:14,340 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x10024148b200000 with negotiated timeout 5000 for client /128.110.218.193:53284
+2025-05-24 21:19:14,449 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:53298
+2025-05-24 21:19:14,450 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:53298
+2025-05-24 21:19:14,453 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x10024148b200001 with negotiated timeout 5000 for client /128.110.218.193:53298
+2025-05-24 21:19:14,453 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:53304
+2025-05-24 21:19:14,454 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:53304
+2025-05-24 21:19:14,457 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x10024148b200002 with negotiated timeout 5000 for client /128.110.218.193:53304
+2025-05-24 21:19:14,458 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:53308
+2025-05-24 21:19:14,459 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:53308
+2025-05-24 21:19:14,462 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x10024148b200003 with negotiated timeout 5000 for client /128.110.218.193:53308
+2025-05-24 21:19:14,468 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:53324
+2025-05-24 21:19:14,468 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:53328
+2025-05-24 21:19:14,469 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:53324
+2025-05-24 21:19:14,470 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:53328
+2025-05-24 21:19:14,474 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x10024148b200004 with negotiated timeout 5000 for client /128.110.218.193:53324
+2025-05-24 21:19:14,475 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:53332
+2025-05-24 21:19:14,476 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x10024148b200005 with negotiated timeout 5000 for client /128.110.218.193:53328
+2025-05-24 21:19:14,476 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:53332
+2025-05-24 21:19:14,479 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x10024148b200006 with negotiated timeout 5000 for client /128.110.218.193:53332
+2025-05-24 21:19:24,389 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x10024148b200000, likely client has closed socket
+2025-05-24 21:19:24,390 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:53284 which had sessionid 0x10024148b200000
+2025-05-24 21:19:24,456 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x10024148b200001, likely client has closed socket
+2025-05-24 21:19:24,457 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:53298 which had sessionid 0x10024148b200001
+2025-05-24 21:19:24,462 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x10024148b200002, likely client has closed socket
+2025-05-24 21:19:24,463 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:53304 which had sessionid 0x10024148b200002
+2025-05-24 21:19:25,704 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51754
+2025-05-24 21:19:25,704 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x10024148b200000 at /128.110.218.193:51754
+2025-05-24 21:19:25,705 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:Learner@108] - Revalidating client: 0x10024148b200000
+2025-05-24 21:19:25,897 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x10024148b200003, likely client has closed socket
+2025-05-24 21:19:25,897 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:53308 which had sessionid 0x10024148b200003
+2025-05-24 21:19:25,903 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x10024148b200006, likely client has closed socket
+2025-05-24 21:19:25,904 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:53332 which had sessionid 0x10024148b200006
+2025-05-24 21:19:25,904 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x10024148b200005, likely client has closed socket
+2025-05-24 21:19:25,905 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:53328 which had sessionid 0x10024148b200005
+2025-05-24 21:19:25,915 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x10024148b200004, likely client has closed socket
+2025-05-24 21:19:25,916 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:53324 which had sessionid 0x10024148b200004
+2025-05-24 21:19:26,167 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51756
+2025-05-24 21:19:26,168 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51756
+2025-05-24 21:19:26,177 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51770
+2025-05-24 21:19:26,177 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51770
+2025-05-24 21:19:26,195 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51774
+2025-05-24 21:19:26,195 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51774
+2025-05-24 21:19:26,257 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51788
+2025-05-24 21:19:26,258 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x10024148b200002 at /128.110.218.193:51788
+2025-05-24 21:19:26,258 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:Learner@108] - Revalidating client: 0x10024148b200002
+2025-05-24 21:19:26,517 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51802
+2025-05-24 21:19:26,517 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x10024148b200001 at /128.110.218.193:51802
+2025-05-24 21:19:26,518 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:Learner@108] - Revalidating client: 0x10024148b200001
+2025-05-24 21:19:26,942 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:51812
+2025-05-24 21:19:26,942 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:51812
+2025-05-24 21:19:28,950 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@687] - Invalid session 0x10024148b200000 for client /128.110.218.193:51754, probably expired
+2025-05-24 21:19:28,950 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@687] - Invalid session 0x10024148b200002 for client /128.110.218.193:51788, probably expired
+2025-05-24 21:19:28,951 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51754 which had sessionid 0x10024148b200000
+2025-05-24 21:19:28,951 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@687] - Invalid session 0x10024148b200001 for client /128.110.218.193:51802, probably expired
+2025-05-24 21:19:28,952 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51788 which had sessionid 0x10024148b200002
+2025-05-24 21:19:28,952 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51802 which had sessionid 0x10024148b200001
+2025-05-24 21:19:28,954 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x10024148b200007 with negotiated timeout 5000 for client /128.110.218.193:51756
+2025-05-24 21:19:28,955 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x10024148b200008 with negotiated timeout 5000 for client /128.110.218.193:51770
+2025-05-24 21:19:28,956 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x10024148b200009 with negotiated timeout 5000 for client /128.110.218.193:51774
+2025-05-24 21:19:28,957 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@694] - Established session 0x10024148b20000a with negotiated timeout 5000 for client /128.110.218.193:51812
+2025-05-24 21:19:39,440 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51812 which had sessionid 0x10024148b20000a
+2025-05-24 21:19:39,442 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51756 which had sessionid 0x10024148b200007
+2025-05-24 21:19:39,443 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51770 which had sessionid 0x10024148b200008
+2025-05-24 21:19:39,443 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x10024148b200009, likely client has closed socket
+2025-05-24 21:19:39,444 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:51774 which had sessionid 0x10024148b200009

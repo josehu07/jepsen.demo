@@ -1,6 +1,6 @@
 //! Definition of fundamental types for consistency checking.
 
-use std::collections::VecDeque;
+use std::collections::HashMap;
 use std::error::Error;
 use std::fmt;
 
@@ -16,7 +16,7 @@ pub(crate) type ValType = u64;
 /// Timestamp type.
 pub(crate) type Timestamp = u64;
 
-/// Operation-unique tag type.
+// Operation-unique tag type.
 pub(crate) type UniqueTag = u64;
 
 /// Event type enum.
@@ -46,11 +46,12 @@ pub(crate) enum OpData {
     /// Any general operation fits RMW (read-modify-write). A common example
     /// beyond regular reads/writes is CAS (compare-and-swap).
     /// In our current implementation, only :cas is supported for this type.
+    /// The function from `rval` to `wval` is assumed correct.
     Rmw {
         key: KeyType,
         rval: Option<ValType>,
         rtag: Option<UniqueTag>,
-        wval: Option<ValType>, // function from `rval` to `wval` assumed correct
+        wval: Option<ValType>,
         wtag: Option<UniqueTag>,
     },
 }
@@ -117,17 +118,41 @@ impl OpData {
 /// timestamps.
 #[derive(Debug, Clone)]
 pub(crate) struct OpSpan {
-    invoke: Timestamp,
-    finish: Timestamp,
-    data: OpData,
+    pub(crate) invoke: Timestamp,
+    pub(crate) finish: Timestamp,
+    pub(crate) data: OpData,
+    pub(crate) _client: ClientId,
 }
 
 impl OpSpan {
-    pub(crate) fn new(invoke: Timestamp, finish: Timestamp, data: OpData) -> Self {
+    pub(crate) fn new(
+        invoke: Timestamp,
+        finish: Timestamp,
+        data: OpData,
+        client: ClientId,
+    ) -> Self {
         OpSpan {
             invoke,
             finish,
             data,
+            _client: client,
+        }
+    }
+
+    pub(crate) fn key(&self) -> KeyType {
+        match self.data {
+            OpData::Read { key, .. } => key,
+            OpData::Write { key, .. } => key,
+            OpData::Rmw { key, .. } => key,
+        }
+    }
+
+    #[allow(dead_code)]
+    pub(crate) fn read_only(&self) -> bool {
+        match self.data {
+            OpData::Read { .. } => true,
+            OpData::Write { .. } => false,
+            OpData::Rmw { .. } => false,
         }
     }
 
@@ -160,28 +185,52 @@ impl Event {
 /// This is the complete input to feed to the checker algorithm.
 #[derive(Debug, Clone)]
 pub(crate) struct Timeline {
-    queues: Vec<VecDeque<OpSpan>>,
+    pub(crate) queues: Vec<Vec<OpSpan>>,
 
     // Operation per-type statistics: for each, [invokes, okays, fails]
-    pub(crate) stats_r: [usize; 3],
-    pub(crate) stats_w: [usize; 3],
-    pub(crate) stats_cas: [usize; 3],
+    pub(crate) stats_ops_sum: usize,
+    pub(crate) stats_ops_r: [usize; 3],
+    pub(crate) stats_ops_w: [usize; 3],
+    pub(crate) stats_ops_cas: [usize; 3],
+
+    // Operation per-key count statistics
+    pub(crate) stats_key_ops: HashMap<KeyType, usize>,
+    pub(crate) stats_key_min: usize,
+    pub(crate) stats_key_med: usize,
+    pub(crate) stats_key_avg: usize,
+    pub(crate) stats_key_max: usize,
+
+    // Operation per-client count statistics
+    pub(crate) stats_cli_min: usize,
+    pub(crate) stats_cli_med: usize,
+    pub(crate) stats_cli_avg: usize,
+    pub(crate) stats_cli_max: usize,
 }
 
 impl Timeline {
     pub(crate) fn new(events: Vec<Event>, max_client: ClientId) -> Result<Self, Box<dyn Error>> {
         let mut tl = Timeline {
-            queues: vec![VecDeque::new(); max_client + 1],
-            stats_r: [0; 3],
-            stats_w: [0; 3],
-            stats_cas: [0; 3],
+            queues: vec![vec![]; max_client + 1],
+            stats_ops_sum: 0,
+            stats_ops_r: [0; 3],
+            stats_ops_w: [0; 3],
+            stats_ops_cas: [0; 3],
+            stats_key_ops: HashMap::new(),
+            stats_key_min: usize::MAX,
+            stats_key_med: 0,
+            stats_key_avg: 0,
+            stats_key_max: 0,
+            stats_cli_min: usize::MAX,
+            stats_cli_med: 0,
+            stats_cli_avg: 0,
+            stats_cli_max: 0,
         };
 
         for e in events {
             match e.etype {
                 EventType::Invoke => {
                     if (!tl.queues[e.client].is_empty())
-                        && tl.queues[e.client].back().unwrap().finish == 0
+                        && tl.queues[e.client].last().unwrap().finish == 0
                     {
                         return Err(format!(
                             "client {} :invoke @ {} when previous op flying",
@@ -195,24 +244,24 @@ impl Timeline {
                     match &mut opdata {
                         OpData::Read { val, .. } => {
                             *val = None;
-                            tl.stats_r[0] += 1;
+                            tl.stats_ops_r[0] += 1;
                         }
                         OpData::Write { .. } => {
-                            tl.stats_w[0] += 1;
+                            tl.stats_ops_w[0] += 1;
                         }
                         OpData::Rmw { rval, wval, .. } => {
                             *rval = None;
                             *wval = None;
-                            tl.stats_cas[0] += 1;
+                            tl.stats_ops_cas[0] += 1;
                         }
                     }
 
-                    tl.queues[e.client].push_back(OpSpan::new(e.time, 0, opdata));
+                    tl.queues[e.client].push(OpSpan::new(e.time, 0, opdata, e.client));
                 }
 
                 EventType::Okay => {
                     if tl.queues[e.client].is_empty()
-                        || tl.queues[e.client].back().unwrap().finish != 0
+                        || tl.queues[e.client].last().unwrap().terminated()
                     {
                         return Err(format!(
                             "client {} :ok @ {} when no op is flying",
@@ -222,7 +271,7 @@ impl Timeline {
                     }
 
                     // check data validity
-                    let op = tl.queues[e.client].back_mut().unwrap();
+                    let op = tl.queues[e.client].last_mut().unwrap();
                     if !e.opdata.match_previous(&op.data) {
                         return Err(format!(
                             "client {} :ok @ {} op {} mismatching previous {}",
@@ -233,23 +282,28 @@ impl Timeline {
 
                     match op.data {
                         OpData::Read { .. } => {
-                            tl.stats_r[1] += 1;
+                            tl.stats_ops_r[1] += 1;
                         }
                         OpData::Write { .. } => {
-                            tl.stats_w[1] += 1;
+                            tl.stats_ops_w[1] += 1;
                         }
                         OpData::Rmw { .. } => {
-                            tl.stats_cas[1] += 1;
+                            tl.stats_ops_cas[1] += 1;
                         }
                     }
 
                     op.finish = e.time;
                     op.data.overwrite_by(e.opdata);
+
+                    tl.stats_key_ops
+                        .entry(op.key())
+                        .and_modify(|c| *c += 1)
+                        .or_insert(1);
                 }
 
                 EventType::Fail | EventType::Error => {
                     if tl.queues[e.client].is_empty()
-                        || tl.queues[e.client].back().unwrap().finish != 0
+                        || tl.queues[e.client].last().unwrap().terminated()
                     {
                         return Err(format!(
                             "client {} :fail/:info @ {} when no op is flying",
@@ -258,30 +312,58 @@ impl Timeline {
                         .into());
                     }
 
-                    // check data validity
-                    let op = tl.queues[e.client].back_mut().unwrap();
-                    if !e.opdata.match_previous(&op.data) {
-                        return Err(format!(
-                            "client {} :fail/:info @ {} op {} mismatching previous {}",
-                            e.client, e.time, e.opdata, op.data
-                        )
-                        .into());
-                    }
-
-                    match op.data {
+                    match tl.queues[e.client].last().unwrap().data {
                         OpData::Read { .. } => {
-                            tl.stats_r[2] += 1;
+                            tl.stats_ops_r[2] += 1;
                         }
                         OpData::Write { .. } => {
-                            tl.stats_w[2] += 1;
+                            tl.stats_ops_w[2] += 1;
                         }
                         OpData::Rmw { .. } => {
-                            tl.stats_cas[2] += 1;
+                            tl.stats_ops_cas[2] += 1;
                         }
                     }
 
-                    op.finish = e.time;
+                    // remove failed operation
+                    tl.queues[e.client].pop();
                 }
+            }
+        }
+
+        // calculate per-key count statistics
+        let key_cnts: Vec<usize> = tl.stats_key_ops.values().copied().collect();
+        tl.stats_ops_sum = key_cnts.iter().sum();
+        if !key_cnts.is_empty() {
+            tl.stats_key_min = *key_cnts.iter().min().unwrap();
+            tl.stats_key_max = *key_cnts.iter().max().unwrap();
+
+            tl.stats_key_avg = tl.stats_ops_sum / key_cnts.len();
+
+            let mut sorted = key_cnts.clone();
+            sorted.sort_unstable();
+            let mid = sorted.len() / 2;
+            if sorted.len() % 2 == 0 {
+                tl.stats_key_med = (sorted[mid - 1] + sorted[mid]) / 2;
+            } else {
+                tl.stats_key_med = sorted[mid];
+            }
+        }
+
+        // calculate per-client count statistics
+        let cli_cnts: Vec<usize> = tl.queues.iter().map(|q| q.len()).collect();
+        if !cli_cnts.is_empty() {
+            tl.stats_cli_min = *cli_cnts.iter().min().unwrap();
+            tl.stats_cli_max = *cli_cnts.iter().max().unwrap();
+
+            tl.stats_cli_avg = tl.stats_ops_sum / cli_cnts.len();
+
+            let mut sorted = cli_cnts.clone();
+            sorted.sort_unstable();
+            let mid = sorted.len() / 2;
+            if sorted.len() % 2 == 0 {
+                tl.stats_cli_med = (sorted[mid - 1] + sorted[mid]) / 2;
+            } else {
+                tl.stats_cli_med = sorted[mid];
             }
         }
 
@@ -289,12 +371,24 @@ impl Timeline {
     }
 
     #[inline]
-    pub(crate) fn num_clients(&self) -> usize {
-        self.queues.len()
+    pub(crate) fn num_keys(&self) -> usize {
+        self.stats_key_ops.len()
     }
 
     #[inline]
-    pub(crate) fn total_ops(&self) -> usize {
-        self.queues.iter().map(|q| q.len()).sum()
+    pub(crate) fn num_clients(&self) -> usize {
+        self.queues.len()
     }
+}
+
+/// Ranks of supported consistency levels. Currently only a chain-hierarchy of
+/// levels supported, which conveniently covers the four most common levels.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+pub(crate) enum Consistency {
+    Weak = 0,
+    // TODO: currently only linearizability exploration supported
+    // Eventual = 1,
+    // Causal = 2, // actually causal+
+    // Sequential = 3,
+    Linearizable = 4,
 }

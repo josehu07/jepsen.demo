@@ -1,0 +1,62 @@
+{:valid? false,
+ :configs
+ ({:model {:value 1},
+   :last-op
+   {:process 10,
+    :type :ok,
+    :f :read,
+    :value 1,
+    :index 3095,
+    :time 3072377993,
+    :tstag 3052939378},
+   :pending
+   [{:process 11,
+     :type :invoke,
+     :f :cas,
+     :value [0 9],
+     :index 3071,
+     :time 3053154756,
+     :tstag [nil 3053154756]}]}),
+ :final-paths
+ ([{:op
+    {:process 10,
+     :type :ok,
+     :f :read,
+     :value 1,
+     :index 3095,
+     :time 3072377993,
+     :tstag 3052939378},
+    :model {:value 1}}
+   {:op
+    {:process 11,
+     :type :ok,
+     :f :cas,
+     :value [0 9],
+     :index 3098,
+     :time 3075586834,
+     :tstag [3005376798 3053154756]},
+    :model {:msg "can't CAS 1 from 0 to 9"}}]),
+ :previous-ok
+ {:process 10,
+  :type :ok,
+  :f :read,
+  :value 1,
+  :index 3095,
+  :time 3072377993,
+  :tstag 3052939378},
+ :last-op
+ {:process 10,
+  :type :ok,
+  :f :read,
+  :value 1,
+  :index 3095,
+  :time 3072377993,
+  :tstag 3052939378},
+ :op
+ {:process 11,
+  :type :ok,
+  :f :cas,
+  :value [0 9],
+  :index 3098,
+  :time 3075586834,
+  :tstag [3005376798 3053154756]}}

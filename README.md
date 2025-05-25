@@ -54,9 +54,7 @@ just serve
 
 ## Results
 
-Example results of testing runs can be found under `store/` (and browsed throug the web server):
-
-- TODO
+Example Jepsen outputs of testing runs can be found under `store/` (and browsed through the web server). Their corresponding checker result outputs can be found under `result/`, where the index is the reverse index in web server listing order (`-1` means latest run).
 
 ## References
 

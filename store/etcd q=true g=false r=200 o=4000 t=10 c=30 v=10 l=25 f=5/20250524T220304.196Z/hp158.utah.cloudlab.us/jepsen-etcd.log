@@ -1,0 +1,148 @@
+2025-05-24 16:03:10 Jepsen starting  /home/jepsen/etcd-v3.1/etcd --log-output stderr --name hp158.utah.cloudlab.us --data-dir /home/jepsen/etcd-v3.1/data --wal-dir /home/jepsen/etcd-v3.1/wal --listen-peer-urls http://0.0.0.0:2380 --initial-advertise-peer-urls http://hp158.utah.cloudlab.us:2380 --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://hp158.utah.cloudlab.us:2379 --initial-cluster-state new --initial-cluster hp124.utah.cloudlab.us=http://hp124.utah.cloudlab.us:2380,hp158.utah.cloudlab.us=http://hp158.utah.cloudlab.us:2380,hp144.utah.cloudlab.us=http://hp144.utah.cloudlab.us:2380,hp159.utah.cloudlab.us=http://hp159.utah.cloudlab.us:2380,hp149.utah.cloudlab.us=http://hp149.utah.cloudlab.us:2380
+2025-05-24 16:03:10.184987 I | etcdmain: etcd Version: 3.1.5
+2025-05-24 16:03:10.185046 I | etcdmain: Git SHA: 20490ca
+2025-05-24 16:03:10.185052 I | etcdmain: Go Version: go1.7.5
+2025-05-24 16:03:10.185057 I | etcdmain: Go OS/Arch: linux/amd64
+2025-05-24 16:03:10.185063 I | etcdmain: setting maximum number of CPUs to 20, total number of available CPUs is 20
+2025-05-24 16:03:10.185119 I | embed: listening for peers on http://0.0.0.0:2380
+2025-05-24 16:03:10.185179 I | embed: listening for client requests on 0.0.0.0:2379
+2025-05-24 16:03:10.187036 I | pkg/netutil: resolving hp158.utah.cloudlab.us:2380 to 128.110.218.197:2380
+2025-05-24 16:03:10.187746 I | pkg/netutil: resolving hp158.utah.cloudlab.us:2380 to 128.110.218.197:2380
+2025-05-24 16:03:14.188926 I | etcdserver: name = hp158.utah.cloudlab.us
+2025-05-24 16:03:14.188964 I | etcdserver: data dir = /home/jepsen/etcd-v3.1/data
+2025-05-24 16:03:14.188978 I | etcdserver: member dir = /home/jepsen/etcd-v3.1/data/member
+2025-05-24 16:03:14.188988 I | etcdserver: dedicated WAL dir = /home/jepsen/etcd-v3.1/wal
+2025-05-24 16:03:14.188998 I | etcdserver: heartbeat = 100ms
+2025-05-24 16:03:14.189008 I | etcdserver: election = 1000ms
+2025-05-24 16:03:14.189017 I | etcdserver: snapshot count = 10000
+2025-05-24 16:03:14.189060 I | etcdserver: advertise client URLs = http://hp158.utah.cloudlab.us:2379
+2025-05-24 16:03:14.189076 I | etcdserver: initial advertise peer URLs = http://hp158.utah.cloudlab.us:2380
+2025-05-24 16:03:14.189114 I | etcdserver: initial cluster = hp124.utah.cloudlab.us=http://hp124.utah.cloudlab.us:2380,hp144.utah.cloudlab.us=http://hp144.utah.cloudlab.us:2380,hp149.utah.cloudlab.us=http://hp149.utah.cloudlab.us:2380,hp158.utah.cloudlab.us=http://hp158.utah.cloudlab.us:2380,hp159.utah.cloudlab.us=http://hp159.utah.cloudlab.us:2380
+2025-05-24 16:03:14.190849 I | etcdserver: starting member 399dd9d2fe9451fe in cluster aac2752a141c3276
+2025-05-24 16:03:14.190936 I | raft: 399dd9d2fe9451fe became follower at term 0
+2025-05-24 16:03:14.190958 I | raft: newRaft 399dd9d2fe9451fe [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+2025-05-24 16:03:14.190970 I | raft: 399dd9d2fe9451fe became follower at term 1
+2025-05-24 16:03:14.197343 I | rafthttp: starting peer a1561573eb12db98...
+2025-05-24 16:03:14.197416 I | rafthttp: started HTTP pipelining with peer a1561573eb12db98
+2025-05-24 16:03:14.199809 I | rafthttp: started streaming with peer a1561573eb12db98 (writer)
+2025-05-24 16:03:14.200537 I | rafthttp: started streaming with peer a1561573eb12db98 (writer)
+2025-05-24 16:03:14.203027 I | rafthttp: started peer a1561573eb12db98
+2025-05-24 16:03:14.203072 I | rafthttp: added peer a1561573eb12db98
+2025-05-24 16:03:14.203086 I | rafthttp: started streaming with peer a1561573eb12db98 (stream MsgApp v2 reader)
+2025-05-24 16:03:14.203169 I | rafthttp: starting peer c89e8ee7e52968ff...
+2025-05-24 16:03:14.203209 I | rafthttp: started streaming with peer a1561573eb12db98 (stream Message reader)
+2025-05-24 16:03:14.203307 I | rafthttp: started HTTP pipelining with peer c89e8ee7e52968ff
+2025-05-24 16:03:14.204473 I | rafthttp: started streaming with peer c89e8ee7e52968ff (writer)
+2025-05-24 16:03:14.204576 I | rafthttp: started streaming with peer c89e8ee7e52968ff (writer)
+2025-05-24 16:03:14.205162 I | rafthttp: started peer c89e8ee7e52968ff
+2025-05-24 16:03:14.205247 I | rafthttp: added peer c89e8ee7e52968ff
+2025-05-24 16:03:14.205269 I | rafthttp: starting peer dfe51183133d9fcb...
+2025-05-24 16:03:14.205276 I | rafthttp: started streaming with peer c89e8ee7e52968ff (stream Message reader)
+2025-05-24 16:03:14.205633 I | rafthttp: started streaming with peer c89e8ee7e52968ff (stream MsgApp v2 reader)
+2025-05-24 16:03:14.205806 I | rafthttp: started HTTP pipelining with peer dfe51183133d9fcb
+2025-05-24 16:03:14.205858 I | rafthttp: peer a1561573eb12db98 became active
+2025-05-24 16:03:14.205987 I | rafthttp: established a TCP streaming connection with peer a1561573eb12db98 (stream Message reader)
+2025-05-24 16:03:14.206008 I | rafthttp: established a TCP streaming connection with peer a1561573eb12db98 (stream MsgApp v2 reader)
+2025-05-24 16:03:14.208607 I | rafthttp: started streaming with peer dfe51183133d9fcb (writer)
+2025-05-24 16:03:14.208877 I | rafthttp: started streaming with peer dfe51183133d9fcb (writer)
+2025-05-24 16:03:14.210519 I | rafthttp: started peer dfe51183133d9fcb
+2025-05-24 16:03:14.210551 I | rafthttp: added peer dfe51183133d9fcb
+2025-05-24 16:03:14.210568 I | rafthttp: starting peer fe700c0c32dc3b77...
+2025-05-24 16:03:14.210583 I | rafthttp: started HTTP pipelining with peer fe700c0c32dc3b77
+2025-05-24 16:03:14.210599 I | rafthttp: started streaming with peer dfe51183133d9fcb (stream Message reader)
+2025-05-24 16:03:14.210688 I | rafthttp: started streaming with peer dfe51183133d9fcb (stream MsgApp v2 reader)
+2025-05-24 16:03:14.210872 I | rafthttp: started streaming with peer fe700c0c32dc3b77 (writer)
+2025-05-24 16:03:14.211146 I | rafthttp: started streaming with peer fe700c0c32dc3b77 (writer)
+2025-05-24 16:03:14.212184 I | rafthttp: started peer fe700c0c32dc3b77
+2025-05-24 16:03:14.212259 I | rafthttp: added peer fe700c0c32dc3b77
+2025-05-24 16:03:14.212296 I | rafthttp: started streaming with peer fe700c0c32dc3b77 (stream MsgApp v2 reader)
+2025-05-24 16:03:14.212329 I | etcdserver: starting server... [version: 3.1.5, cluster version: to_be_decided]
+2025-05-24 16:03:14.212405 I | rafthttp: started streaming with peer fe700c0c32dc3b77 (stream Message reader)
+2025-05-24 16:03:14.214266 I | rafthttp: established a TCP streaming connection with peer a1561573eb12db98 (stream MsgApp v2 writer)
+2025-05-24 16:03:14.214373 I | raft: 399dd9d2fe9451fe [term: 1] received a MsgVote message with higher term from a1561573eb12db98 [term: 2]
+2025-05-24 16:03:14.214409 I | raft: 399dd9d2fe9451fe became follower at term 2
+2025-05-24 16:03:14.214437 I | raft: 399dd9d2fe9451fe [logterm: 1, index: 5, vote: 0] cast MsgVote for a1561573eb12db98 [logterm: 1, index: 5] at term 2
+2025-05-24 16:03:14.214486 I | etcdserver/membership: added member 399dd9d2fe9451fe [http://hp158.utah.cloudlab.us:2380] to cluster aac2752a141c3276
+2025-05-24 16:03:14.214621 I | etcdserver/membership: added member a1561573eb12db98 [http://hp124.utah.cloudlab.us:2380] to cluster aac2752a141c3276
+2025-05-24 16:03:14.214754 I | rafthttp: peer dfe51183133d9fcb became active
+2025-05-24 16:03:14.214793 I | rafthttp: established a TCP streaming connection with peer dfe51183133d9fcb (stream MsgApp v2 writer)
+2025-05-24 16:03:14.214805 I | rafthttp: peer c89e8ee7e52968ff became active
+2025-05-24 16:03:14.214872 I | rafthttp: established a TCP streaming connection with peer c89e8ee7e52968ff (stream MsgApp v2 writer)
+2025-05-24 16:03:14.214905 I | etcdserver/membership: added member c89e8ee7e52968ff [http://hp149.utah.cloudlab.us:2380] to cluster aac2752a141c3276
+2025-05-24 16:03:14.214965 I | rafthttp: established a TCP streaming connection with peer dfe51183133d9fcb (stream Message reader)
+2025-05-24 16:03:14.215122 I | rafthttp: established a TCP streaming connection with peer dfe51183133d9fcb (stream MsgApp v2 reader)
+2025-05-24 16:03:14.215239 I | rafthttp: established a TCP streaming connection with peer dfe51183133d9fcb (stream Message writer)
+2025-05-24 16:03:14.215289 I | rafthttp: established a TCP streaming connection with peer c89e8ee7e52968ff (stream Message writer)
+2025-05-24 16:03:14.215338 I | etcdserver/membership: added member dfe51183133d9fcb [http://hp159.utah.cloudlab.us:2380] to cluster aac2752a141c3276
+2025-05-24 16:03:14.215588 I | rafthttp: established a TCP streaming connection with peer c89e8ee7e52968ff (stream Message reader)
+2025-05-24 16:03:14.215657 I | rafthttp: established a TCP streaming connection with peer a1561573eb12db98 (stream Message writer)
+2025-05-24 16:03:14.215716 I | etcdserver/membership: added member fe700c0c32dc3b77 [http://hp144.utah.cloudlab.us:2380] to cluster aac2752a141c3276
+2025-05-24 16:03:14.216181 I | rafthttp: established a TCP streaming connection with peer c89e8ee7e52968ff (stream MsgApp v2 reader)
+2025-05-24 16:03:14.217919 I | raft: raft.node: 399dd9d2fe9451fe elected leader a1561573eb12db98 at term 2
+2025-05-24 16:03:14.219815 I | etcdserver: published {Name:hp158.utah.cloudlab.us ClientURLs:[http://hp158.utah.cloudlab.us:2379]} to cluster aac2752a141c3276
+2025-05-24 16:03:14.219885 I | embed: ready to serve client requests
+2025-05-24 16:03:14.220000 E | etcdmain: forgot to set Type=notify in systemd service file?
+2025-05-24 16:03:14.220543 N | embed: serving insecure client requests on [::]:2379, this is strongly discouraged!
+2025-05-24 16:03:14.230724 I | rafthttp: peer fe700c0c32dc3b77 became active
+2025-05-24 16:03:14.230746 I | rafthttp: established a TCP streaming connection with peer fe700c0c32dc3b77 (stream Message writer)
+2025-05-24 16:03:14.230762 I | rafthttp: established a TCP streaming connection with peer fe700c0c32dc3b77 (stream MsgApp v2 writer)
+2025-05-24 16:03:14.239133 I | rafthttp: established a TCP streaming connection with peer fe700c0c32dc3b77 (stream Message reader)
+2025-05-24 16:03:14.239945 I | rafthttp: established a TCP streaming connection with peer fe700c0c32dc3b77 (stream MsgApp v2 reader)
+2025-05-24 16:03:14.241900 N | etcdserver/membership: set the initial cluster version to 3.1
+2025-05-24 16:03:14.241978 I | etcdserver/api: enabled capabilities for version 3.1
+2025-05-24 16:03:29.492501 I | raft: 399dd9d2fe9451fe [term: 2] received a MsgVote message with higher term from c89e8ee7e52968ff [term: 3]
+2025-05-24 16:03:29.492565 I | raft: 399dd9d2fe9451fe became follower at term 3
+2025-05-24 16:03:29.492590 I | raft: 399dd9d2fe9451fe [logterm: 2, index: 4545, vote: 0] rejected MsgVote from c89e8ee7e52968ff [logterm: 2, index: 4544] at term 3
+2025-05-24 16:03:29.492606 I | raft: raft.node: 399dd9d2fe9451fe lost leader a1561573eb12db98 at term 3
+2025-05-24 16:03:30.692411 I | raft: 399dd9d2fe9451fe [term: 3] received a MsgVote message with higher term from c89e8ee7e52968ff [term: 4]
+2025-05-24 16:03:30.692464 I | raft: 399dd9d2fe9451fe became follower at term 4
+2025-05-24 16:03:30.692493 I | raft: 399dd9d2fe9451fe [logterm: 2, index: 4545, vote: 0] rejected MsgVote from c89e8ee7e52968ff [logterm: 2, index: 4544] at term 4
+2025-05-24 16:03:32.018135 I | raft: 399dd9d2fe9451fe [term: 4] received a MsgVote message with higher term from fe700c0c32dc3b77 [term: 5]
+2025-05-24 16:03:32.018178 I | raft: 399dd9d2fe9451fe became follower at term 5
+2025-05-24 16:03:32.018201 I | raft: 399dd9d2fe9451fe [logterm: 2, index: 4545, vote: 0] rejected MsgVote from fe700c0c32dc3b77 [logterm: 2, index: 4542] at term 5
+2025-05-24 16:03:32.532565 W | rafthttp: lost the TCP streaming connection with peer dfe51183133d9fcb (stream MsgApp v2 reader)
+2025-05-24 16:03:32.532613 E | rafthttp: failed to read dfe51183133d9fcb on stream MsgApp v2 (read tcp 128.110.218.197:51748->128.110.218.198:2380: i/o timeout)
+2025-05-24 16:03:32.532626 I | rafthttp: peer dfe51183133d9fcb became inactive
+2025-05-24 16:03:32.533086 W | rafthttp: lost the TCP streaming connection with peer dfe51183133d9fcb (stream Message reader)
+2025-05-24 16:03:33.393264 W | rafthttp: lost the TCP streaming connection with peer a1561573eb12db98 (stream Message reader)
+2025-05-24 16:03:33.393306 E | rafthttp: failed to read a1561573eb12db98 on stream Message (read tcp 128.110.218.197:58640->128.110.218.163:2380: i/o timeout)
+2025-05-24 16:03:33.393320 I | rafthttp: peer a1561573eb12db98 became inactive
+2025-05-24 16:03:33.418069 I | raft: 399dd9d2fe9451fe [term: 5] received a MsgVote message with higher term from fe700c0c32dc3b77 [term: 6]
+2025-05-24 16:03:33.418124 I | raft: 399dd9d2fe9451fe became follower at term 6
+2025-05-24 16:03:33.418152 I | raft: 399dd9d2fe9451fe [logterm: 2, index: 4545, vote: 0] rejected MsgVote from fe700c0c32dc3b77 [logterm: 2, index: 4542] at term 6
+2025-05-24 16:03:33.490163 W | rafthttp: lost the TCP streaming connection with peer a1561573eb12db98 (stream MsgApp v2 reader)
+2025-05-24 16:03:33.591762 I | rafthttp: peer a1561573eb12db98 became active
+2025-05-24 16:03:33.591800 I | rafthttp: established a TCP streaming connection with peer a1561573eb12db98 (stream MsgApp v2 reader)
+2025-05-24 16:03:33.643175 W | rafthttp: closed an existing TCP streaming connection with peer a1561573eb12db98 (stream Message writer)
+2025-05-24 16:03:33.643220 I | rafthttp: established a TCP streaming connection with peer a1561573eb12db98 (stream Message writer)
+2025-05-24 16:03:33.661001 W | rafthttp: closed an existing TCP streaming connection with peer a1561573eb12db98 (stream MsgApp v2 writer)
+2025-05-24 16:03:33.661039 I | rafthttp: established a TCP streaming connection with peer a1561573eb12db98 (stream MsgApp v2 writer)
+2025-05-24 16:03:33.689480 I | rafthttp: peer dfe51183133d9fcb became active
+2025-05-24 16:03:33.689518 W | rafthttp: closed an existing TCP streaming connection with peer dfe51183133d9fcb (stream Message writer)
+2025-05-24 16:03:33.689532 I | rafthttp: established a TCP streaming connection with peer dfe51183133d9fcb (stream Message writer)
+2025-05-24 16:03:33.689756 W | rafthttp: closed an existing TCP streaming connection with peer dfe51183133d9fcb (stream MsgApp v2 writer)
+2025-05-24 16:03:33.689797 I | rafthttp: established a TCP streaming connection with peer dfe51183133d9fcb (stream MsgApp v2 writer)
+2025-05-24 16:03:33.693525 I | rafthttp: established a TCP streaming connection with peer dfe51183133d9fcb (stream Message reader)
+2025-05-24 16:03:33.693809 I | rafthttp: established a TCP streaming connection with peer dfe51183133d9fcb (stream MsgApp v2 reader)
+2025-05-24 16:03:33.892239 I | raft: 399dd9d2fe9451fe [term: 6] ignored a MsgVote message with lower term from dfe51183133d9fcb [term: 5]
+2025-05-24 16:03:34.525543 I | rafthttp: established a TCP streaming connection with peer a1561573eb12db98 (stream Message reader)
+2025-05-24 16:03:34.591392 I | raft: 399dd9d2fe9451fe is starting a new election at term 6
+2025-05-24 16:03:34.591435 I | raft: 399dd9d2fe9451fe became candidate at term 7
+2025-05-24 16:03:34.591453 I | raft: 399dd9d2fe9451fe received MsgVoteResp from 399dd9d2fe9451fe at term 7
+2025-05-24 16:03:34.591472 I | raft: 399dd9d2fe9451fe [logterm: 2, index: 4545] sent MsgVote request to a1561573eb12db98 at term 7
+2025-05-24 16:03:34.591490 I | raft: 399dd9d2fe9451fe [logterm: 2, index: 4545] sent MsgVote request to c89e8ee7e52968ff at term 7
+2025-05-24 16:03:34.591506 I | raft: 399dd9d2fe9451fe [logterm: 2, index: 4545] sent MsgVote request to dfe51183133d9fcb at term 7
+2025-05-24 16:03:34.591527 I | raft: 399dd9d2fe9451fe [logterm: 2, index: 4545] sent MsgVote request to fe700c0c32dc3b77 at term 7
+2025-05-24 16:03:34.592562 I | raft: 399dd9d2fe9451fe received MsgVoteResp from fe700c0c32dc3b77 at term 7
+2025-05-24 16:03:34.592607 I | raft: 399dd9d2fe9451fe [quorum:3] has received 2 MsgVoteResp votes and 0 vote rejections
+2025-05-24 16:03:34.592635 I | raft: 399dd9d2fe9451fe received MsgVoteResp rejection from dfe51183133d9fcb at term 7
+2025-05-24 16:03:34.592649 I | raft: 399dd9d2fe9451fe [quorum:3] has received 2 MsgVoteResp votes and 1 vote rejections
+2025-05-24 16:03:34.592664 I | raft: 399dd9d2fe9451fe received MsgVoteResp from c89e8ee7e52968ff at term 7
+2025-05-24 16:03:34.592681 I | raft: 399dd9d2fe9451fe [quorum:3] has received 3 MsgVoteResp votes and 1 vote rejections
+2025-05-24 16:03:34.592716 I | raft: 399dd9d2fe9451fe became leader at term 7
+2025-05-24 16:03:34.592749 I | raft: raft.node: 399dd9d2fe9451fe elected leader 399dd9d2fe9451fe at term 7
+2025-05-24 16:03:35.500780 E | etcdserver/api/v2http: got unexpected response error (etcdserver: request timed out)
+2025-05-24 16:03:37.183616 E | etcdserver/api/v2http: got unexpected response error (etcdserver: request timed out) [merged 5 repeated lines in 1.68s]
+2025-05-24 16:03:44.126407 I | etcdserver: start to snapshot (applied: 10001, lastsnap: 0)
+2025-05-24 16:03:44.135978 I | etcdserver: saved snapshot at index 10001
+2025-05-24 16:03:44.136152 I | etcdserver: compacted raft log at 5001

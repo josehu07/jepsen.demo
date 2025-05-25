@@ -1,0 +1,267 @@
+{:valid? false,
+ :configs
+ ({:model {:value 9},
+   :last-op
+   {:process 22,
+    :type :ok,
+    :f :cas,
+    :value [0 9],
+    :index 9141,
+    :time 8429461007,
+    :tstag [nil 8425282287]},
+   :pending
+   [{:process 23,
+     :type :invoke,
+     :f :read,
+     :value 8,
+     :index 9143,
+     :time 8432221058,
+     :tstag nil}
+    {:process 26,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 8972,
+     :time 8273987181,
+     :tstag 8273987181}]}
+  {:model {:value 9},
+   :last-op
+   {:process 22,
+    :type :ok,
+    :f :cas,
+    :value [0 9],
+    :index 9141,
+    :time 8429461007,
+    :tstag [nil 8425282287]},
+   :pending
+   [{:process 23,
+     :type :invoke,
+     :f :read,
+     :value 8,
+     :index 9143,
+     :time 8432221058,
+     :tstag nil}]}
+  {:model {:value 9},
+   :last-op
+   {:process 22,
+    :type :ok,
+    :f :cas,
+    :value [0 9],
+    :index 9141,
+    :time 8429461007,
+    :tstag [nil 8425282287]},
+   :pending
+   [{:process 21,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 9005,
+     :time 8310617558,
+     :tstag 8310617558}
+    {:process 23,
+     :type :invoke,
+     :f :read,
+     :value 8,
+     :index 9143,
+     :time 8432221058,
+     :tstag nil}
+    {:process 26,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 8972,
+     :time 8273987181,
+     :tstag 8273987181}]}
+  {:model {:value 9},
+   :last-op
+   {:process 22,
+    :type :ok,
+    :f :cas,
+    :value [0 9],
+    :index 9141,
+    :time 8429461007,
+    :tstag [nil 8425282287]},
+   :pending
+   [{:process 21,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 9005,
+     :time 8310617558,
+     :tstag 8310617558}
+    {:process 23,
+     :type :invoke,
+     :f :read,
+     :value 8,
+     :index 9143,
+     :time 8432221058,
+     :tstag nil}]}),
+ :final-paths
+ ([{:op
+    {:process 22,
+     :type :ok,
+     :f :cas,
+     :value [0 9],
+     :index 9141,
+     :time 8429461007,
+     :tstag [nil 8425282287]},
+    :model {:value 9}}
+   {:op
+    {:process 21,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 9005,
+     :time 8310617558,
+     :tstag 8310617558},
+    :model {:value 5}}
+   {:op
+    {:process 26,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 8972,
+     :time 8273987181,
+     :tstag 8273987181},
+    :model {:value 5}}
+   {:op
+    {:process 23,
+     :type :ok,
+     :f :read,
+     :value 8,
+     :index 9146,
+     :time 8434871643,
+     :tstag nil},
+    :model {:msg "can't read 8 from register 5"}}]
+  [{:op
+    {:process 22,
+     :type :ok,
+     :f :cas,
+     :value [0 9],
+     :index 9141,
+     :time 8429461007,
+     :tstag [nil 8425282287]},
+    :model {:value 9}}
+   {:op
+    {:process 21,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 9005,
+     :time 8310617558,
+     :tstag 8310617558},
+    :model {:value 5}}
+   {:op
+    {:process 23,
+     :type :ok,
+     :f :read,
+     :value 8,
+     :index 9146,
+     :time 8434871643,
+     :tstag nil},
+    :model {:msg "can't read 8 from register 5"}}]
+  [{:op
+    {:process 22,
+     :type :ok,
+     :f :cas,
+     :value [0 9],
+     :index 9141,
+     :time 8429461007,
+     :tstag [nil 8425282287]},
+    :model {:value 9}}
+   {:op
+    {:process 23,
+     :type :ok,
+     :f :read,
+     :value 8,
+     :index 9146,
+     :time 8434871643,
+     :tstag nil},
+    :model {:msg "can't read 8 from register 9"}}]
+  [{:op
+    {:process 22,
+     :type :ok,
+     :f :cas,
+     :value [0 9],
+     :index 9141,
+     :time 8429461007,
+     :tstag [nil 8425282287]},
+    :model {:value 9}}
+   {:op
+    {:process 26,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 8972,
+     :time 8273987181,
+     :tstag 8273987181},
+    :model {:value 5}}
+   {:op
+    {:process 23,
+     :type :ok,
+     :f :read,
+     :value 8,
+     :index 9146,
+     :time 8434871643,
+     :tstag nil},
+    :model {:msg "can't read 8 from register 5"}}]
+  [{:op
+    {:process 22,
+     :type :ok,
+     :f :cas,
+     :value [0 9],
+     :index 9141,
+     :time 8429461007,
+     :tstag [nil 8425282287]},
+    :model {:value 9}}
+   {:op
+    {:process 26,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 8972,
+     :time 8273987181,
+     :tstag 8273987181},
+    :model {:value 5}}
+   {:op
+    {:process 21,
+     :type :invoke,
+     :f :write,
+     :value 5,
+     :index 9005,
+     :time 8310617558,
+     :tstag 8310617558},
+    :model {:value 5}}
+   {:op
+    {:process 23,
+     :type :ok,
+     :f :read,
+     :value 8,
+     :index 9146,
+     :time 8434871643,
+     :tstag nil},
+    :model {:msg "can't read 8 from register 5"}}]),
+ :previous-ok
+ {:process 22,
+  :type :ok,
+  :f :cas,
+  :value [0 9],
+  :index 9141,
+  :time 8429461007,
+  :tstag [nil 8425282287]},
+ :last-op
+ {:process 22,
+  :type :ok,
+  :f :cas,
+  :value [0 9],
+  :index 9141,
+  :time 8429461007,
+  :tstag [nil 8425282287]},
+ :op
+ {:process 23,
+  :type :ok,
+  :f :read,
+  :value 8,
+  :index 9146,
+  :time 8434871643,
+  :tstag nil}}

@@ -1,0 +1,96 @@
+{:valid? false,
+ :configs
+ ({:model {:value 9},
+   :last-op
+   {:process 6,
+    :type :ok,
+    :f :write,
+    :value 9,
+    :index 53,
+    :time 225102135,
+    :tstag 224371668},
+   :pending
+   [{:process 0,
+     :type :invoke,
+     :f :read,
+     :value 8,
+     :index 63,
+     :time 233733572,
+     :tstag nil}
+    {:process 8,
+     :type :invoke,
+     :f :read,
+     :value nil,
+     :index 55,
+     :time 228756556,
+     :tstag nil}]}),
+ :final-paths
+ ([{:op
+    {:process 6,
+     :type :ok,
+     :f :write,
+     :value 9,
+     :index 53,
+     :time 225102135,
+     :tstag 224371668},
+    :model {:value 9}}
+   {:op
+    {:process 8,
+     :type :invoke,
+     :f :read,
+     :value nil,
+     :index 55,
+     :time 228756556,
+     :tstag nil},
+    :model {:value 9}}
+   {:op
+    {:process 0,
+     :type :ok,
+     :f :read,
+     :value 8,
+     :index 64,
+     :time 234257850,
+     :tstag 200289322},
+    :model {:msg "can't read 8 from register 9"}}]
+  [{:op
+    {:process 6,
+     :type :ok,
+     :f :write,
+     :value 9,
+     :index 53,
+     :time 225102135,
+     :tstag 224371668},
+    :model {:value 9}}
+   {:op
+    {:process 0,
+     :type :ok,
+     :f :read,
+     :value 8,
+     :index 64,
+     :time 234257850,
+     :tstag 200289322},
+    :model {:msg "can't read 8 from register 9"}}]),
+ :previous-ok
+ {:process 6,
+  :type :ok,
+  :f :write,
+  :value 9,
+  :index 53,
+  :time 225102135,
+  :tstag 224371668},
+ :last-op
+ {:process 6,
+  :type :ok,
+  :f :write,
+  :value 9,
+  :index 53,
+  :time 225102135,
+  :tstag 224371668},
+ :op
+ {:process 0,
+  :type :ok,
+  :f :read,
+  :value 8,
+  :index 64,
+  :time 234257850,
+  :tstag 200289322}}

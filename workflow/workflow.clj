@@ -89,11 +89,12 @@
                 (info "Printing results...")
                 (jepsen/log-results test)
 
-                (try
-                  (println (str/trim
-                            (slurp (str (.getPath (store/path test))
-                                        "/sop-checker.out"))))
-                  (catch FileNotFoundException _ nil))
+                (when (:rust-checker opts)
+                  (try
+                    (println (str/trim
+                              (slurp (str (.getPath (store/path test))
+                                          "/sop-checker.out"))))
+                    (catch FileNotFoundException _ nil)))
                 (println "Time spent in checker:"
                          (cl-format nil "~,2f" msecs)
                          "msecs")))))]

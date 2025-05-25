@@ -219,6 +219,7 @@ fn parse_segment(
             }
         }
 
+        // skip other fields
         _ => {}
     }
 

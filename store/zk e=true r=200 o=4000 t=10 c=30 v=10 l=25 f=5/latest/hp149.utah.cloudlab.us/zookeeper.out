@@ -1,0 +1,355 @@
+2025-05-24 21:19:03,634 [myid:] - INFO  [main:QuorumPeerConfig@136] - Reading configuration from: /home/jepsen/zookeeper-v3.4/conf/zoo.cfg
+2025-05-24 21:19:03,646 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp144.utah.cloudlab.us to address: hp144.utah.cloudlab.us/128.110.218.183
+2025-05-24 21:19:03,647 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp158.utah.cloudlab.us to address: hp158.utah.cloudlab.us/128.110.218.197
+2025-05-24 21:19:03,648 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp124.utah.cloudlab.us to address: hp124.utah.cloudlab.us/128.110.218.163
+2025-05-24 21:19:03,649 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp149.utah.cloudlab.us to address: hp149.utah.cloudlab.us/128.110.218.188
+2025-05-24 21:19:03,650 [myid:] - INFO  [main:QuorumPeer$QuorumServer@184] - Resolved hostname: hp159.utah.cloudlab.us to address: hp159.utah.cloudlab.us/128.110.218.198
+2025-05-24 21:19:03,650 [myid:] - INFO  [main:QuorumPeerConfig@398] - Defaulting to majority quorums
+2025-05-24 21:19:03,653 [myid:4] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+2025-05-24 21:19:03,653 [myid:4] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+2025-05-24 21:19:03,654 [myid:4] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+2025-05-24 21:19:03,663 [myid:4] - INFO  [main:QuorumPeerMain@130] - Starting quorum peer
+2025-05-24 21:19:03,668 [myid:4] - INFO  [main:ServerCnxnFactory@117] - Using org.apache.zookeeper.server.NIOServerCnxnFactory as server connection factory
+2025-05-24 21:19:03,672 [myid:4] - INFO  [main:NIOServerCnxnFactory@89] - binding to port 0.0.0.0/0.0.0.0:2181
+2025-05-24 21:19:03,679 [myid:4] - INFO  [main:QuorumPeer@1158] - tickTime set to 2000
+2025-05-24 21:19:03,679 [myid:4] - INFO  [main:QuorumPeer@1204] - initLimit set to 10
+2025-05-24 21:19:03,680 [myid:4] - INFO  [main:QuorumPeer@1178] - minSessionTimeout set to -1
+2025-05-24 21:19:03,681 [myid:4] - INFO  [main:QuorumPeer@1189] - maxSessionTimeout set to -1
+2025-05-24 21:19:03,686 [myid:4] - INFO  [main:QuorumPeer@1467] - QuorumPeer communication is not secured!
+2025-05-24 21:19:03,687 [myid:4] - INFO  [main:QuorumPeer@1496] - quorum.cnxn.threads.size set to 20
+2025-05-24 21:19:03,689 [myid:4] - INFO  [main:QuorumPeer@668] - currentEpoch not found! Creating with a reasonable default of 0. This should only happen when you are upgrading your installation
+2025-05-24 21:19:03,691 [myid:4] - INFO  [main:QuorumPeer@683] - acceptedEpoch not found! Creating with a reasonable default of 0. This should only happen when you are upgrading your installation
+2025-05-24 21:19:03,695 [myid:4] - INFO  [ListenerThread:QuorumCnxManager$Listener@736] - My election bind port: hp149.utah.cloudlab.us/128.110.218.188:3888
+2025-05-24 21:19:03,704 [myid:4] - INFO  [hp149.utah.cloudlab.us/128.110.218.188:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.163:50384
+2025-05-24 21:19:03,704 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:QuorumPeer@909] - LOOKING
+2025-05-24 21:19:03,705 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@813] - New election. My id =  4, proposed zxid=0x0
+2025-05-24 21:19:03,709 [myid:4] - INFO  [hp149.utah.cloudlab.us/128.110.218.188:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.198:57640
+2025-05-24 21:19:03,710 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@595] - Notification: 1 (message format version), 3 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 0 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,711 [myid:4] - INFO  [hp149.utah.cloudlab.us/128.110.218.188:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.197:54538
+2025-05-24 21:19:03,711 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 0 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,711 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@595] - Notification: 1 (message format version), 3 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 1 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,712 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 1 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,713 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 3 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,713 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 4 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,713 [myid:4] - WARN  [SendWorker:1:QuorumCnxManager$SendWorker@941] - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.pollSendQueue(QuorumCnxManager.java:1094)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.access$700(QuorumCnxManager.java:74)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:929)
+2025-05-24 21:19:03,714 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 2 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,714 [myid:4] - INFO  [hp149.utah.cloudlab.us/128.110.218.188:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.183:53182
+2025-05-24 21:19:03,713 [myid:4] - WARN  [RecvWorker:1:QuorumCnxManager$RecvWorker@1025] - Connection broken for id 1, my id = 4, error = 
+java.net.SocketException: Socket closed
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method)
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140)
+	at java.base/java.io.BufferedInputStream.fill(BufferedInputStream.java:252)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:271)
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$RecvWorker.run(QuorumCnxManager.java:1010)
+2025-05-24 21:19:03,716 [myid:4] - WARN  [RecvWorker:2:QuorumCnxManager$RecvWorker@1025] - Connection broken for id 2, my id = 4, error = 
+java.net.SocketException: Socket closed
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method)
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140)
+	at java.base/java.io.BufferedInputStream.fill(BufferedInputStream.java:252)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:271)
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$RecvWorker.run(QuorumCnxManager.java:1010)
+2025-05-24 21:19:03,717 [myid:4] - WARN  [RecvWorker:2:QuorumCnxManager$RecvWorker@1028] - Interrupting SendWorker
+2025-05-24 21:19:03,716 [myid:4] - WARN  [SendWorker:2:QuorumCnxManager$SendWorker@941] - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.pollSendQueue(QuorumCnxManager.java:1094)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.access$700(QuorumCnxManager.java:74)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:929)
+2025-05-24 21:19:03,718 [myid:4] - WARN  [SendWorker:2:QuorumCnxManager$SendWorker@951] - Send worker leaving thread
+2025-05-24 21:19:03,715 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 1 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,715 [myid:4] - WARN  [SendWorker:1:QuorumCnxManager$SendWorker@951] - Send worker leaving thread
+2025-05-24 21:19:03,718 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 2 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,717 [myid:4] - INFO  [hp149.utah.cloudlab.us/128.110.218.188:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.183:53184
+2025-05-24 21:19:03,716 [myid:4] - WARN  [RecvWorker:1:QuorumCnxManager$RecvWorker@1028] - Interrupting SendWorker
+2025-05-24 21:19:03,718 [myid:4] - WARN  [SendWorker:2:QuorumCnxManager$SendWorker@941] - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.pollSendQueue(QuorumCnxManager.java:1094)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.access$700(QuorumCnxManager.java:74)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:929)
+2025-05-24 21:19:03,719 [myid:4] - INFO  [hp149.utah.cloudlab.us/128.110.218.188:3888:QuorumCnxManager$Listener@743] - Received connection request /128.110.218.183:53192
+2025-05-24 21:19:03,719 [myid:4] - WARN  [RecvWorker:2:QuorumCnxManager$RecvWorker@1025] - Connection broken for id 2, my id = 4, error = 
+java.net.SocketException: Socket closed
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method)
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140)
+	at java.base/java.io.BufferedInputStream.fill(BufferedInputStream.java:252)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:271)
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$RecvWorker.run(QuorumCnxManager.java:1010)
+2025-05-24 21:19:03,720 [myid:4] - WARN  [RecvWorker:2:QuorumCnxManager$RecvWorker@1028] - Interrupting SendWorker
+2025-05-24 21:19:03,720 [myid:4] - WARN  [RecvWorker:2:QuorumCnxManager$RecvWorker@1025] - Connection broken for id 2, my id = 4, error = 
+java.net.SocketException: Socket closed
+	at java.base/java.net.SocketInputStream.socketRead0(Native Method)
+	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140)
+	at java.base/java.io.BufferedInputStream.fill(BufferedInputStream.java:252)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:271)
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$RecvWorker.run(QuorumCnxManager.java:1010)
+2025-05-24 21:19:03,721 [myid:4] - WARN  [RecvWorker:2:QuorumCnxManager$RecvWorker@1028] - Interrupting SendWorker
+2025-05-24 21:19:03,720 [myid:4] - WARN  [SendWorker:2:QuorumCnxManager$SendWorker@941] - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133)
+	at java.base/java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.pollSendQueue(QuorumCnxManager.java:1094)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager.access$700(QuorumCnxManager.java:74)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:929)
+2025-05-24 21:19:03,721 [myid:4] - WARN  [SendWorker:2:QuorumCnxManager$SendWorker@951] - Send worker leaving thread
+2025-05-24 21:19:03,719 [myid:4] - WARN  [SendWorker:2:QuorumCnxManager$SendWorker@951] - Send worker leaving thread
+2025-05-24 21:19:03,721 [myid:4] - INFO  [WorkerReceiver[myid=4]:FastLeaderElection@595] - Notification: 1 (message format version), 4 (n.leader), 0x0 (n.zxid), 0x1 (n.round), LOOKING (n.state), 2 (n.sid), 0x0 (n.peerEpoch) LOOKING (my state)
+2025-05-24 21:19:03,922 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:QuorumPeer@991] - LEADING
+2025-05-24 21:19:03,926 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Leader@64] - TCP NoDelay set to: true
+2025-05-24 21:19:03,936 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:zookeeper.version=3.4.13-2d71af4dbe22557fda74f9a9b4309b15a7487f03, built on 06/29/2018 04:05 GMT
+2025-05-24 21:19:03,936 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:host.name=hp149.utah.cloudlab.us
+2025-05-24 21:19:03,936 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.version=11.0.26
+2025-05-24 21:19:03,936 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.vendor=Ubuntu
+2025-05-24 21:19:03,937 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.home=/usr/lib/jvm/java-11-openjdk-amd64
+2025-05-24 21:19:03,937 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.class.path=/home/jepsen/zookeeper-v3.4/bin/../build/classes:/home/jepsen/zookeeper-v3.4/bin/../build/lib/*.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/slf4j-log4j12-1.7.25.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/slf4j-api-1.7.25.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/netty-3.10.6.Final.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/log4j-1.2.17.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/jline-0.9.94.jar:/home/jepsen/zookeeper-v3.4/bin/../lib/audience-annotations-0.5.0.jar:/home/jepsen/zookeeper-v3.4/bin/../zookeeper-3.4.13.jar:/home/jepsen/zookeeper-v3.4/bin/../src/java/lib/*.jar:/home/jepsen/zookeeper-v3.4/bin/../conf:
+2025-05-24 21:19:03,937 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.library.path=/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+2025-05-24 21:19:03,937 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.io.tmpdir=/tmp
+2025-05-24 21:19:03,937 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.compiler=<NA>
+2025-05-24 21:19:03,937 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.name=Linux
+2025-05-24 21:19:03,938 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.arch=amd64
+2025-05-24 21:19:03,938 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.version=6.13.5-061305-generic
+2025-05-24 21:19:03,938 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.name=jepsen
+2025-05-24 21:19:03,938 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.home=/home/jepsen
+2025-05-24 21:19:03,938 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.dir=/
+2025-05-24 21:19:03,941 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@174] - Created server with tickTime 2000 minSessionTimeout 4000 maxSessionTimeout 40000 datadir /home/jepsen/zookeeper-v3.4/data/version-2 snapdir /home/jepsen/zookeeper-v3.4/data/version-2
+2025-05-24 21:19:03,943 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Leader@380] - LEADING - LEADER ELECTION TOOK - 238
+2025-05-24 21:19:03,959 [myid:4] - INFO  [LearnerHandler-/128.110.218.183:59618:LearnerHandler@346] - Follower sid: 2 : info : org.apache.zookeeper.server.quorum.QuorumPeer$QuorumServer@c6c4367
+2025-05-24 21:19:04,941 [myid:4] - INFO  [LearnerHandler-/128.110.218.163:54660:LearnerHandler@346] - Follower sid: 0 : info : org.apache.zookeeper.server.quorum.QuorumPeer$QuorumServer@19c77a61
+2025-05-24 21:19:04,943 [myid:4] - INFO  [LearnerHandler-/128.110.218.197:51398:LearnerHandler@346] - Follower sid: 1 : info : org.apache.zookeeper.server.quorum.QuorumPeer$QuorumServer@62010fab
+2025-05-24 21:19:04,945 [myid:4] - INFO  [LearnerHandler-/128.110.218.198:55140:LearnerHandler@346] - Follower sid: 3 : info : org.apache.zookeeper.server.quorum.QuorumPeer$QuorumServer@70a9d95f
+2025-05-24 21:19:04,945 [myid:4] - INFO  [LearnerHandler-/128.110.218.163:54660:LearnerHandler@401] - Synchronizing with Follower sid: 0 maxCommittedLog=0x0 minCommittedLog=0x0 peerLastZxid=0x0
+2025-05-24 21:19:04,945 [myid:4] - INFO  [LearnerHandler-/128.110.218.183:59618:LearnerHandler@401] - Synchronizing with Follower sid: 2 maxCommittedLog=0x0 minCommittedLog=0x0 peerLastZxid=0x0
+2025-05-24 21:19:04,945 [myid:4] - INFO  [LearnerHandler-/128.110.218.197:51398:LearnerHandler@401] - Synchronizing with Follower sid: 1 maxCommittedLog=0x0 minCommittedLog=0x0 peerLastZxid=0x0
+2025-05-24 21:19:04,946 [myid:4] - INFO  [LearnerHandler-/128.110.218.183:59618:LearnerHandler@410] - leader and follower are in sync, zxid=0x0
+2025-05-24 21:19:04,945 [myid:4] - INFO  [LearnerHandler-/128.110.218.163:54660:LearnerHandler@410] - leader and follower are in sync, zxid=0x0
+2025-05-24 21:19:04,946 [myid:4] - INFO  [LearnerHandler-/128.110.218.163:54660:LearnerHandler@475] - Sending DIFF
+2025-05-24 21:19:04,946 [myid:4] - INFO  [LearnerHandler-/128.110.218.183:59618:LearnerHandler@475] - Sending DIFF
+2025-05-24 21:19:04,946 [myid:4] - INFO  [LearnerHandler-/128.110.218.197:51398:LearnerHandler@410] - leader and follower are in sync, zxid=0x0
+2025-05-24 21:19:04,946 [myid:4] - INFO  [LearnerHandler-/128.110.218.198:55140:LearnerHandler@401] - Synchronizing with Follower sid: 3 maxCommittedLog=0x0 minCommittedLog=0x0 peerLastZxid=0x0
+2025-05-24 21:19:04,947 [myid:4] - INFO  [LearnerHandler-/128.110.218.197:51398:LearnerHandler@475] - Sending DIFF
+2025-05-24 21:19:04,947 [myid:4] - INFO  [LearnerHandler-/128.110.218.198:55140:LearnerHandler@410] - leader and follower are in sync, zxid=0x0
+2025-05-24 21:19:04,947 [myid:4] - INFO  [LearnerHandler-/128.110.218.198:55140:LearnerHandler@475] - Sending DIFF
+2025-05-24 21:19:04,952 [myid:4] - INFO  [LearnerHandler-/128.110.218.163:54660:LearnerHandler@535] - Received NEWLEADER-ACK message from 0
+2025-05-24 21:19:04,952 [myid:4] - INFO  [LearnerHandler-/128.110.218.197:51398:LearnerHandler@535] - Received NEWLEADER-ACK message from 1
+2025-05-24 21:19:04,952 [myid:4] - INFO  [LearnerHandler-/128.110.218.183:59618:LearnerHandler@535] - Received NEWLEADER-ACK message from 2
+2025-05-24 21:19:04,953 [myid:4] - INFO  [QuorumPeer[myid=4]/0:0:0:0:0:0:0:0:2181:Leader@964] - Have quorum of supporters, sids: [ 0,1,4 ]; starting up and setting last processed zxid: 0x100000000
+2025-05-24 21:19:04,953 [myid:4] - INFO  [LearnerHandler-/128.110.218.198:55140:LearnerHandler@535] - Received NEWLEADER-ACK message from 3
+2025-05-24 21:19:14,308 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:52724
+2025-05-24 21:19:14,318 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:52724
+2025-05-24 21:19:14,321 [myid:4] - INFO  [SyncThread:4:FileTxnLog@213] - Creating new log file: log.100000001
+2025-05-24 21:19:14,336 [myid:4] - INFO  [CommitProcessor:4:ZooKeeperServer@694] - Established session 0x4002414882d0000 with negotiated timeout 5000 for client /128.110.218.193:52724
+2025-05-24 21:19:14,363 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00000 type:create cxid:0x3 zxid:0x100000007 txntype:-1 reqpath:n/a Error Path:/stm Error:KeeperErrorCode = NodeExists for /stm
+2025-05-24 21:19:14,364 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x200241488bf0000 type:create cxid:0x3 zxid:0x100000008 txntype:-1 reqpath:n/a Error Path:/stm Error:KeeperErrorCode = NodeExists for /stm
+2025-05-24 21:19:14,364 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x10024148b200000 type:create cxid:0x3 zxid:0x100000009 txntype:-1 reqpath:n/a Error Path:/stm Error:KeeperErrorCode = NodeExists for /stm
+2025-05-24 21:19:14,365 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x300241480650000 type:create cxid:0x3 zxid:0x10000000a txntype:-1 reqpath:n/a Error Path:/stm Error:KeeperErrorCode = NodeExists for /stm
+2025-05-24 21:19:14,378 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00000 type:create cxid:0x5 zxid:0x10000000e txntype:-1 reqpath:n/a Error Path:/stm/refs Error:KeeperErrorCode = NodeExists for /stm/refs
+2025-05-24 21:19:14,378 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x200241488bf0000 type:create cxid:0x5 zxid:0x10000000f txntype:-1 reqpath:n/a Error Path:/stm/refs Error:KeeperErrorCode = NodeExists for /stm/refs
+2025-05-24 21:19:14,379 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x10024148b200000 type:create cxid:0x5 zxid:0x100000010 txntype:-1 reqpath:n/a Error Path:/stm/refs Error:KeeperErrorCode = NodeExists for /stm/refs
+2025-05-24 21:19:14,379 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x300241480650000 type:create cxid:0x5 zxid:0x100000011 txntype:-1 reqpath:n/a Error Path:/stm/refs Error:KeeperErrorCode = NodeExists for /stm/refs
+2025-05-24 21:19:14,381 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00000 type:create cxid:0x6 zxid:0x100000012 txntype:-1 reqpath:n/a Error Path:/stm/atoms Error:KeeperErrorCode = NodeExists for /stm/atoms
+2025-05-24 21:19:14,382 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x200241488bf0000 type:create cxid:0x6 zxid:0x100000013 txntype:-1 reqpath:n/a Error Path:/stm/atoms Error:KeeperErrorCode = NodeExists for /stm/atoms
+2025-05-24 21:19:14,382 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x10024148b200000 type:create cxid:0x6 zxid:0x100000014 txntype:-1 reqpath:n/a Error Path:/stm/atoms Error:KeeperErrorCode = NodeExists for /stm/atoms
+2025-05-24 21:19:14,383 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x300241480650000 type:create cxid:0x6 zxid:0x100000015 txntype:-1 reqpath:n/a Error Path:/stm/atoms Error:KeeperErrorCode = NodeExists for /stm/atoms
+2025-05-24 21:19:14,465 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:52732
+2025-05-24 21:19:14,466 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:52736
+2025-05-24 21:19:14,466 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:52732
+2025-05-24 21:19:14,467 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:52744
+2025-05-24 21:19:14,467 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:52736
+2025-05-24 21:19:14,468 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:52744
+2025-05-24 21:19:14,469 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:52754
+2025-05-24 21:19:14,470 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:52754
+2025-05-24 21:19:14,470 [myid:4] - INFO  [CommitProcessor:4:ZooKeeperServer@694] - Established session 0x4002414882d0001 with negotiated timeout 5000 for client /128.110.218.193:52732
+2025-05-24 21:19:14,471 [myid:4] - INFO  [CommitProcessor:4:ZooKeeperServer@694] - Established session 0x4002414882d0002 with negotiated timeout 5000 for client /128.110.218.193:52736
+2025-05-24 21:19:14,473 [myid:4] - INFO  [CommitProcessor:4:ZooKeeperServer@694] - Established session 0x4002414882d0003 with negotiated timeout 5000 for client /128.110.218.193:52744
+2025-05-24 21:19:14,474 [myid:4] - INFO  [CommitProcessor:4:ZooKeeperServer@694] - Established session 0x4002414882d0004 with negotiated timeout 5000 for client /128.110.218.193:52754
+2025-05-24 21:19:14,478 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x200241488bf0003 type:create cxid:0x4 zxid:0x100000030 txntype:-1 reqpath:n/a Error Path:/jepsen/2 Error:KeeperErrorCode = NodeExists for /jepsen/2
+2025-05-24 21:19:14,480 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00002 type:create cxid:0x4 zxid:0x100000031 txntype:-1 reqpath:n/a Error Path:/jepsen/2 Error:KeeperErrorCode = NodeExists for /jepsen/2
+2025-05-24 21:19:14,480 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x10024148b200005 type:create cxid:0x4 zxid:0x100000032 txntype:-1 reqpath:n/a Error Path:/jepsen/2 Error:KeeperErrorCode = NodeExists for /jepsen/2
+2025-05-24 21:19:14,482 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x300241480650003 type:create cxid:0x6 zxid:0x100000035 txntype:-1 reqpath:n/a Error Path:/jepsen/2/data Error:KeeperErrorCode = NodeExists for /jepsen/2/data
+2025-05-24 21:19:14,483 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00003 type:create cxid:0x8 zxid:0x100000036 txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen
+2025-05-24 21:19:14,484 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00002 type:create cxid:0x6 zxid:0x100000037 txntype:-1 reqpath:n/a Error Path:/jepsen/2/data Error:KeeperErrorCode = NodeExists for /jepsen/2/data
+2025-05-24 21:19:14,485 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00005 type:create cxid:0x5 zxid:0x100000038 txntype:-1 reqpath:n/a Error Path:/jepsen/2/data Error:KeeperErrorCode = NodeExists for /jepsen/2/data
+2025-05-24 21:19:14,486 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x10024148b200004 type:create cxid:0x9 zxid:0x10000003a txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/1 Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/1
+2025-05-24 21:19:14,486 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x300241480650001 type:create cxid:0x9 zxid:0x10000003b txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/1 Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/1
+2025-05-24 21:19:14,488 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00003 type:create cxid:0xa zxid:0x10000003e txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/1 Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/1
+2025-05-24 21:19:14,488 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:52766
+2025-05-24 21:19:14,489 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:52766
+2025-05-24 21:19:14,491 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00003 type:create cxid:0xc zxid:0x100000044 txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/1/lock Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/1/lock
+2025-05-24 21:19:14,491 [myid:4] - INFO  [CommitProcessor:4:ZooKeeperServer@694] - Established session 0x4002414882d0005 with negotiated timeout 5000 for client /128.110.218.193:52766
+2025-05-24 21:19:14,491 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00006 type:create cxid:0xa zxid:0x100000045 txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/1/lock Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/1/lock
+2025-05-24 21:19:14,492 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:52776
+2025-05-24 21:19:14,492 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x200241488bf0001 type:create cxid:0xf zxid:0x100000046 txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/1/lock Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/1/lock
+2025-05-24 21:19:14,493 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x300241480650001 type:create cxid:0xb zxid:0x100000047 txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/1/lock Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/1/lock
+2025-05-24 21:19:14,493 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:52776
+2025-05-24 21:19:14,493 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x300241480650003 type:create cxid:0xb zxid:0x100000048 txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/2 Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/2
+2025-05-24 21:19:14,494 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x10024148b200006 type:create cxid:0x9 zxid:0x100000049 txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/2 Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/2
+2025-05-24 21:19:14,495 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00002 type:create cxid:0xc zxid:0x10000004c txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/2/lock Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/2/lock
+2025-05-24 21:19:14,496 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x200241488bf0003 type:create cxid:0xc zxid:0x10000004d txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/2/lock Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/2/lock
+2025-05-24 21:19:14,496 [myid:4] - INFO  [CommitProcessor:4:ZooKeeperServer@694] - Established session 0x4002414882d0006 with negotiated timeout 5000 for client /128.110.218.193:52776
+2025-05-24 21:19:14,496 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x300241480650003 type:create cxid:0xd zxid:0x10000004e txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/2/lock Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/2/lock
+2025-05-24 21:19:14,497 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x10024148b200005 type:create cxid:0xc zxid:0x10000004f txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/2/lock Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/2/lock
+2025-05-24 21:19:14,497 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x10024148b200006 type:create cxid:0xb zxid:0x100000050 txntype:-1 reqpath:n/a Error Path:/stm/atoms/jepsen/2/lock Error:KeeperErrorCode = NodeExists for /stm/atoms/jepsen/2/lock
+2025-05-24 21:19:24,380 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0000, likely client has closed socket
+2025-05-24 21:19:24,382 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:52724 which had sessionid 0x4002414882d0000
+2025-05-24 21:19:24,480 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0002, likely client has closed socket
+2025-05-24 21:19:24,481 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:52736 which had sessionid 0x4002414882d0002
+2025-05-24 21:19:24,501 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0006, likely client has closed socket
+2025-05-24 21:19:24,501 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:52776 which had sessionid 0x4002414882d0006
+2025-05-24 21:19:25,860 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:57844
+2025-05-24 21:19:25,861 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x4002414882d0006 at /128.110.218.193:57844
+2025-05-24 21:19:25,862 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@694] - Established session 0x4002414882d0006 with negotiated timeout 5000 for client /128.110.218.193:57844
+2025-05-24 21:19:25,891 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0001, likely client has closed socket
+2025-05-24 21:19:25,891 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:52732 which had sessionid 0x4002414882d0001
+2025-05-24 21:19:25,894 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0004, likely client has closed socket
+2025-05-24 21:19:25,894 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:52754 which had sessionid 0x4002414882d0004
+2025-05-24 21:19:25,899 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0003, likely client has closed socket
+2025-05-24 21:19:25,900 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:52744 which had sessionid 0x4002414882d0003
+2025-05-24 21:19:25,900 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0005, likely client has closed socket
+2025-05-24 21:19:25,900 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:52766 which had sessionid 0x4002414882d0005
+2025-05-24 21:19:26,221 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:57858
+2025-05-24 21:19:26,221 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:57858
+2025-05-24 21:19:26,305 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:57862
+2025-05-24 21:19:26,305 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x4002414882d0000 at /128.110.218.193:57862
+2025-05-24 21:19:26,306 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@694] - Established session 0x4002414882d0000 with negotiated timeout 5000 for client /128.110.218.193:57862
+2025-05-24 21:19:26,576 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:57866
+2025-05-24 21:19:26,576 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@942] - Client attempting to renew session 0x4002414882d0002 at /128.110.218.193:57866
+2025-05-24 21:19:26,577 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@694] - Established session 0x4002414882d0002 with negotiated timeout 5000 for client /128.110.218.193:57866
+2025-05-24 21:19:26,607 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:57878
+2025-05-24 21:19:26,607 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:57878
+2025-05-24 21:19:26,825 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:57882
+2025-05-24 21:19:26,826 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:57882
+2025-05-24 21:19:26,990 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@215] - Accepted socket connection from /128.110.218.193:57898
+2025-05-24 21:19:26,991 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /128.110.218.193:57898
+2025-05-24 21:19:27,598 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x300241480650005, timeout of 5000ms exceeded
+2025-05-24 21:19:27,599 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x10024148b200002, timeout of 5000ms exceeded
+2025-05-24 21:19:27,599 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x300241480650003, timeout of 5000ms exceeded
+2025-05-24 21:19:27,599 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x200241488bf0000, timeout of 5000ms exceeded
+2025-05-24 21:19:27,599 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x200241488bf0001, timeout of 5000ms exceeded
+2025-05-24 21:19:27,599 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x300241480650004, timeout of 5000ms exceeded
+2025-05-24 21:19:27,600 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x10024148b200003, timeout of 5000ms exceeded
+2025-05-24 21:19:27,600 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x300241480650002, timeout of 5000ms exceeded
+2025-05-24 21:19:27,600 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x300241480650006, timeout of 5000ms exceeded
+2025-05-24 21:19:27,600 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x10024148b200005, timeout of 5000ms exceeded
+2025-05-24 21:19:27,600 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x10024148b200006, timeout of 5000ms exceeded
+2025-05-24 21:19:27,600 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x300241480650001, timeout of 5000ms exceeded
+2025-05-24 21:19:27,600 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x200241488bf0006, timeout of 5000ms exceeded
+2025-05-24 21:19:27,600 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x200241488bf0002, timeout of 5000ms exceeded
+2025-05-24 21:19:27,601 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x200241488bf0004, timeout of 5000ms exceeded
+2025-05-24 21:19:27,601 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x200241488bf0005, timeout of 5000ms exceeded
+2025-05-24 21:19:27,601 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x300241480650000, timeout of 5000ms exceeded
+2025-05-24 21:19:27,601 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x10024148b200001, timeout of 5000ms exceeded
+2025-05-24 21:19:27,601 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x10024148b200000, timeout of 5000ms exceeded
+2025-05-24 21:19:27,601 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x10024148b200004, timeout of 5000ms exceeded
+2025-05-24 21:19:27,601 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x200241488bf0003, timeout of 5000ms exceeded
+2025-05-24 21:19:27,602 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x300241480650005
+2025-05-24 21:19:27,602 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x10024148b200002
+2025-05-24 21:19:27,602 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x300241480650003
+2025-05-24 21:19:27,603 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x200241488bf0000
+2025-05-24 21:19:27,603 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x200241488bf0001
+2025-05-24 21:19:27,603 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x300241480650004
+2025-05-24 21:19:27,604 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x10024148b200003
+2025-05-24 21:19:27,604 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x300241480650002
+2025-05-24 21:19:27,604 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x300241480650006
+2025-05-24 21:19:27,605 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x10024148b200005
+2025-05-24 21:19:27,605 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x10024148b200006
+2025-05-24 21:19:27,605 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x300241480650001
+2025-05-24 21:19:27,606 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x200241488bf0006
+2025-05-24 21:19:27,606 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x200241488bf0002
+2025-05-24 21:19:27,606 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x200241488bf0004
+2025-05-24 21:19:27,606 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x200241488bf0005
+2025-05-24 21:19:27,607 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x300241480650000
+2025-05-24 21:19:27,607 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x10024148b200001
+2025-05-24 21:19:27,607 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x10024148b200000
+2025-05-24 21:19:27,607 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x10024148b200004
+2025-05-24 21:19:27,608 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x200241488bf0003
+2025-05-24 21:19:28,947 [myid:4] - INFO  [CommitProcessor:4:ZooKeeperServer@694] - Established session 0x4002414882d0007 with negotiated timeout 5000 for client /128.110.218.193:57858
+2025-05-24 21:19:28,948 [myid:4] - INFO  [CommitProcessor:4:ZooKeeperServer@694] - Established session 0x4002414882d0008 with negotiated timeout 5000 for client /128.110.218.193:57878
+2025-05-24 21:19:28,949 [myid:4] - INFO  [CommitProcessor:4:ZooKeeperServer@694] - Established session 0x4002414882d0009 with negotiated timeout 5000 for client /128.110.218.193:57882
+2025-05-24 21:19:28,949 [myid:4] - INFO  [CommitProcessor:4:ZooKeeperServer@694] - Established session 0x4002414882d000a with negotiated timeout 5000 for client /128.110.218.193:57898
+2025-05-24 21:19:28,954 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00007 type:create cxid:0x5 zxid:0x100002028 txntype:-1 reqpath:n/a Error Path:/jepsen/1/data Error:KeeperErrorCode = NodeExists for /jepsen/1/data
+2025-05-24 21:19:28,955 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x4002414882d0007 type:create cxid:0x5 zxid:0x10000202a txntype:-1 reqpath:n/a Error Path:/jepsen/1/data Error:KeeperErrorCode = NodeExists for /jepsen/1/data
+2025-05-24 21:19:28,955 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00009 type:create cxid:0x5 zxid:0x10000202b txntype:-1 reqpath:n/a Error Path:/jepsen/2/data Error:KeeperErrorCode = NodeExists for /jepsen/2/data
+2025-05-24 21:19:28,956 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x300241480650008 type:create cxid:0x5 zxid:0x10000202c txntype:-1 reqpath:n/a Error Path:/jepsen/1/data Error:KeeperErrorCode = NodeExists for /jepsen/1/data
+2025-05-24 21:19:28,956 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x200241488bf0007 type:create cxid:0x5 zxid:0x10000202d txntype:-1 reqpath:n/a Error Path:/jepsen/1/data Error:KeeperErrorCode = NodeExists for /jepsen/1/data
+2025-05-24 21:19:28,956 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x200241488bf0008 type:create cxid:0x5 zxid:0x10000202e txntype:-1 reqpath:n/a Error Path:/jepsen/2/data Error:KeeperErrorCode = NodeExists for /jepsen/2/data
+2025-05-24 21:19:28,957 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x10024148b200007 type:create cxid:0x5 zxid:0x10000202f txntype:-1 reqpath:n/a Error Path:/jepsen/1/data Error:KeeperErrorCode = NodeExists for /jepsen/1/data
+2025-05-24 21:19:28,957 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x4002414882d0009 type:create cxid:0x5 zxid:0x100002030 txntype:-1 reqpath:n/a Error Path:/jepsen/2/data Error:KeeperErrorCode = NodeExists for /jepsen/2/data
+2025-05-24 21:19:28,957 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@653] - Got user-level KeeperException when processing sessionid:0x24148ac00008 type:create cxid:0x5 zxid:0x100002031 txntype:-1 reqpath:n/a Error Path:/jepsen/2/data Error:KeeperErrorCode = NodeExists for /jepsen/2/data
+2025-05-24 21:19:29,599 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x4002414882d0005, timeout of 5000ms exceeded
+2025-05-24 21:19:29,599 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x4002414882d0001, timeout of 5000ms exceeded
+2025-05-24 21:19:29,600 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x4002414882d0004, timeout of 5000ms exceeded
+2025-05-24 21:19:29,600 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x4002414882d0003, timeout of 5000ms exceeded
+2025-05-24 21:19:29,600 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x4002414882d0005
+2025-05-24 21:19:29,600 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x4002414882d0001
+2025-05-24 21:19:29,601 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x4002414882d0004
+2025-05-24 21:19:29,601 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x4002414882d0003
+2025-05-24 21:19:31,598 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x24148ac00002, timeout of 5000ms exceeded
+2025-05-24 21:19:31,599 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x24148ac00006, timeout of 5000ms exceeded
+2025-05-24 21:19:31,599 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x24148ac00003, timeout of 5000ms exceeded
+2025-05-24 21:19:31,599 [myid:4] - INFO  [SessionTracker:ZooKeeperServer@355] - Expiring session 0x24148ac00005, timeout of 5000ms exceeded
+2025-05-24 21:19:31,599 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x24148ac00002
+2025-05-24 21:19:31,599 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x24148ac00006
+2025-05-24 21:19:31,600 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x24148ac00003
+2025-05-24 21:19:31,600 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x24148ac00005
+2025-05-24 21:19:39,427 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x4002414882d000a
+2025-05-24 21:19:39,427 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x4002414882d0006
+2025-05-24 21:19:39,428 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x4002414882d0009
+2025-05-24 21:19:39,428 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x4002414882d0002
+2025-05-24 21:19:39,429 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x4002414882d0008
+2025-05-24 21:19:39,429 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x4002414882d0007
+2025-05-24 21:19:39,430 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x24148ac00008
+2025-05-24 21:19:39,430 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x200241488bf000a
+2025-05-24 21:19:39,431 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x300241480650007
+2025-05-24 21:19:39,431 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x24148ac00007
+2025-05-24 21:19:39,431 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:57898 which had sessionid 0x4002414882d000a
+2025-05-24 21:19:39,431 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x200241488bf0009
+2025-05-24 21:19:39,432 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x300241480650009
+2025-05-24 21:19:39,432 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x200241488bf0008
+2025-05-24 21:19:39,433 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0009, likely client has closed socket
+2025-05-24 21:19:39,433 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x200241488bf0007
+2025-05-24 21:19:39,433 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x10024148b20000a
+2025-05-24 21:19:39,433 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:57882 which had sessionid 0x4002414882d0009
+2025-05-24 21:19:39,434 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x24148ac00009
+2025-05-24 21:19:39,434 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0008, likely client has closed socket
+2025-05-24 21:19:39,434 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x24148ac00004
+2025-05-24 21:19:39,434 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x24148ac00001
+2025-05-24 21:19:39,434 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:57878 which had sessionid 0x4002414882d0008
+2025-05-24 21:19:39,435 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x24148ac0000a
+2025-05-24 21:19:39,435 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0002, likely client has closed socket
+2025-05-24 21:19:39,435 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x300241480650008
+2025-05-24 21:19:39,436 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x30024148065000a
+2025-05-24 21:19:39,436 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:57866 which had sessionid 0x4002414882d0002
+2025-05-24 21:19:39,436 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x10024148b200007
+2025-05-24 21:19:39,436 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0007, likely client has closed socket
+2025-05-24 21:19:39,437 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x10024148b200008
+2025-05-24 21:19:39,437 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x10024148b200009
+2025-05-24 21:19:39,437 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:57858 which had sessionid 0x4002414882d0007
+2025-05-24 21:19:39,438 [myid:4] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x4002414882d0006, likely client has closed socket
+2025-05-24 21:19:39,438 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:57844 which had sessionid 0x4002414882d0006
+2025-05-24 21:19:39,463 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x24148ac00000
+2025-05-24 21:19:39,464 [myid:4] - INFO  [ProcessThread(sid:4 cport:-1)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x4002414882d0000
+2025-05-24 21:19:39,465 [myid:4] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /128.110.218.193:57862 which had sessionid 0x4002414882d0000

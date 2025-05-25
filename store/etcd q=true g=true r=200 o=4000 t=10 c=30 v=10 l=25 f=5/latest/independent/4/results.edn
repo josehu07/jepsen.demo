@@ -1,0 +1,13 @@
+{:valid? true,
+ :configs
+ ({:model {:value 9},
+   :last-op
+   {:process 30,
+    :type :ok,
+    :f :write,
+    :value 9,
+    :index 26510,
+    :time 25115313182,
+    :tstag 25111317116},
+   :pending []}),
+ :final-paths ()}

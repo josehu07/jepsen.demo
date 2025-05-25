@@ -1,3 +1,5 @@
+set shell := ["bash", "-uc"]
+
 # list just recipes
 default:
     @just --list --unsorted
@@ -26,6 +28,7 @@ rsync:
                 --exclude debug/ \
                 --exclude target/ \
                 --exclude store/ \
+                --exclude result/ \
                 . "{{username}}@${HOSTNAME}:~/{{reponame}}"; \
         done < ${HOSTFILE}; \
     done
@@ -54,11 +57,35 @@ test system *args: build
         --ssh-private-key "{{prkeyfile}}" \
         {{args}}
 
+# run all example jepsen tests from control host (memo of options)
+testall: build
+    @just test zk   -s -t 10 -c 30 -f 5 -l 25 -v 10 -o 4000 -r 200
+    @just test zk   -s -t 10 -c 30 -f 5 -l 25 -v 10 -o 4000 -r 200 -e
+    @just test rmq  -s -t 10 -c 30 -f 5 -l 25 -v 10 -o 4000 -r 200
+    @just test etcd -s -t 10 -c 30 -f 5 -l 25 -v 10 -o 4000 -r 200
+    @just test etcd -s -t 10 -c 30 -f 5 -l 25 -v 10 -o 4000 -r 200 -q
+    @just test etcd -s -t 10 -c 30 -f 5 -l 25 -v 10 -o 4000 -r 200 -q -g
+
 # run the checker analysis phase only
 check index *args: build
     lein run check \
         --which-test "{{index}}" \
         {{args}}
+
+# run the checker analysis phase for all results under 'store/'
+checkall *args: build
+    if [[ "{{args}}" == "-r" ]]; then CHECKER="rustsop"; else CHECKER="clojure"; fi; \
+    NUMRUNS=$(find store/ -maxdepth 1 -mindepth 1 -type d -not -name "latest" -not -name "current" | wc -l); \
+    echo "Found $NUMRUNS runs to check... using checker: $CHECKER"; \
+    mkdir -p "result/$CHECKER"; \
+    for INDEX in $(seq 1 $NUMRUNS); do \
+        echo; \
+        echo "Checking result of run -$INDEX... checker: $CHECKER"; \
+        lein run check \
+            --which-test "-$INDEX" \
+            {{args}} 2>&1 \
+        | tee "result/$CHECKER/index-$INDEX.log"; \
+    done
 
 # launch the store exploration web server
 serve:
