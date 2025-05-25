@@ -26,10 +26,10 @@ type Ordering = Vec<FeedIdx>;
 #[derive(Debug, Clone)]
 struct Possibility {
     /// The ordering graph of operations (not used in uniqueness).
-    /// NOTE: This is tracked to make this implementation represent the
-    ///       "pureness" of the underlying algorithm; in practice, tracking
-    ///       this is not necessary, and the Rust checker runs a decent
-    ///       amount faster than the Clojure implementation.
+    // NOTE: This is tracked to make this implementation represent the
+    //       "pureness" of the underlying algorithm; in practice, tracking
+    //       this is not necessary, and the Rust checker runs a decent
+    //       amount faster than the Clojure implementation.
     graph: Ordering,
 
     /// The resulting state after the operations in the graph.
@@ -210,9 +210,6 @@ impl Checker {
             if level < result {
                 result = level; // take minimum level strength across keys
             }
-            if level == Consistency::Weak {
-                break;
-            }
         }
 
         Ok(result)
@@ -288,10 +285,12 @@ impl CheckerPerKey {
 
             if client_end_count == self.client_queues.len() {
                 // found a possible ordering where all spans fit in the ordering
+                println!("  ✅ linearizable ");
                 return Ok(Consistency::Linearizable);
             }
         }
 
+        println!("  ❌ non-linearizable");
         Ok(Consistency::Weak)
     }
 

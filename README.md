@@ -2,7 +2,19 @@
 
 Jepsen test workflow demos, with hooks to a custom Rust-implemented consistency checker.
 
-TODO(reference to paper)
+Please see the associated Unified, Practical Consistency Levels Model [paper here](https://arxiv.org/abs/2409.01576), and use the following reference information:
+
+```text
+@misc{hu2025unifiedconsistency,
+      title = {A Unified, Practical, and Understandable Model of Non-transactional Consistency Levels in Distributed Replication}, 
+      author = {Guanzhou Hu and Andrea Arpaci-Dusseau and Remzi Arpaci-Dusseau},
+      year = {2025},
+      eprint = {2409.01576},
+      archivePrefix = {arXiv},
+      primaryClass = {cs.DC},
+      url = {https://arxiv.org/abs/2409.01576}, 
+}
+```
 
 ## Systems
 

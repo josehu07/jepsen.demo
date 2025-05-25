@@ -1,0 +1,260 @@
+02:53:54.198 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:zookeeper.version=3.4.0-1202560, built on 11/16/2011 07:18 GMT
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:host.name=hp154.utah.cloudlab.us
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:java.version=11.0.26
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:java.vendor=Ubuntu
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:java.home=/usr/lib/jvm/java-11-openjdk-amd64
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:java.class.path=/home/jepsen/jepsen.demo/test:/home/jepsen/jepsen.demo/workflow:/home/jepsen/jepsen.demo/dev-resources:/home/jepsen/jepsen.demo/resources:/home/jepsen/jepsen.demo/target/classes:/home/jepsen/.m2/repository/org/eclipse/jetty/jetty-io/11.0.21/jetty-io-11.0.21.jar:/home/jepsen/.m2/repository/joda-time/joda-time/2.10/joda-time-2.10.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/jetty-server/11.0.21/jetty-server-11.0.21.jar:/home/jepsen/.m2/repository/crypto-equality/crypto-equality/1.0.1/crypto-equality-1.0.1.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/jetty-http/11.0.21/jetty-http-11.0.21.jar:/home/jepsen/.m2/repository/org/apache/zookeeper/zookeeper/3.4.0/zookeeper-3.4.0.jar:/home/jepsen/.m2/repository/org/nrepl/incomplete/0.1.0/incomplete-0.1.0.jar:/home/jepsen/.m2/repository/org/clojure/algo.generic/0.1.2/algo.generic-0.1.2.jar:/home/jepsen/.m2/repository/io/aleph/dirigiste/0.1.5/dirigiste-0.1.5.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/websocket/websocket-jetty-server/11.0.21/websocket-jetty-server-11.0.21.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/jetty-util/11.0.21/jetty-util-11.0.21.jar:/home/jepsen/.m2/repository/tigris/tigris/0.1.1/tigris-0.1.1.jar:/home/jepsen/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.16.1/jackson-databind-2.16.1.jar:/home/jepsen/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/home/jepsen/.m2/repository/org/jboss/netty/netty/3.2.2.Final/netty-3.2.2.Final.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/websocket/websocket-jetty-common/11.0.21/websocket-jetty-common-11.0.21.jar:/home/jepsen/.m2/repository/com/jcraft/jsch.agentproxy.usocket-nc/0.0.9/jsch.agentproxy.usocket-nc-0.0.9.jar:/home/jepsen/.m2/repository/metametadata/multiset/0.1.1/multiset-0.1.1.jar:/home/jepsen/.m2/repository/org/clojure/tools.logging/1.3.0/tools.logging-1.3.0.jar:/home/jepsen/.m2/repository/org/clojure/clojure/1.11.1/clojure-1.11.1.jar:/home/jepsen/.m2/repository/knossos/knossos/0.3.10/knossos-0.3.10.jar:/home/jepsen/.m2/repository/ch/qos/logback/logback-classic/1.5.0/logback-classic-1.5.0.jar:/home/jepsen/.m2/repository/org/ring-clojure/ring-jakarta-servlet/1.12.2/ring-jakarta-servlet-1.12.2.jar:/home/jepsen/.m2/repository/org/slf4j/jul-to-slf4j/2.0.12/jul-to-slf4j-2.0.12.jar:/home/jepsen/.m2/repository/com/jcraft/jsch.agentproxy.connector-factory/0.0.9/jsch.agentproxy.connector-factory-0.0.9.jar:/home/jepsen/.m2/repository/org/clojure/math.combinatorics/0.2.0/math.combinatorics-0.2.0.jar:/home/jepsen/.m2/repository/jepsen/jepsen/0.3.7/jepsen-0.3.7.jar:/home/jepsen/.m2/repository/org/clojure/tools.cli/1.1.230/tools.cli-1.1.230.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/websocket/websocket-servlet/11.0.21/websocket-servlet-11.0.21.jar:/home/jepsen/.m2/repository/org/clojure/data.fressian/1.1.0/data.fressian-1.1.0.jar:/home/jepsen/.m2/repository/org/ring-clojure/ring-core-protocols/1.12.2/ring-core-protocols-1.12.2.jar:/home/jepsen/.m2/repository/com/jcraft/jsch.agentproxy.core/0.0.9/jsch.agentproxy.core-0.0.9.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/jetty-xml/11.0.21/jetty-xml-11.0.21.jar:/home/jepsen/.m2/repository/potemkin/potemkin/0.4.7/potemkin-0.4.7.jar:/home/jepsen/.m2/repository/rhizome/rhizome/0.2.9/rhizome-0.2.9.jar:/home/jepsen/.m2/repository/zookeeper-clj/zookeeper-clj/0.9.3/zookeeper-clj-0.9.3.jar:/home/jepsen/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.78.1/bcprov-jdk18on-1.78.1.jar:/home/jepsen/.m2/repository/org/slf4j/log4j-over-slf4j/2.0.12/log4j-over-slf4j-2.0.12.jar:/home/jepsen/.m2/repository/spootnik/unilog/0.7.32/unilog-0.7.32.jar:/home/jepsen/.m2/repository/com/novemberain/langohr/5.5.0/langohr-5.5.0.jar:/home/jepsen/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/websocket/websocket-core-common/11.0.21/websocket-core-common-11.0.21.jar:/home/jepsen/.m2/repository/verschlimmbesserung/verschlimmbesserung/0.1.3/verschlimmbesserung-0.1.3.jar:/home/jepsen/.m2/repository/com/jcraft/jsch.agentproxy.sshj/0.0.9/jsch.agentproxy.sshj-0.0.9.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/websocket/websocket-jetty-api/11.0.21/websocket-jetty-api-11.0.21.jar:/home/jepsen/.m2/repository/org/fressian/fressian/0.6.8/fressian-0.6.8.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/toolchain/jetty-jakarta-servlet-api/5.0.2/jetty-jakarta-servlet-api-5.0.2.jar:/home/jepsen/.m2/repository/org/clojure/data.codec/0.2.0/data.codec-0.2.0.jar:/home/jepsen/.m2/repository/org/clojure/core.rrb-vector/0.1.2/core.rrb-vector-0.1.2.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/jetty-security/11.0.21/jetty-security-11.0.21.jar:/home/jepsen/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.7.5/jackson-dataformat-cbor-2.7.5.jar:/home/jepsen/.m2/repository/org/apache/commons/commons-fileupload2-core/2.0.0-M1/commons-fileupload2-core-2.0.0-M1.jar:/home/jepsen/.m2/repository/ring/ring/1.12.2/ring-1.12.2.jar:/home/jepsen/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar:/home/jepsen/.m2/repository/ring/ring-jetty-adapter/1.12.2/ring-jetty-adapter-1.12.2.jar:/home/jepsen/.m2/repository/net/logstash/logback/logstash-logback-encoder/7.4/logstash-logback-encoder-7.4.jar:/home/jepsen/.m2/repository/io/lacuna/bifurcan/0.2.0-alpha7/bifurcan-0.2.0-alpha7.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/jetty-servlet/11.0.21/jetty-servlet-11.0.21.jar:/home/jepsen/.m2/repository/nrepl/nrepl/1.0.0/nrepl-1.0.0.jar:/home/jepsen/.m2/repository/primitive-math/primitive-math/0.1.6/primitive-math-0.1.6.jar:/home/jepsen/.m2/repository/com/boundary/high-scale-lib/1.0.6/high-scale-lib-1.0.6.jar:/home/jepsen/.m2/repository/org/bouncycastle/bcutil-jdk18on/1.78.1/bcutil-jdk18on-1.78.1.jar:/home/jepsen/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar:/home/jepsen/.m2/repository/org/clojars/pallix/analemma/1.0.0/analemma-1.0.0.jar:/home/jepsen/.m2/repository/clj-time/clj-time/0.15.2/clj-time-0.15.2.jar:/home/jepsen/.m2/repository/hiccup/hiccup/1.0.5/hiccup-1.0.5.jar:/home/jepsen/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.16.1/jackson-annotations-2.16.1.jar:/home/jepsen/.m2/repository/clj-tuple/clj-tuple/0.2.2/clj-tuple-0.2.2.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/jetty-webapp/11.0.21/jetty-webapp-11.0.21.jar:/home/jepsen/.m2/repository/org/clojure/java.classpath/0.3.0/java.classpath-0.3.0.jar:/home/jepsen/.m2/repository/ch/qos/logback/logback-core/1.5.0/logback-core-1.5.0.jar:/home/jepsen/.m2/repository/crypto-random/crypto-random/1.2.1/crypto-random-1.2.1.jar:/home/jepsen/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/jepsen/.m2/repository/riddley/riddley/0.2.0/riddley-0.2.0.jar:/home/jepsen/.m2/repository/dom-top/dom-top/1.0.9/dom-top-1.0.9.jar:/home/jepsen/.m2/repository/org/clojure/core.specs.alpha/0.2.62/core.specs.alpha-0.2.62.jar:/home/jepsen/.m2/repository/com/jcraft/jsch.agentproxy.jsch/0.0.9/jsch.agentproxy.jsch-0.0.9.jar:/home/jepsen/.m2/repository/http-kit/http-kit/2.8.0/http-kit-2.8.0.jar:/home/jepsen/.m2/repository/hato/hato/1.0.0/hato-1.0.0.jar:/home/jepsen/.m2/repository/interval-metrics/interval-metrics/1.0.1/interval-metrics-1.0.1.jar:/home/jepsen/.m2/repository/ns-tracker/ns-tracker/0.4.0/ns-tracker-0.4.0.jar:/home/jepsen/.m2/repository/cheshire/cheshire/5.6.3/cheshire-5.6.3.jar:/home/jepsen/.m2/repository/fipp/fipp/0.6.26/fipp-0.6.26.jar:/home/jepsen/.m2/repository/com/jcraft/jsch/0.1.53/jsch-0.1.53.jar:/home/jepsen/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/home/jepsen/.m2/repository/ring/ring-devel/1.12.2/ring-devel-1.12.2.jar:/home/jepsen/.m2/repository/net/i2p/crypto/eddsa/0.3.0/eddsa-0.3.0.jar:/home/jepsen/.m2/repository/com/rabbitmq/amqp-client/5.22.0/amqp-client-5.22.0.jar:/home/jepsen/.m2/repository/com/jcraft/jsch.agentproxy.usocket-jna/0.0.9/jsch.agentproxy.usocket-jna-0.0.9.jar:/home/jepsen/.m2/repository/org/clojure/spec.alpha/0.3.218/spec.alpha-0.3.218.jar:/home/jepsen/.m2/repository/ring/ring-codec/1.2.0/ring-codec-1.2.0.jar:/home/jepsen/.m2/repository/org/bouncycastle/bcpkix-jdk18on/1.78.1/bcpkix-jdk18on-1.78.1.jar:/home/jepsen/.m2/repository/jepsen/txn/jepsen.txn/0.1.2/jepsen.txn-0.1.2.jar:/home/jepsen/.m2/repository/gnuplot/gnuplot/0.1.3/gnuplot-0.1.3.jar:/home/jepsen/.m2/repository/org/clojure/tools.namespace/0.2.11/tools.namespace-0.2.11.jar:/home/jepsen/.m2/repository/tesser/core/tesser.core/1.0.6/tesser.core-1.0.6.jar:/home/jepsen/.m2/repository/org/slf4j/slf4j-log4j12/1.6.1/slf4j-log4j12-1.6.1.jar:/home/jepsen/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/home/jepsen/.m2/repository/org/ring-clojure/ring-websocket-protocols/1.12.2/ring-websocket-protocols-1.12.2.jar:/home/jepsen/.m2/repository/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar:/home/jepsen/.m2/repository/byte-streams/byte-streams/0.2.5-alpha2/byte-streams-0.2.5-alpha2.jar:/home/jepsen/.m2/repository/elle/elle/0.2.2/elle-0.2.2.jar:/home/jepsen/.m2/repository/clojurewerkz/support/1.5.0/support-1.5.0.jar:/home/jepsen/.m2/repository/com/jcraft/jsch.agentproxy.sshagent/0.0.9/jsch.agentproxy.sshagent-0.0.9.jar:/home/jepsen/.m2/repository/com/aphyr/bifurcan-clj/0.1.2/bifurcan-clj-0.1.2.jar:/home/jepsen/.m2/repository/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar:/home/jepsen/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-smile/2.7.5/jackson-dataformat-smile-2.7.5.jar:/home/jepsen/.m2/repository/com/hierynomus/asn-one/0.6.0/asn-one-0.6.0.jar:/home/jepsen/.m2/repository/manifold/manifold/0.1.8/manifold-0.1.8.jar:/home/jepsen/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/jepsen/.m2/repository/clj-http/clj-http/2.2.0/clj-http-2.2.0.jar:/home/jepsen/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar:/home/jepsen/.m2/repository/org/eclipse/jetty/websocket/websocket-core-server/11.0.21/websocket-core-server-11.0.21.jar:/home/jepsen/.m2/repository/ring/ring-core/1.12.2/ring-core-1.12.2.jar:/home/jepsen/.m2/repository/slingshot/slingshot/0.12.2/slingshot-0.12.2.jar:/home/jepsen/.m2/repository/com/hierynomus/sshj/0.39.0/sshj-0.39.0.jar:/home/jepsen/.m2/repository/org/slf4j/jcl-over-slf4j/2.0.12/jcl-over-slf4j-2.0.12.jar:/home/jepsen/.m2/repository/clj-ssh/clj-ssh/0.5.14/clj-ssh-0.5.14.jar:/home/jepsen/.m2/repository/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar:/home/jepsen/.m2/repository/io/jepsen/history/0.1.4/history-0.1.4.jar:/home/jepsen/.m2/repository/org/apache/httpcomponents/httpmime/4.5.1/httpmime-4.5.1.jar:/home/jepsen/.m2/repository/com/jcraft/jsch.agentproxy.pageant/0.0.9/jsch.agentproxy.pageant-0.0.9.jar:/home/jepsen/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/home/jepsen/.m2/repository/avout/avout/0.5.4/avout-0.5.4.jar:/home/jepsen/.m2/repository/clj-stacktrace/clj-stacktrace/0.2.8/clj-stacktrace-0.2.8.jar
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:java.library.path=/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:java.io.tmpdir=/tmp
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:java.compiler=<NA>
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:os.name=Linux
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:os.arch=amd64
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:os.version=6.13.5-061305-generic
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:user.name=jepsen
+02:53:54.199 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:user.home=/home/jepsen
+02:53:54.200 [main] INFO org.apache.zookeeper.ZooKeeper -- Client environment:user.dir=/home/jepsen/jepsen.demo
+02:53:54.547 [main] INFO workflow -- Analyzing store/rabbitmq r=200 o=4000 t=10 c=30 v=10 l=25 f=5/20250524T211949.484Z
+02:53:54.552 [main] INFO workflow -- CLI args were [test --nodes-file hosts/hosts-db --username jepsen --password jepsen --ssh-private-key /etc/ssh/jepsen/cluster_id_rsa -s -t 10 -c 30 -f 5 -l 25 -v 10 -o 4000 -r 200]
+02:53:54.678 [main] INFO workflow -- Combined test:
+ {:history
+ [({:process 0,
+    :type :invoke,
+    :f :cas,
+    :value [0 [7 3]],
+    :tstag [nil 318119209],
+    :index 0,
+    :time 318119209}
+   {:process 10,
+    :type :invoke,
+    :f :read,
+    :value [1 nil],
+    :tstag nil,
+    :index 1,
+    :time 330733206}
+   {:process 20,
+    :type :invoke,
+    :f :cas,
+    :value [2 [3 0]],
+    :tstag [nil 331605970],
+    :index 2,
+    :time 331605970}
+   {:process 4,
+    :type :invoke,
+    :f :read,
+    :value [0 nil],
+    :tstag nil,
+    :index 3,
+    :time 333954134}
+   {:process 11,
+    :type :invoke,
+    :f :cas,
+    :value [1 [4 5]],
+    :tstag [nil 338484211],
+    :index 4,
+    :time 338484211})
+  ...],
+ :ssh-private-key "/etc/ssh/jepsen/cluster_id_rsa",
+ :concurrency 30,
+ :leave-db-running? false,
+ :value-range 10,
+ :name "rabbitmq r=200 o=4000 t=10 c=30 v=10 l=25 f=5",
+ :logging-json? false,
+ :con-per-key 10,
+ :ops-per-key 4000,
+ :start-time #clj-time/date-time "2025-05-24T21:19:49.484Z",
+ :pure-generators true,
+ :ssh
+ {:dummy? false,
+  :username "jepsen",
+  :password "jepsen",
+  :strict-host-key-checking false,
+  :private-key-path "/etc/ssh/jepsen/cluster_id_rsa"},
+ :fault-window 5,
+ :checker
+ #object[jepsen.checker$compose$reify__11089 0x3a8dd899 "jepsen.checker$compose$reify__11089@3a8dd899"],
+ :argv
+ ["test"
+  "--nodes-file"
+  "hosts/hosts-db"
+  "--username"
+  "jepsen"
+  "--password"
+  "jepsen"
+  "--ssh-private-key"
+  "/etc/ssh/jepsen/cluster_id_rsa"
+  "-s"
+  "-t"
+  "10"
+  "-c"
+  "30"
+  "-f"
+  "5"
+  "-l"
+  "25"
+  "-v"
+  "10"
+  "-o"
+  "4000"
+  "-r"
+  "200"],
+ :nodes
+ ["hp124.utah.cloudlab.us"
+  "hp158.utah.cloudlab.us"
+  "hp144.utah.cloudlab.us"
+  "hp159.utah.cloudlab.us"
+  "hp149.utah.cloudlab.us"],
+ :test-count 1,
+ :skip-checker true,
+ :op-gen-rate 200,
+ :time-limit 25}
+
+02:53:54.678 [main] INFO workflow -- Analyzing...
+02:53:54.742 [clojure-agent-send-off-pool-0] INFO helpers -- Rust checker exit code: 1
+02:53:54.742 [clojure-agent-send-off-pool-0] INFO helpers -- Rust checker stdout:
+Parsed timeline: 60 clients, 3 keys, 7317 total ops
+Call stats:   call   okay   fail
+       read   3565   3555     10
+      write   3513   3500     13
+        cas   3611    262   3349
+Keyops dist.:   min   med   avg   max
+               2428  2431  2439  2458
+Client dist.:   min   med   avg   max
+                  0    43   121  1203
+Checker result: >= Weak but < Linearizable 🤔
+    based on this specific history,
+    could just be a loose upper bound
+Time spent excluding I/O: 0.32 msecs
+Time spent in Rust total: 11.99 msecs
+
+02:53:54.744 [clojure-agent-send-off-pool-0] INFO helpers -- Rust checker stderr:
+warning: unused variable: `checker`
+  --> checker/main.rs:50:13
+   |
+50 |     let mut checker = Checker::new(timeline);
+   |             ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_checker`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: variable does not need to be mutable
+  --> checker/main.rs:50:9
+   |
+50 |     let mut checker = Checker::new(timeline);
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` on by default
+
+warning: fields `graph` and `max_invoke` are never read
+  --> checker/check.rs:33:5
+   |
+27 | struct Possibility {
+   |        ----------- fields in this struct
+...
+33 |     graph: Ordering,
+   |     ^^^^^
+...
+38 |     max_invoke: Timestamp,
+   |     ^^^^^^^^^^
+   |
+   = note: `Possibility` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` on by default
+
+warning: associated function `from` is never used
+  --> checker/check.rs:56:8
+   |
+44 | impl Possibility {
+   | ---------------- associated function in this implementation
+...
+56 |     fn from(
+   |        ^^^^
+
+warning: method `terminated` is never used
+   --> checker/check.rs:128:8
+    |
+119 | impl CkSpan {
+    | ----------- method in this implementation
+...
+128 |     fn terminated(&self) -> bool {
+    |        ^^^^^^^^^^
+
+warning: field `per_key` is never read
+   --> checker/check.rs:171:5
+    |
+170 | pub(crate) struct Checker {
+    |                   ------- field in this struct
+171 |     per_key: HashMap<KeyType, CheckerPerKey>,
+    |     ^^^^^^^
+    |
+    = note: `Checker` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+warning: method `check` is never used
+   --> checker/check.rs:201:19
+    |
+174 | impl Checker {
+    | ------------ method in this implementation
+...
+201 |     pub(crate) fn check(&mut self) -> Result<Consistency, Box<dyn Error>> {
+    |                   ^^^^^
+
+warning: fields `client_queues`, `possibilities`, and `possibilities_set` are never read
+   --> checker/check.rs:223:5
+    |
+221 | struct CheckerPerKey {
+    |        ------------- fields in this struct
+222 |     /// Spans from the timeline, one stream per client.
+223 |     client_queues: Vec<Vec<CkSpan>>,
+    |     ^^^^^^^^^^^^^
+...
+227 |     possibilities: VecDeque<Possibility>,
+    |     ^^^^^^^^^^^^^
+...
+230 |     possibilities_set: HashSet<Possibility>,
+    |     ^^^^^^^^^^^^^^^^^
+    |
+    = note: `CheckerPerKey` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+warning: associated items `check`, `handle_feed_attempt`, and `try_append_new_span` are never used
+   --> checker/check.rs:247:8
+    |
+233 | impl CheckerPerKey {
+    | ------------------ associated items in this implementation
+...
+247 |     fn check(&mut self) -> Result<Consistency, Box<dyn Error>> {
+    |        ^^^^^
+...
+298 |     fn handle_feed_attempt(
+    |        ^^^^^^^^^^^^^^^^^^^
+...
+339 |     fn try_append_new_span(
+    |        ^^^^^^^^^^^^^^^^^^^
+
+warning: `sop-checker` (bin "checker") generated 9 warnings (run `cargo fix --bin "checker"` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/checker --test-dir 'store/rabbitmq r=200 o=4000 t=10 c=30 v=10 l=25 f=5/20250524T211949.484Z'`
+Test directory: 'store/rabbitmq r=200 o=4000 t=10 c=30 v=10 l=25 f=5/20250524T211949.484Z'
+
+02:53:54.746 [main] INFO workflow -- Analysis complete
+02:53:54.767 [jepsen results] INFO jepsen.store -- Wrote /home/jepsen/jepsen.demo/store/rabbitmq r=200 o=4000 t=10 c=30 v=10 l=25 f=5/20250524T211949.484Z/results.edn
+02:53:58.496 [main] INFO workflow -- Printing results...
+02:53:58.498 [main] INFO jepsen.core -- {:sop-checker {:valid? false,
+               :msg "Please see the Rust checker output."},
+ :valid? false}
+
+
+Analysis invalid! (ﾉಥ益ಥ）ﾉ ┻━┻
+Parsed timeline: 60 clients, 3 keys, 7317 total ops
+Call stats:   call   okay   fail
+       read   3565   3555     10
+      write   3513   3500     13
+        cas   3611    262   3349
+Keyops dist.:   min   med   avg   max
+               2428  2431  2439  2458
+Client dist.:   min   med   avg   max
+                  0    43   121  1203
+Checker result: >= Weak but < Linearizable 🤔
+    based on this specific history,
+    could just be a loose upper bound
+Time spent excluding I/O: 0.32 msecs
+Time spent in Rust total: 11.99 msecs
+Time spent in checker: 67.90 msecs
